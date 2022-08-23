@@ -1,5 +1,7 @@
 # Project Template: React/Rails API
 
+## in order to run this project on your own you must replace the API_KEY vaiable with your own google maps api key.
+
 ## Description
 
 This project is scaffolded so that you can build a React frontend and Rails
