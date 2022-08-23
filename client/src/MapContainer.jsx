@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
- debugger
+ 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 
