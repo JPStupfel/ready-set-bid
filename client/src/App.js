@@ -10,31 +10,32 @@ import NavBar from './components/NavBar';
 
 function App() {
   return (
+    <>div</>
 
-    <Router>
+    // <Router>
       
-      <div>
+    //   <div>
 
-     {<NavBar />}
+    //  {<NavBar />}
 
-        <Routes>
+    //     <Routes>
           
-          <Route path="/projects" element={<ProposalsPage />}>
-          </Route>
+    //       <Route path="/projects" element={<ProposalsPage />}>
+    //       </Route>
 
-          <Route path="/users">
-            <>Users</>
-          </Route>
+    //       <Route path="/users">
+    //         <>Users</>
+    //       </Route>
 
-          <Route path="/">
-            <>Home</>
-          </Route>
+    //       <Route path="/">
+    //         <>Home</>
+    //       </Route>
 
-        </Routes>
+    //     </Routes>
 
-      </div>
+    //   </div>
 
-    </Router>
+    // </Router>
  
   
      
