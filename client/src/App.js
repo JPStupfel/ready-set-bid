@@ -1,23 +1,42 @@
 import './App.css';
-import MapContainer from './MapContainer';
-import PostForm from './PostForm';
-import { createContext, useState } from 'react';
-import FileForm from './components/FileForm';
-import LatestImage from './components/LatestImage';
-
-export const AppContext = createContext(null);
+// import MapContainer from './components/MapContainer';
+// import PostForm from './PostForm';
+// import { createContext, useState } from 'react';
+// import FileForm from './components/FileForm';
+// import LatestImage from './components/LatestImage';
+import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import ProposalsPage from './components/ProposalsPage';
+import NavBar from './components/NavBar';
 
 function App() {
-  const [latestPost, setLatestPost] = useState(AppContext)
   return (
- 
-      <AppContext.Provider value={{latestPost, setLatestPost}}>
-      <div className="App">
-      <MapContainer />
-      <FileForm />
-      <LatestImage/>
+
+    <Router>
+      
+      <div>
+
+     {<NavBar />}
+
+        <Routes>
+          
+          <Route path="/proposals" element={<ProposalsPage />}>
+          </Route>
+
+          <Route path="/users">
+            <>Users</>
+          </Route>
+
+          <Route path="/">
+            <>Home</>
+          </Route>
+
+        </Routes>
+
       </div>
-      </AppContext.Provider>
+
+    </Router>
+ 
+  
      
   
   );

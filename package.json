@@ -11,6 +11,7 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
-    "form-data": "^4.0.0"
+    "form-data": "^4.0.0",
+    "react-router-dom": "^6.3.0"
   }
 }
