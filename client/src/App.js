@@ -19,7 +19,7 @@ function App() {
 
         <Routes>
           
-          <Route path="/proposals" element={<ProposalsPage />}>
+          <Route path="/projects" element={<ProposalsPage />}>
           </Route>
 
           <Route path="/users">

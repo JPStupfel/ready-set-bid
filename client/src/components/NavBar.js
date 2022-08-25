@@ -11,7 +11,7 @@ export class NavBar extends PureComponent {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/proposals">Proposals</Link>
+              <Link to="/projects">Projects</Link>
             </li>
             <li>
               <Link to="/users">Users</Link>
