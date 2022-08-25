@@ -4,6 +4,6 @@ class FallbackController < ActionController::Base
 
   def index
     # React app index page
-    render json: {message: 'fallback'}
+    render file: '/Users/jpstupfel/Development/code/phase-5/project-template-react-rails-api/client/public/index.html'
   end
 end
