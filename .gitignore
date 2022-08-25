@@ -31,3 +31,4 @@
 /config/master.key
 
 /client/.env
+/config/cloudinary.yml
