@@ -2,9 +2,10 @@ import React, { PureComponent } from 'react'
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 
 
-export class NavBar extends PureComponent {
-  render() {
+export default function NavBar({handleLogout}) {
+  
     return (
+      <div>
         <nav>
           <ul>
             <li>
@@ -18,8 +19,9 @@ export class NavBar extends PureComponent {
             </li>
           </ul>
         </nav>
+        <button onClick={handleLogout}>logout</button>
+        </div>
     )
-  }
+  
 }
 
-export default NavBar

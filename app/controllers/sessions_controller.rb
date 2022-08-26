@@ -9,6 +9,20 @@ class SessionsController < ApplicationController
         session[:user_id] = client.id
     end
 
+    def index
+        client = Client.find_by id: session[:user_id]
+        if client
+            render json: client, status: 200
+        else
+            render json: {errors: 'client not found'}, status: 422
+        end
+    end
+
+    def destroy
+        session.delete :user_id
+        render json:{}
+    end
+
 
     private
     def sessionParams

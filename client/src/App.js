@@ -1,4 +1,5 @@
 import './App.css';
+import React, {useState, useEffect} from 'react';
 // import MapContainer from './components/MapContainer';
 // import PostForm from './PostForm';
 // import { createContext, useState } from 'react';
@@ -10,28 +11,46 @@ import NavBar from './components/NavBar';
 import SignupForm from './components/SignupForm';
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState(null)
+
+  useEffect(()=>{
+    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser(d.id)).catch(e=>alert(e))
+  },[])
+
+  function handleLogout(){
+    fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>console.log(d)).catch(e=>console.log(e))
+  }
+
+
+  const protectedRoutes = 
+  <Routes>
+    
+    <Route path="/projects" element={<ProposalsPage />}>
+    </Route>
+
+
+    <Route path="/">
+      <>Home</>
+    </Route>
+
+  </Routes>
+
+console.log(loggedInUser)
+
   return (
 
     <Router>
       
       <div>
 
-     {<NavBar />}
+     {<NavBar handleLogout={handleLogout} />}
 
-        <Routes>
-          
-          <Route path="/projects" element={<ProposalsPage />}>
-          </Route>
-
-          <Route path="/signup" element={<SignupForm />}>
-          </Route>
-
-          <Route path="/">
-            <>Home</>
-          </Route>
-
-        </Routes>
-
+    {loggedInUser ? protectedRoutes : <>Log in or Sign up!</>}
+    <Routes>
+    <Route path="/signup" element={<SignupForm />}>
+    </Route>
+    </Routes>
+]
       </div>
 
     </Router>

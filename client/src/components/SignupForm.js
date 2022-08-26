@@ -20,7 +20,6 @@ function handleChange(event){
     const newFormData ={...formData}
     newFormData[id] = input
     setFormData(newFormData)
-    console.log(formData)
 }
   return (
 

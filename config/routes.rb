@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get '/api', to: "api#index"
 
   post '/session', to: "sessions#create"
+  delete '/session', to: "sessions#destroy"
+
+  get '/me', to: "sessions#index"
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
