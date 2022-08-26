@@ -20,26 +20,26 @@ function handleChange(event){
 
     <form>
 
-    <div class="form-group">
+    <div className="form-group">
       <label>Username</label>
       <input onChange={handleChange} type="text" className="form-control" id="username"  placeholder="Enter username"/>
 
     </div>\
-    <div class="form-group">
+    <div className="form-group">
       <label>Password</label>
       <input onChange={handleChange}  type="password" className="form-control" id="password" placeholder="Password"/>
     </div>
-    <div class="form-check">
+    <div className="form-check">
 
     </div>
-    <div class="form-group">
+    <div className="form-group">
       <label>Password Confirmation</label>
       <input onChange={handleChange}  type="password" className="form-control" id="password_confirmation" placeholder="Confirm Password"/>
     </div>
-    <div class="form-check">
+    <div className="form-check">
 
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" className="btn btn-primary">Submit</button>
   </form>
   )
 }
