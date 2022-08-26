@@ -3,6 +3,7 @@ import SignupClientForm from './SignupClientForm'
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SignupProForm from './SignupProForm';
 
 
 export default function SignupContainer() {
@@ -17,7 +18,7 @@ export default function SignupContainer() {
 
   return (
     <>
-    <SignupClientForm />
+    
     <ButtonGroup className="mb-2">
         {radios.map((radio, idx) => (
           <ToggleButton
@@ -35,6 +36,9 @@ export default function SignupContainer() {
           </ToggleButton>
         ))}
       </ButtonGroup>
+      <div className='signupContainer'>
+      {radioValue == 1 ? <SignupClientForm /> : <SignupProForm/>}
+      </div>
     </>
   )
 }

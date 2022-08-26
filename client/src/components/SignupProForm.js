@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 
-export default function SignupClientForm() {
+export default function SignupProForm() {
     const [formData, setFormData] = useState({username: null, password: null, password_confirmation: null})
 
 function handleSubmit(event){
     event.preventDefault()
-    fetch("/session", {
+    fetch("/sessionPro", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,14 +22,12 @@ function handleChange(event){
     setFormData(newFormData)
 }
   return (
-
-    <div className='signup-form'>
-    <h1>Sign up as a Client</h1>
-
+    <div>
+        <h1>Sign up as a Professional</h1>
     <form onSubmit={handleSubmit}>
 
     <div className="form-group">
-      <label>Username</label>
+      <label>Type a Username</label>
       <input onChange={handleChange} type="text" className="form-control" id="username"  placeholder="Enter username"/>
 
     </div>
