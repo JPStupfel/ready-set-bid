@@ -1,30 +1,34 @@
 class SessionsController < ApplicationController
+    
+    #used to signup
     def create
         client = Client.create sessionParams
         if client.valid? 
+
+            session[:user_id] = client.id
+            session[:user_type] = client.class.name    
             render json: client, status: 200
         else
             render json: {errors: client.errors.full_messages}
         end
-        session[:user_id] = client.id
-        session[:user_type] = client.class.name
-        
+
     end
 
+    #used to check if logged in
     def index
         
         if session[:user_type] == 'Client'
+            
             client = Client.find_by id: session[:user_id]
             if client
-                render json: {user_id: client.id, user_type: client.class.name, username: client.username}, status: 200
-            else
-                render json: {errors: 'client not found'}, status: 422
+                render json: client, status: 200
             end
         else
             render json: {errors: 'client not found'}, status: 422
         end
     end
 
+    #used to logout
     def destroy
         session.delete :user_id
         session.delete :user_type
@@ -32,6 +36,7 @@ class SessionsController < ApplicationController
         
     end
 
+    #used to login
     def update
         client = Client.find_by username: params['username']
         
@@ -48,6 +53,6 @@ class SessionsController < ApplicationController
 
     private
     def sessionParams
-        params.permit :username, :password, :password_confirmation
+        params.permit :username, :password, :password_confirmation, :image_url
     end
 end

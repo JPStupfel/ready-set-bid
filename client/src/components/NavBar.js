@@ -22,7 +22,12 @@ function NavBar({handleLogout, loggedInUser}) {
 
         </Nav>
        
-        {loggedInUser.user_id ? <button onClick={handleLogout}>Logout {loggedInUser.username}</button>:null}
+        {loggedInUser.id ?
+         <div>
+          <button onClick={handleLogout}>Logout {loggedInUser.username}</button>
+          <image src={loggedInUser.image_url}></image>
+          </div>
+         :null}
 
       </Navbar>
       

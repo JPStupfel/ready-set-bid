@@ -10,18 +10,18 @@ import LoginContainer from './components/LoginContainer';
 
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({user_id: null, username:null, user_type: null})
+  const [loggedInUser, setLoggedInUser] = useState({id: null, username:null, user_type: null})
 
   useEffect(()=>{
-    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser({user_id: d.user_id, user_type: d.user_type, username: d.username})).catch(e=>console.log(e))
+    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser({id: d.id, user_type: 'Client', username: d.username})).catch(e=>console.log(e))
   },[])
 
   useEffect(()=>{
-    fetch('/mePro').then(r=>r.json()).then(d=>setLoggedInUser({user_id: d.user_id, user_type: d.user_type, username: d.username})).catch(e=>console.log(e))
+    fetch('/mePro').then(r=>r.json()).then(d=>setLoggedInUser({id: d.id, user_type: d.user_type, username: d.username})).catch(e=>console.log(e))
   },[])
 
   function handleLogout(){
-    fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>setLoggedInUser({user_id: null, username: null, user_type: null})
+    fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>setLoggedInUser({id: null, username: null, user_type: null})
   ).catch(e=>console.log(e))
   }
 
@@ -42,7 +42,7 @@ function App() {
   </Routes>
 
 
-
+console.log(loggedInUser)
 
   return (
 
@@ -52,7 +52,7 @@ function App() {
 
      {<NavBar loggedInUser={loggedInUser} handleLogout={handleLogout} />}
 
-    {loggedInUser.user_id ? protecedRoutes : <h1>Log in or Sign up!</h1>}
+    {loggedInUser.id ? protecedRoutes : <h1>Log in or Sign up!</h1>}
 
     
     <Routes>
