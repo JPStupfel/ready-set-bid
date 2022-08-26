@@ -49,6 +49,8 @@
     align-items: left;        /* center items horizontally, in this case */
     height:fit-content;
     border: 1px solid black;
-  
-  
+}
+.signup-form{
+  margin-top: 5%;
+  margin-bottom: 5%s;
 }

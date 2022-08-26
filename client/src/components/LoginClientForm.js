@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function LoginForm() {
+export default function LoginClientForm() {
     const [formData, setFormData] = useState({username: null, password: null})
 
 function handleSubmit(event){

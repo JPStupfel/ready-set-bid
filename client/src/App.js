@@ -1,5 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 // import MapContainer from './components/MapContainer';
 // import PostForm from './PostForm';
 // import { createContext, useState } from 'react';
@@ -8,8 +10,9 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import ProposalsPage from './components/ProposalsPage';
 import NavBar from './components/NavBar';
-import LoginForm from './components/LoginForm';
+import LoginForm from './components/LoginClientForm';
 import SignupContainer from './components/SignupContainer';
+import LoginContainer from './components/LoginContainer';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null)
@@ -51,7 +54,7 @@ console.log(loggedInUser)
     <Routes>
     <Route path="/signup" element={<SignupContainer />}>
     </Route>
-    <Route path="/login" element={<LoginForm />}>
+    <Route path="/login" element={<LoginContainer />}>
     </Route>
     </Routes>
 

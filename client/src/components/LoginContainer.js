@@ -1,12 +1,11 @@
 import React, {useState} from 'react'
-import SignupClientForm from './SignupClientForm'
+import LoginClientForm from './LoginClientForm'
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-import SignupProForm from './SignupProForm';
+import LoginProForm from './LoginProForm';
 
 
-export default function SignupContainer() {
-
+export default function LoginContainer() {
     const [checked, setChecked] = useState(false);
     const [radioValue, setRadioValue] = useState('1');
 
@@ -17,7 +16,6 @@ export default function SignupContainer() {
 
   return (
     <>
-    
     <ButtonGroup className="mb-2">
         {radios.map((radio, idx) => (
           <ToggleButton
@@ -35,9 +33,11 @@ export default function SignupContainer() {
           </ToggleButton>
         ))}
       </ButtonGroup>
+
       <div className='signupContainer'>
-      {radioValue == 1 ? <SignupClientForm /> : <SignupProForm/>}
+      {radioValue == 1 ?   <LoginClientForm /> : <LoginProForm/>}
       </div>
     </>
+  
   )
 }
