@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-function NavBar({handleLogout}) {
+function NavBar({handleLogout, loggedInUser}) {
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -18,7 +18,9 @@ function NavBar({handleLogout}) {
             <Nav.Link href="login">Login</Nav.Link>
           </Nav>
         </Container>
-        <button onClick={handleLogout}>Logout</button>
+       
+        {loggedInUser.user_id ? <button onClick={handleLogout}>Logout {loggedInUser.username}</button>:null}
+
       </Navbar>
       
       

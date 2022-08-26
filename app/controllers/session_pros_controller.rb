@@ -15,7 +15,7 @@ class SessionProsController < ApplicationController
             if session[:user_type] == 'Professional'
                 professional = Professional.find_by id: session[:user_id]
                 if professional
-                    render json: {user_id: professional.id, user_type: professional.class.name}, status: 200
+                    render json: {user_id: professional.id, user_type: professional.class.name, username: professional.username}, status: 200
                 else 
                     render json: {errors: 'professional not found'}, status: 422
                 end

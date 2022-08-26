@@ -8,14 +8,14 @@ import SignupContainer from './components/SignupContainer';
 import LoginContainer from './components/LoginContainer';
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({user_id: null, user_type: null})
+  const [loggedInUser, setLoggedInUser] = useState({user_id: null, username:null, user_type: null})
 
   useEffect(()=>{
-    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser({user_id: d.user_id, user_type: d.user_type})).catch(e=>console.log(e))
+    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser({user_id: d.user_id, user_type: d.user_type, username: d.username})).catch(e=>console.log(e))
   },[])
 
   useEffect(()=>{
-    fetch('/mePro').then(r=>r.json()).then(d=>setLoggedInUser({user_id: d.user_id, user_type: d.user_type})).catch(e=>console.log(e))
+    fetch('/mePro').then(r=>r.json()).then(d=>setLoggedInUser({user_id: d.user_id, user_type: d.user_type, username: d.username})).catch(e=>console.log(e))
   },[])
 
   function handleLogout(){
@@ -48,7 +48,7 @@ console.log(loggedInUser)
       
       <div>
 
-     {<NavBar handleLogout={handleLogout} />}
+     {<NavBar loggedInUser={loggedInUser} handleLogout={handleLogout} />}
 
     {loggedInUser.user_id ? protecedRoutes : <>Log in or Sign up!</>}
 
