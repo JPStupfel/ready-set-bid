@@ -1,22 +1,14 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-// import MapContainer from './components/MapContainer';
-// import PostForm from './PostForm';
-// import { createContext, useState } from 'react';
-// import FileForm from './components/FileForm';
-// import LatestImage from './components/LatestImage';
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import ProposalsPage from './components/ProposalsPage';
 import NavBar from './components/NavBar';
-import LoginForm from './components/LoginClientForm';
 import SignupContainer from './components/SignupContainer';
 import LoginContainer from './components/LoginContainer';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null)
-  const [loggedInPro, setLoggedInPro] = useState(null)
 
   useEffect(()=>{
     fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser(d.id)).catch(e=>alert(e))
@@ -40,7 +32,6 @@ function App() {
 
   </Routes>
 
-console.log(loggedInUser)
 
   return (
 

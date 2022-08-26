@@ -7,12 +7,17 @@ class SessionsController < ApplicationController
             render json: {errors: client.errors.full_messages}
         end
         session[:user_id] = client.id
+        session[:user_type] = client.class.name
+        
     end
 
     def index
-        client = Client.find_by id: session[:user_id]
-        if client
-            render json: client, status: 200
+        
+        if session[:user_type] == 'Client'
+            client = Client.find_by id: session[:user_id]
+            if client
+                render json: client, status: 200
+            end
         else
             render json: {errors: 'client not found'}, status: 422
         end
@@ -20,7 +25,9 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete :user_id
+        session.delete :user_type
         render json:{}
+        
     end
 
     def update
@@ -28,6 +35,8 @@ class SessionsController < ApplicationController
         
         if client
             session[:user_id] = client.id
+            session[:user_type] = client.class.name
+
             render json: client, status: 200
         else
             render json: {errors: 'client not found'}, status: 422
