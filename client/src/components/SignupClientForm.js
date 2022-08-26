@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 export default function SignupClientForm({setLoggedInUser}) {
-    const [formData, setFormData] = useState({username: null, password: null, password_confirmation: null})
+    const [formData, setFormData] = useState({username: null, password: null, password_confirmation: null, image_url: null})
 
 function handleSubmit(event){
     event.preventDefault()
@@ -45,6 +45,19 @@ function handleChange(event){
       <label>Password Confirmation</label>
       <input onChange={handleChange}  type="password" className="form-control" id="password_confirmation" placeholder="Confirm Password"/>
     </div>
+
+    <div className="form-check">
+
+</div>
+
+    <div className="form-group">
+      <label>Profile Picture Url</label>
+      <input onChange={handleChange}  type="text" className="form-control" id="image_url" placeholder="Profile Picture Url"/>
+    </div>
+
+
+
+
     <div className="form-check">
 
     </div>
