@@ -7,6 +7,7 @@ import './App.css';
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import ProposalsPage from './components/ProposalsPage';
 import NavBar from './components/NavBar';
+import SignupForm from './components/SignupForm';
 
 function App() {
   return (
@@ -22,8 +23,7 @@ function App() {
           <Route path="/projects" element={<ProposalsPage />}>
           </Route>
 
-          <Route path="/users">
-            <>Users</>
+          <Route path="/signup" element={<SignupForm />}>
           </Route>
 
           <Route path="/">
