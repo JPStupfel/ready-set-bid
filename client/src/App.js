@@ -8,8 +8,8 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import ProposalsPage from './components/ProposalsPage';
 import NavBar from './components/NavBar';
-import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
+import SignupContainer from './components/SignupContainer';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null)
@@ -49,7 +49,7 @@ console.log(loggedInUser)
 
     {loggedInUser ? protectedRoutes : <>Log in or Sign up!</>}
     <Routes>
-    <Route path="/signup" element={<SignupForm />}>
+    <Route path="/signup" element={<SignupContainer />}>
     </Route>
     <Route path="/login" element={<LoginForm />}>
     </Route>
