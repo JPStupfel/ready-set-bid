@@ -7,6 +7,8 @@ import NavBar from './components/NavBar';
 import SignupContainer from './components/SignupContainer';
 import LoginContainer from './components/LoginContainer';
 
+
+
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({user_id: null, username:null, user_type: null})
 
@@ -19,7 +21,8 @@ function App() {
   },[])
 
   function handleLogout(){
-    fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>console.log(d)).catch(e=>console.log(e))
+    fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>setLoggedInUser({user_id: null, username: null, user_type: null})
+  ).catch(e=>console.log(e))
   }
 
 
@@ -54,9 +57,9 @@ console.log(loggedInUser)
 
     
     <Routes>
-    <Route path="/signup" element={<SignupContainer />}>
+    <Route path="/signup" element={<SignupContainer setLoggedInUser={setLoggedInUser} />}>
     </Route>
-    <Route path="/login" element={<LoginContainer />}>
+    <Route path="/login" element={<LoginContainer setLoggedInUser={setLoggedInUser} />}>
     </Route>
     </Routes>
 

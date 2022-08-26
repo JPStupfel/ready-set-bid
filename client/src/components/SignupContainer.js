@@ -5,7 +5,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import SignupProForm from './SignupProForm';
 
 
-export default function SignupContainer() {
+export default function SignupContainer({setLoggedInUser}) {
 
     const [checked, setChecked] = useState(false);
     const [radioValue, setRadioValue] = useState('1');
@@ -36,7 +36,7 @@ export default function SignupContainer() {
         ))}
       </ButtonGroup>
       <div className='signupContainer'>
-      {radioValue == 1 ? <SignupClientForm /> : <SignupProForm/>}
+      {radioValue == 1 ? <SignupClientForm setLoggedInUser={setLoggedInUser} /> : <SignupProForm setLoggedInUser={setLoggedInUser}/>}
       </div>
     </>
   )
