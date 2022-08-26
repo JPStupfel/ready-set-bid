@@ -12,8 +12,7 @@ function handleSubmit(event){
         },
         body: JSON.stringify(formData),
       }).then(r=>r.json()).then(d=>{
-        setLoggedInUser({user_id: d.id, username: d.username, user_type: "Client"})
-      }).catch(e=>console.log(e))
+        setLoggedInUser(d)}).catch(e=>console.log(e))
 }
 
 function handleChange(event){

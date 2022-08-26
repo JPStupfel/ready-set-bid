@@ -10,18 +10,18 @@ import LoginContainer from './components/LoginContainer';
 
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState({id: null, username:null, user_type: null})
+  const [loggedInUser, setLoggedInUser] = useState({id: null, username:null, user_type: null, image_url: null})
 
   useEffect(()=>{
-    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser({id: d.id, user_type: 'Client', username: d.username})).catch(e=>console.log(e))
+    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser(d)).catch(e=>console.log(e))
   },[])
 
   useEffect(()=>{
-    fetch('/mePro').then(r=>r.json()).then(d=>setLoggedInUser({id: d.id, user_type: d.user_type, username: d.username})).catch(e=>console.log(e))
+    fetch('/mePro').then(r=>r.json()).then(d=>setLoggedInUser(d)).catch(e=>console.log(e))
   },[])
 
   function handleLogout(){
-    fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>setLoggedInUser({id: null, username: null, user_type: null})
+    fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>setLoggedInUser({id: null, username: null, user_type: null, image_url: null})
   ).catch(e=>console.log(e))
   }
 
@@ -40,7 +40,6 @@ function App() {
     </Route>
 
   </Routes>
-
 
 console.log(loggedInUser)
 

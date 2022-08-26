@@ -14,7 +14,7 @@ function handleSubmit(event){
       })
       .then(r=>r.json())
       .then(d=>{
-        setLoggedInUser({id: d.id, username: d.username, user_type: "Client"});
+        setLoggedInUser(d);
 
       }
         ).catch(e=>console.log(e))

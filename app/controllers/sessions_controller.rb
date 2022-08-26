@@ -7,7 +7,9 @@ class SessionsController < ApplicationController
 
             session[:user_id] = client.id
             session[:user_type] = client.class.name    
-            render json: client, status: 200
+            render json: client, 
+            serializer: ClientSessionSerializer, 
+            status: 200
         else
             render json: {errors: client.errors.full_messages}
         end
@@ -21,7 +23,11 @@ class SessionsController < ApplicationController
             
             client = Client.find_by id: session[:user_id]
             if client
-                render json: client, status: 200
+                render json: client, 
+                serializer: ClientSessionSerializer, 
+                status: 200
+            else
+                render json: {errors: 'client not found'}, status: 422
             end
         else
             render json: {errors: 'client not found'}, status: 422
@@ -44,7 +50,9 @@ class SessionsController < ApplicationController
             session[:user_id] = client.id
             session[:user_type] = client.class.name
 
-            render json: client, status: 200
+            render json: client, 
+            serializer: ClientSessionSerializer, 
+            status: 200
         else
             render json: {errors: 'client not found'}, status: 422
         end
