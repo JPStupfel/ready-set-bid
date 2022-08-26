@@ -11,7 +11,11 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState(null)
 
   useEffect(()=>{
-    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser(d.id)).catch(e=>alert(e))
+    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser(d.id)).catch(e=>console.log(e))
+  },[])
+
+  useEffect(()=>{
+    fetch('/mePro').then(r=>r.json()).then(d=>setLoggedInUser(d.id)).catch(e=>console.log(e))
   },[])
 
   function handleLogout(){
