@@ -44,7 +44,6 @@ function App() {
 
 
 
-console.log(loggedInUser)
   return (
 
     <Router>

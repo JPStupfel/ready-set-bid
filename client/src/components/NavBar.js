@@ -11,13 +11,16 @@ function NavBar({handleLogout, loggedInUser}) {
         <Container>
           <Navbar.Brand href="home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-          <Nav.Link href="login">Login</Nav.Link>
           <Nav.Link href="projects">Projects</Nav.Link>
-
-            <Nav.Link href="signup">Signup</Nav.Link>
-            <Nav.Link href="login">Login</Nav.Link>
+          
           </Nav>
         </Container>
+
+        <Nav>
+        <Nav.Link href="login">Login</Nav.Link>
+        <Nav.Link href="signup">Signup</Nav.Link>
+
+        </Nav>
        
         {loggedInUser.user_id ? <button onClick={handleLogout}>Logout {loggedInUser.username}</button>:null}
 
