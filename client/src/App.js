@@ -13,6 +13,7 @@ import LoginForm from './components/LoginForm';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null)
+  const [loggedInPro, setLoggedInPro] = useState(null)
 
   useEffect(()=>{
     fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser(d.id)).catch(e=>alert(e))
