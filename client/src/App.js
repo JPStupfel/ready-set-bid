@@ -50,7 +50,7 @@ console.log(loggedInUser)
 
      {<NavBar loggedInUser={loggedInUser} handleLogout={handleLogout} />}
 
-    {loggedInUser.user_id ? protecedRoutes : <>Log in or Sign up!</>}
+    {loggedInUser.user_id ? protecedRoutes : <h1>Log in or Sign up!</h1>}
 
     
     <Routes>
