@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
         if session[:user_type] == 'Client'
             client = Client.find_by id: session[:user_id]
             if client
-                render json: client, status: 200
+                render json: {user_id: client.id, user_type: client.class.name}, status: 200
             else
                 render json: {errors: 'client not found'}, status: 422
             end

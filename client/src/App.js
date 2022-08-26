@@ -8,14 +8,14 @@ import SignupContainer from './components/SignupContainer';
 import LoginContainer from './components/LoginContainer';
 
 function App() {
-  const [loggedInUser, setLoggedInUser] = useState(null)
+  const [loggedInUser, setLoggedInUser] = useState({user_id: null, user_type: null})
 
   useEffect(()=>{
-    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser(d.id)).catch(e=>console.log(e))
+    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser({user_id: d.user_id, user_type: d.user_type})).catch(e=>console.log(e))
   },[])
 
   useEffect(()=>{
-    fetch('/mePro').then(r=>r.json()).then(d=>setLoggedInUser(d.id)).catch(e=>console.log(e))
+    fetch('/mePro').then(r=>r.json()).then(d=>setLoggedInUser({user_id: d.user_id, user_type: d.user_type})).catch(e=>console.log(e))
   },[])
 
   function handleLogout(){
@@ -23,20 +23,25 @@ function App() {
   }
 
 
-  const protectedRoutes = 
+  const protecedRoutes = 
   <Routes>
     
-    <Route path="/projects" element={<ProposalsPage />}>
+    <Route path="/projects" element={
+    <ProposalsPage />
+    }>
     </Route>
 
 
-    <Route path="/">
-      <>Home</>
+    <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
+      <>Client Home</>
     </Route>
 
   </Routes>
 
 
+
+
+console.log(loggedInUser)
   return (
 
     <Router>
@@ -45,7 +50,9 @@ function App() {
 
      {<NavBar handleLogout={handleLogout} />}
 
-    {loggedInUser ? protectedRoutes : <>Log in or Sign up!</>}
+    {loggedInUser.user_id ? protecedRoutes : <>Log in or Sign up!</>}
+
+    
     <Routes>
     <Route path="/signup" element={<SignupContainer />}>
     </Route>
