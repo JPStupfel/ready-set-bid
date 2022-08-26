@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get "/latest", to: 'posts#latest'
   get '/api', to: "api#index"
+
+  post '/session', to: "sessions#create"
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 

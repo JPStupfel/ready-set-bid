@@ -3,9 +3,15 @@ import React, {useState} from 'react'
 export default function SignupForm() {
     const [formData, setFormData] = useState({username: null, password: null, password_confirmation: null})
 
-function onsubmit(event){
+function handleSubmit(event){
     event.preventDefault()
-
+    fetch("/session", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      }).then(r=>r.json()).then(d=>console.log(d)).catch(e=>console.log(e))
 }
 
 function handleChange(event){
@@ -18,7 +24,7 @@ function handleChange(event){
 }
   return (
 
-    <form>
+    <form onSubmit={handleSubmit}>
 
     <div className="form-group">
       <label>Username</label>
