@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/api', to: "api#index"
 
   post '/session', to: "sessions#create"
+  patch '/session', to: "sessions#update"
   delete '/session', to: "sessions#destroy"
 
   get '/me', to: "sessions#index"

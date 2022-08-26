@@ -9,6 +9,7 @@ import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import ProposalsPage from './components/ProposalsPage';
 import NavBar from './components/NavBar';
 import SignupForm from './components/SignupForm';
+import LoginForm from './components/LoginForm';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState(null)
@@ -49,8 +50,10 @@ console.log(loggedInUser)
     <Routes>
     <Route path="/signup" element={<SignupForm />}>
     </Route>
+    <Route path="/login" element={<LoginForm />}>
+    </Route>
     </Routes>
-]
+
       </div>
 
     </Router>

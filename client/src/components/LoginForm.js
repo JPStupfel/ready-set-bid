@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 
-export default function SignupForm() {
-    const [formData, setFormData] = useState({username: null, password: null, password_confirmation: null})
+export default function LoginForm() {
+    const [formData, setFormData] = useState({username: null, password: null})
 
 function handleSubmit(event){
     event.preventDefault()
     fetch("/session", {
-        method: 'POST',
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -37,10 +37,7 @@ function handleChange(event){
     <div className="form-check">
 
     </div>
-    <div className="form-group">
-      <label>Password Confirmation</label>
-      <input onChange={handleChange}  type="password" className="form-control" id="password_confirmation" placeholder="Confirm Password"/>
-    </div>
+   
     <div className="form-check">
 
     </div>

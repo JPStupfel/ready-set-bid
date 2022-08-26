@@ -23,6 +23,17 @@ class SessionsController < ApplicationController
         render json:{}
     end
 
+    def update
+        client = Client.find_by username: params['username']
+        
+        if client
+            session[:user_id] = client.id
+            render json: client, status: 200
+        else
+            render json: {errors: 'client not found'}, status: 422
+        end
+    end
+
 
     private
     def sessionParams
