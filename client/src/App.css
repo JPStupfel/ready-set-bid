@@ -57,3 +57,6 @@
 .profile-thumbnail{
   height: 100px;
 }
+.navbar-image-container{
+  display: flex;
+}

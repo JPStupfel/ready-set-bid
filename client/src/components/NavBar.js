@@ -23,7 +23,7 @@ function NavBar({handleLogout, loggedInUser}) {
         </Nav>
        
         {loggedInUser.id ?
-         <div>
+         <div className='navbar-image-container'>
           <button onClick={handleLogout}>Logout {loggedInUser.username}</button>
           <img className='profile-thumbnail' src={loggedInUser.image_url}></img>
           </div>
