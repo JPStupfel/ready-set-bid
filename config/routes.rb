@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :posts
+  resources :proposals, only: [:index]
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
  #test
