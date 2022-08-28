@@ -6,6 +6,7 @@ import ImageUploader from './components/ImageUploader';
 import NavBar from './components/NavBar';
 import SignupContainer from './components/SignupContainer';
 import LoginContainer from './components/LoginContainer';
+import ProjectsPage from './components/ProjectsPage';
 
 
 
@@ -31,7 +32,7 @@ function App() {
   <Routes>
     
     <Route path="/projects" element={
-    <ImageUploader />
+    <ProjectsPage />
     }>
     </Route>
 
