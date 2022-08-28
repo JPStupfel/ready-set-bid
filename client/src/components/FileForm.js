@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { AppContext } from "./ProposalsPage"
+import { AppContext } from "./ImageUploader"
 
 function FileForm() {
 

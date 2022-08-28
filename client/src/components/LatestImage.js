@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { AppContext } from "./ProposalsPage"
+import { AppContext } from "./ImageUploader"
 
 function LatestImage() {
     const {latestPost, setLatestPost} = useContext(AppContext)

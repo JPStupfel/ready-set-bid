@@ -2,7 +2,7 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
-import ProposalsPage from './components/ProposalsPage';
+import ImageUploader from './components/ImageUploader';
 import NavBar from './components/NavBar';
 import SignupContainer from './components/SignupContainer';
 import LoginContainer from './components/LoginContainer';
@@ -30,7 +30,7 @@ function App() {
   <Routes>
     
     <Route path="/projects" element={
-    <ProposalsPage />
+    <ImageUploader />
     }>
     </Route>
 
@@ -41,7 +41,6 @@ function App() {
 
   </Routes>
 
-console.log(loggedInUser)
 
   return (
 

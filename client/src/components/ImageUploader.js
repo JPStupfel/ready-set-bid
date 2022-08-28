@@ -8,7 +8,7 @@ import LatestImage from './LatestImage';
 
 export const AppContext = createContext(null);
 
-function ProposalsPage() {
+function ImageUploader() {
     const [latestPost, setLatestPost] = useState(AppContext)
 
   return (
@@ -22,4 +22,4 @@ function ProposalsPage() {
   )
 }
 
-export default ProposalsPage
+export default ImageUploader
