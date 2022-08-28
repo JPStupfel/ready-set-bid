@@ -9,6 +9,7 @@ import LoginContainer from './components/LoginContainer';
 
 
 
+
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({id: null, username:null, user_type: null, image_url: null})
 
@@ -30,6 +31,11 @@ function App() {
   <Routes>
     
     <Route path="/projects" element={
+    <ImageUploader />
+    }>
+    </Route>
+
+    <Route path="/new-project" element={
     <ImageUploader />
     }>
     </Route>

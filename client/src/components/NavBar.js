@@ -12,6 +12,7 @@ function NavBar({handleLogout, loggedInUser}) {
           <Navbar.Brand href="home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
           <Nav.Link href="projects">Projects</Nav.Link>
+          <Nav.Link href="/new-project">New Project</Nav.Link>
           
           </Nav>
         </Container>

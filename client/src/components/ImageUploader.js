@@ -1,5 +1,4 @@
 import React from 'react'
-import MapContainer from './MapContainer';
 import PostForm from './PostForm';
 import { createContext, useState } from 'react';
 import FileForm from './FileForm';
@@ -14,7 +13,6 @@ function ImageUploader() {
   return (
     <AppContext.Provider value={{latestPost, setLatestPost}}>
     <div className="App">
-    <MapContainer />
     <FileForm />
     <LatestImage/>
     </div>
