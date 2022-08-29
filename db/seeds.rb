@@ -26,5 +26,5 @@ Professional.create username: 'arnold', password: 'fish', password_confirmation:
 
 
 3.times do 
-    Proposal.create title: Faker::Science.element_subcategory, description: Faker::Quote.yoda, client_id: Client.first.id, victor_id: nil, lat: Faker::Number.within(range: 41.3917..41.4000), lng: Faker::Number.within(range: 2.1649..3.0000) 
+    Proposal.create title: Faker::Science.element_subcategory, description: Faker::Quote.yoda, client_id: Client.first.id, victor_id: nil, lat: Faker::Number.within(range: 41.3917..41.4000), lng: Faker::Number.within(range: 2.1649..2.2000) 
 end
