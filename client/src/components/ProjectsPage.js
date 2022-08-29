@@ -9,7 +9,7 @@ const projectCards = projectList.map(e=><ProjectCard key={e.id} project={e} />)
 
   return (
     <div>
-        <MapContainer/>
+        <MapContainer projectList={projectList}/>
         {projectCards}
     </div>
   )
