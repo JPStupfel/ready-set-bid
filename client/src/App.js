@@ -13,6 +13,7 @@ import ProjectsPage from './components/ProjectsPage';
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({id: null, username:null, user_type: null, image_url: null})
+  const [projectList, setProjectList] = useState([])
 
   useEffect(()=>{
     fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser(d)).catch(e=>console.log(e))
@@ -22,17 +23,23 @@ function App() {
     fetch('/mePro').then(r=>r.json()).then(d=>setLoggedInUser(d)).catch(e=>console.log(e))
   },[])
 
+  useEffect(()=>{
+    fetch('/proposals').then(r=>r.json()).then(d=>setProjectList(d)).catch(e=>console.log(e))
+  },[])
+
   function handleLogout(){
     fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>setLoggedInUser({id: null, username: null, user_type: null, image_url: null})
   ).catch(e=>console.log(e))
   }
+
+  
 
 
   const protecedRoutes = 
   <Routes>
     
     <Route path="/projects" element={
-    <ProjectsPage />
+    <ProjectsPage projectList={projectList} />
     }>
     </Route>
 
@@ -47,7 +54,6 @@ function App() {
     </Route>
 
   </Routes>
-
 
   return (
 
