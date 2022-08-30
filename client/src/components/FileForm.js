@@ -1,21 +1,21 @@
 import React, { useContext } from 'react'
-import { AppContext } from "./ImageUploader"
+import { AppContext } from "./AddProjectContainer"
 
-function FileForm() {
+function FileForm({handleSubmitImage, latestPost, setLatestPost}) {
 
-    const {latestPost, setLatestPost} = useContext(AppContext)
+    // const {latestPost, setLatestPost} = useContext(AppContext)
 
    function handleSubmit(event){
     event.preventDefault();
     const data= new FormData();
     data.append("post[title]", event.target.title.value)
     data.append("post[image]", event.target.image.files[0])
-    submitToAPI(data)
+    handleSubmitImage(data)
    }
 
-function submitToAPI(data){
-    fetch("/posts", {method: "POST", body: data}).then(response=>{response.json()}).then(data=>{console.log(data); setLatestPost(data.image_url)}).catch(e=>console.log(e))
-}
+// function submitToAPI(data){
+//     fetch("/posts", {method: "POST", body: data}).then(response=>{response.json()}).then(data=>{console.log(data); setLatestPost(data.image_url)}).catch(e=>console.log(e))
+// }
 
 
   return (

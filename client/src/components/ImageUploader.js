@@ -1,20 +1,20 @@
 import React from 'react'
 import PostForm from './PostForm';
-import { createContext, useState } from 'react';
+import { useContext, createContext, useState } from 'react';
 import FileForm from './FileForm';
 import LatestImage from './LatestImage';
+import { AppContext } from './AddProjectContainer';
 
 
-export const AppContext = createContext(null);
 
-function ImageUploader() {
-    const [latestPost, setLatestPost] = useState(AppContext)
+function ImageUploader({handleSubmitImage, latestPost, setLatestPost}) {
+  // const {latestPost, setLatestPost} = useContext(AppContext)
 
   return (
     <AppContext.Provider value={{latestPost, setLatestPost}}>
     <div className="App">
-    <FileForm />
-    <LatestImage/>
+    <FileForm latestPost={latestPost} setLatestPost={setLatestPost} handleSubmitImage={handleSubmitImage} />
+    <LatestImage latestPost={latestPost} setLatestPost={setLatestPost}/>
     </div>
     </AppContext.Provider>
   )

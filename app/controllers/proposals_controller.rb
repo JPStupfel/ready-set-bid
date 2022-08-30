@@ -13,9 +13,7 @@ class ProposalsController < ApplicationController
     end
 
     def getAddress
-        
        location = getCoords(params['loc'])
-
        render json: location, status: 200
     end
 

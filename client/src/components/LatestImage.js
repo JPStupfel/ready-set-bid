@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react'
-import { AppContext } from "./ImageUploader"
+import { AppContext } from "./AddProjectContainer"
 
-function LatestImage() {
-    const {latestPost, setLatestPost} = useContext(AppContext)
+function LatestImage({latestPost, setLatestPost}) {
+    // const {latestPost, setLatestPost} = useContext(AppContext)
   
     useEffect(()=>{
         fetch('/latest').then(r=>r.json()).then(d=>setLatestPost(d.image_url)).catch(e=>console.log(e))
