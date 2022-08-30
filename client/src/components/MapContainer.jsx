@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
- 
+import { GoogleMap, InfoBox, LoadScript, Marker, OverlayView, withGoogleMap } from '@react-google-maps/api';
+
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 
@@ -14,6 +14,25 @@ const MapContainer = ({projectList}) => {
       return {name:project.title, location:{lat:project.lat, lng: project.lng}}
     }
   )
+
+  const markers = locations.map(item => {
+    return (
+     <Marker optimized={false} title={'fish'} key={item.name} position={item.location}>
+      <InfoBox
+     position={item.location}
+     options={{  enableEventPropagation: true }}
+   >
+     <div style={{ backgroundColor: `yellow` }}>
+       <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
+         Hello, Taipei!
+       </div>
+     </div>
+   </InfoBox>
+   </Marker>
+
+    )
+  })
+
   
   const mapStyles = {        
     height: "100vh",
@@ -34,17 +53,17 @@ const MapContainer = ({projectList}) => {
           zoom={13}
           center={defaultCenter}
         >
+ 
+
 
            {
-            locations.map(item => {
-              return (
-              <Marker key={item.name} position={item.location}/>
-              )
-            })
+            markers
          }
          </GoogleMap>
+        
         
      </LoadScript>
   )
 }
 export default MapContainer;
+
