@@ -9,37 +9,38 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 const AddProjectMap = ({projectList}) => {
 
-  const thisaddress = '1625 wilderness gate rd Santa Fe, NM'
+  const [address, setAddress] = useState('')
+  const [coordAddress, setCoordAddress] = useState({
+      lat: 45,
+      lng: -105
+    })
 
-  
-  
+  function getCoordinates(address){
+    fetch(`/address/${address}`)
+      .then(response => response.json())
+      .then(data => setCoordAddress(data))
+      
+  }
   
   const mapStyles = {        
     height: "100vh",
     width: "100%"};
 
     
-  
-  const [defaultCenter, setDefaultCenter] = useState({
-    lat: projectList.length ? projectList[0].lat : 0,
-    lng: projectList.length ? projectList[0].lng : 0
-  })
+ 
 
-  const [address, setAddres] = useState('')
-  console.log(address)
+  
   return (
      <LoadScript
        googleMapsApiKey= {API_KEY}
        libraries={["places"]}>
-        <StandaloneSearchBox
-      // ref={props.onSearchBoxMounted}
-      // bounds={props.bounds}
-      // onPlacesChanged={props.onPlacesChanged}
-    >
+
+     
       <input
         type="text"
         placeholder="Customized your placeholder"
-        onChange={(event)=>setAddres(event.target.value)}
+        value={address}
+        onChange={(event)=>setAddress(event.target.value)}
         style={{
           boxSizing: `border-box`,
           border: `1px solid transparent`,
@@ -54,12 +55,11 @@ const AddProjectMap = ({projectList}) => {
         }}
       />
      
-    </StandaloneSearchBox>
-    <button onClick={(event)=>console.log(address)}>Go</button>
+    <button onClick={(event)=>{getCoordinates(address)}}>Go</button>
         <GoogleMap
           mapContainerStyle={mapStyles}
           zoom={13}
-          center={defaultCenter}
+          center={coordAddress}
         >
   
 
