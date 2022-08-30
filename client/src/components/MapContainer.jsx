@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-
 import { GoogleMap, InfoBox, LoadScript, Marker, OverlayView, withGoogleMap } from '@react-google-maps/api';
+import CustomMarker from './CustomMarker';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -17,18 +17,7 @@ const MapContainer = ({projectList}) => {
 
   const markers = locations.map(item => {
     return (
-     <Marker optimized={false} title={'fish'} key={item.name} position={item.location}>
-      <InfoBox
-     position={item.location}
-     options={{  enableEventPropagation: true }}
-   >
-     <div style={{ backgroundColor: `yellow` }}>
-       <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
-         Hello, Taipei!
-       </div>
-     </div>
-   </InfoBox>
-   </Marker>
+     <CustomMarker item={item} />
 
     )
   })
