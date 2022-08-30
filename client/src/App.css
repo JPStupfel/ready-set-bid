@@ -60,3 +60,7 @@
 .navbar-image-container{
   display: flex;
 }
+.map-image{
+  max-width: 100px;
+  max-height: 100px;
+}
