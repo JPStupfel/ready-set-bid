@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import SignupContainer from './components/SignupContainer';
 import LoginContainer from './components/LoginContainer';
 import ProjectsPage from './components/ProjectsPage';
+import AddProjectContainer from './AddProjectContainer';
 
 
 
@@ -44,7 +45,7 @@ function App() {
     </Route>
 
     <Route path="/new-project" element={
-    <ImageUploader />
+    <AddProjectContainer projectList={projectList} />
     }>
     </Route>
 

@@ -17,7 +17,7 @@ export default function CustomMarker({project}) {
         options={{  closeBoxURL: ``, enableEventPropagation: true }}
         onCloseClick={()=>console.log('deed')}
         >
-        <div style={{ backgroundColor: `yellow`,' max-width':'200px' }}>
+        <div style={{ backgroundColor: `white`,' max-width':'100px' }}>
           <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
             {project.title}
           </div>
