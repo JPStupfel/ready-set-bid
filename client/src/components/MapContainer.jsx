@@ -12,11 +12,6 @@ const MapContainer = ({projectList}) => {
   const markers = projectList.map(
     project=><CustomMarker project={project} />)
 
-      // {name:project.title, location:{lat:project.lat, lng: project.lng}}
-   
-
-  // const markers = locations.map(item => <CustomMarker item={item} />)
-
   
   const mapStyles = {        
     height: "100vh",
@@ -25,8 +20,8 @@ const MapContainer = ({projectList}) => {
     
   
   const defaultCenter = {
-    lat: 41.3954,
-    lng: 2.162 
+    lat: projectList.length ? projectList[0].lat : 0,
+    lng: projectList.length ? projectList[0].lng : 0
   }
   
   return (
