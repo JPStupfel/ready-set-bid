@@ -9,18 +9,13 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 const MapContainer = ({projectList}) => {
 
-  const locations = projectList.map(
-    project=>{
-      return {name:project.title, location:{lat:project.lat, lng: project.lng}}
-    }
-  )
+  const markers = projectList.map(
+    project=><CustomMarker project={project} />)
 
-  const markers = locations.map(item => {
-    return (
-     <CustomMarker item={item} />
+      // {name:project.title, location:{lat:project.lat, lng: project.lng}}
+   
 
-    )
-  })
+  // const markers = locations.map(item => <CustomMarker item={item} />)
 
   
   const mapStyles = {        

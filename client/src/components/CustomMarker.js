@@ -2,16 +2,19 @@ import React from 'react'
 import { GoogleMap, InfoBox, LoadScript, Marker, OverlayView, withGoogleMap } from '@react-google-maps/api';
 
 
-export default function CustomMarker({item}) {
+export default function CustomMarker({project}) {
+        // {name:project.title, location:{lat:project.lat, lng: project.lng}}
+        const location = {lat:project.lat, lng: project.lng}
+
   return (
-    <Marker optimized={false} title={'fish'} key={item.name} position={item.location}>
+    <Marker optimized={false} title={'fish'} key={project.title} position={location}>
       <InfoBox
-     position={item.location}
+     position={location}
      options={{  enableEventPropagation: true }}
    >
      <div style={{ backgroundColor: `yellow` }}>
        <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
-         {item.name}
+         {project.title}
        </div>
      </div>
    </InfoBox>
