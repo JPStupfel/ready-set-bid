@@ -15,6 +15,8 @@ const AddProjectMap = ({projectList}) => {
       lng: -105
     })
 
+    // {title: 'Untitled Project', description: 'My Project', victor_id: null, lat: 35, lng: 105 }
+
   function getCoordinates(address){
     fetch(`/address/${address}`)
       .then(response => response.json())
@@ -26,10 +28,6 @@ const AddProjectMap = ({projectList}) => {
     height: "100vh",
     width: "100%"};
 
-    
- 
-
-  
   return (
      <LoadScript
        googleMapsApiKey= {API_KEY}
@@ -61,7 +59,10 @@ const AddProjectMap = ({projectList}) => {
           zoom={13}
           center={coordAddress}
         >
-  
+          <Marker optimized={false} title={'fish'} position={coordAddress}>
+      
+   
+      </Marker>
 
          </GoogleMap>
         
