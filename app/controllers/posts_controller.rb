@@ -15,8 +15,8 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
+    
     @post = Post.new(post_params)
-
     if @post.save
       # byebug
       render json: @post, status: :created, location: @post
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     
     post = Post.last
     
-    render json: PostSerializer.new(post).serializable_hash[:data][:attributes]
+    render json: post
   end
 
   private

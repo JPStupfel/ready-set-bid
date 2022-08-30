@@ -17,6 +17,7 @@ function submitToAPI(data){
     fetch("/posts", {method: "POST", body: data}).then(response=>{response.json()}).then(data=>{console.log(data); setLatestPost(data.image_url)}).catch(e=>console.log(e))
 }
 
+
   return (
     <div>
         <h1>FileForm</h1>
