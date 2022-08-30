@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # Leave this here to help deploy your app later!
  #test
 
+  get "/address/:loc", to: 'proposals#getAddress'
+
   get "/latest", to: 'posts#latest'
   get '/api', to: "api#index"
 

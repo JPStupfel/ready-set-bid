@@ -1,5 +1,9 @@
 # Project Template: React/Rails API
 
+# refs
+
+react-google-maps
+
 ## in order to run this project on your own you must replace the API_KEY vaiable with your own google maps api key.
 
 ## Description

@@ -1,9 +1,22 @@
+require 'uri'
+require 'net/http'
+
+
 class ProposalsController < ApplicationController
+
     before_action :require_login
+
     
     def index
         proposals = Proposal.all
         render json: proposals, status: 200
+    end
+
+    def getAddress
+        
+       location = getCoords(params['loc'])
+
+       render json: location, status: 200
     end
 
     private
@@ -11,6 +24,13 @@ class ProposalsController < ApplicationController
         if !session[:user_id] 
             render json: {error: 'log in first'}
         end
+    end
+
+    def getCoords address
+        
+        uri = URI("https://maps.googleapis.com/maps/api/geocode/json?address='#{address}'&key=#{ENV['API_KEY']}")
+        res = Net::HTTP.get_response(uri)
+        return JSON(res.body)['results'][0]['geometry']['location']
     end
 
 end
