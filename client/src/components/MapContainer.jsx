@@ -34,8 +34,7 @@ const MapContainer = ({projectList}) => {
           zoom={13}
           center={defaultCenter}
         >
-            <Marker position={{lat: 41.3954,
-    lng: 2.162 }} />
+
            {
             locations.map(item => {
               return (
