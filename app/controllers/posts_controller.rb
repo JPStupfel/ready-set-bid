@@ -15,10 +15,9 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
+    @post = Proposal.first.posts.new(post_params)
     
-    @post = Post.new(post_params)
     if @post.save
-      # byebug
       render json: @post, status: :created, location: @post
     else
       render json: @post.errors, status: :unprocessable_entity
@@ -56,4 +55,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :image)
     end
+
 end
