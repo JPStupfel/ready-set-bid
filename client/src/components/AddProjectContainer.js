@@ -33,7 +33,10 @@ export default function AddProjectContainer({projectList, loggedInUser}) {
   }
   function handleSubmitProjectToAPI(){
     console.log(submission)
-    fetch("/proposals", {method: "POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify(submission)}).then(response=>{response.json()}).then(data=>{console.log(data)}).catch(e=>console.log(e))
+    fetch("/proposals", {method: "POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify(submission)}).then(response=>{response.json()}).then(data=>{
+      console.log(data); 
+      fetch("/posts", {method: "POST", body: imageData}).then(response=>{response.json()}).then(data=>{console.log(data)}).catch(e=>console.log(e))
+    }).catch(e=>console.log(e))
 
   }
   return (

@@ -28,7 +28,7 @@ class ProposalsController < ApplicationController
             victor_id: nil
         )
         
-        post = proposal.posts.create params['post']
+        # post = proposal.posts.create params['post']
 
         render json: proposal, status: 200
         

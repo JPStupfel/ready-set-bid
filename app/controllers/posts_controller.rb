@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Proposal.first.posts.new(post_params)
+    @post = Proposal.last.posts.new(post_params)
     
     if @post.save
       render json: @post, status: :created, location: @post
