@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import { AppContext } from "./AddProjectContainer"
 
 function FileForm({setImageData}) {
 

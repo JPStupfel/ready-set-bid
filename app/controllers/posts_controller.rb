@@ -15,13 +15,13 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
+    # attach post to last Proposal because is called when proposal is created
     @post = Proposal.last.posts.new(post_params)
-    
-    if @post.save
-      render json: @post, status: :created, location: @post
-    else
-      render json: @post.errors, status: :unprocessable_entity
-    end
+      if @post.save
+        render json: @post, status: :created, location: @post
+      else
+        render json: @post.errors, status: :unprocessable_entity
+      end
   end
 
   # PATCH/PUT /posts/1
@@ -38,12 +38,7 @@ class PostsController < ApplicationController
     @post.destroy
   end
 
-  def latest
-    
-    post = Post.last
-    
-    render json: post
-  end
+ 
 
   private
     # Use callbacks to share common setup or constraints between actions.

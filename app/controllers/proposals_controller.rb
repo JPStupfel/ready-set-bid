@@ -12,13 +12,13 @@ class ProposalsController < ApplicationController
         render json: proposals, status: 200
     end
 
+    # return coordinates from address in body
     def getAddress
        location = getCoords(params['loc'])
        render json: location, status: 200
     end
 
     def create
-        
         proposal = Proposal.create(
             title: params['title'],
             description: params['description'],
@@ -27,11 +27,7 @@ class ProposalsController < ApplicationController
             client_id: params['client_id'],
             victor_id: nil
         )
-        
-        # post = proposal.posts.create params['post']
-
-        render json: proposal, status: 200
-        
+        render json: proposal, status: 200  
     end
 
     private
@@ -42,8 +38,8 @@ class ProposalsController < ApplicationController
         end
     end
 
+    # return coordincates from address
     def getCoords address
-        
         uri = URI("https://maps.googleapis.com/maps/api/geocode/json?address='#{address}'&key=#{ENV['API_KEY']}")
         res = Net::HTTP.get_response(uri)
         return JSON(res.body)['results'][0]['geometry']['location']

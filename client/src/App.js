@@ -2,7 +2,6 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
-import ImageUploader from './components/ImageUploader';
 import NavBar from './components/NavBar';
 import SignupContainer from './components/SignupContainer';
 import LoginContainer from './components/LoginContainer';

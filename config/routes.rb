@@ -6,16 +6,15 @@ Rails.application.routes.draw do
   # Leave this here to help deploy your app later!
  #test
 
+#  routes to return coordincates from address
   get "/address/:loc", to: 'proposals#getAddress'
 
-  get "/latest", to: 'posts#latest'
-  get '/api', to: "api#index"
-
+# routes for client authentication
   post '/session', to: "sessions#create"
   patch '/session', to: "sessions#update"
   delete '/session', to: "sessions#destroy"
   get '/me', to: "sessions#index"
-
+# routes for profesional authenication
   post '/sessionPro', to: "session_pros#create"
   patch '/sessionPro', to: "session_pros#update"
   delete '/sessionPro', to: "session_pros#destroy"
