@@ -13,6 +13,7 @@ import AddProjectContainer from './components/AddProjectContainer';
 
 
 function App() {
+
   const [loggedInUser, setLoggedInUser] = useState({id: null, username:null, user_type: null, image_url: null})
   const [projectList, setProjectList] = useState([])
 
@@ -33,46 +34,45 @@ function App() {
   ).catch(e=>console.log(e))
   }
 
-  
+  //return desired routes based on loggedInUser
+  function getProjectedRoutes(){
 
-function getProjectedRoutes(){
+    const protecedRoutesForProfessional = 
+      <Routes>
+        
+        <Route path="/projects" element={<ProjectsPage projectList={projectList}/>}>
+        </Route>
 
-  const protecedRoutesForProfessional = 
-  <Routes>
-    
-    <Route path="/projects" element={<ProjectsPage projectList={projectList}/>}>
-    </Route>
+        <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
+          <>Client Home</>
+        </Route>
+      </Routes>
 
-    <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
-      <>Client Home</>
-    </Route>
-  </Routes>
+    const protecedRoutesForClient = 
+    <Routes>
+      
+      <Route path="/projects" element={
+      <ProjectsPage projectList={projectList} />
+      }>
+      </Route>
 
-const protecedRoutesForClient = 
-<Routes>
-  
-  <Route path="/projects" element={
-  <ProjectsPage projectList={projectList} />
-  }>
-  </Route>
-
-  <Route path="/new-project" element={
-  <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList} />
-  }>
-  </Route>
+      <Route path="/new-project" element={
+      <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList} />
+      }>
+      </Route>
 
 
-  <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
-    <>Client Home</>
-  </Route>
+      <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
+        <>Client Home</>
+      </Route>
 
-</Routes>
+    </Routes>
 
-if (loggedInUser.user_type == "Professional"){return protecedRoutesForProfessional}
-else if (loggedInUser.user_type == 'Client'){return protecedRoutesForClient}
-else {return <>Log in first!</>}
+  if (loggedInUser.user_type == "Professional"){return protecedRoutesForProfessional}
+  else if (loggedInUser.user_type == 'Client'){return protecedRoutesForClient}
+  else {return <>Log in first!</>}
 
-}
+  }
 
 
   return (
@@ -81,24 +81,21 @@ else {return <>Log in first!</>}
       
       <div>
 
-     <NavBar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+        <NavBar loggedInUser={loggedInUser} handleLogout={handleLogout} />
 
-    {getProjectedRoutes()}
-    
-    <Routes>
-    <Route path="/signup" element={<SignupContainer setLoggedInUser={setLoggedInUser} />}>
-    </Route>
-    <Route path="/login" element={<LoginContainer setLoggedInUser={setLoggedInUser} />}>
-    </Route>
-    </Routes>
+        {getProjectedRoutes()}
+        
+        <Routes>
+        <Route path="/signup" element={<SignupContainer setLoggedInUser={setLoggedInUser} />}>
+        </Route>
+        <Route path="/login" element={<LoginContainer setLoggedInUser={setLoggedInUser} />}>
+        </Route>
+        </Routes>
 
       </div>
 
     </Router>
- 
-  
-     
-  
+
   );
 }
 

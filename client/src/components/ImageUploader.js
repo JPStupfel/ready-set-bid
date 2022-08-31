@@ -6,11 +6,11 @@ import { AppContext } from './AddProjectContainer';
 
 
 
-function ImageUploader({handleSubmitImage}) {
+function ImageUploader({setImageData}) {
 
   return (
     <div className="App">
-    <FileForm handleSubmitImage={handleSubmitImage} />
+    <FileForm setImageData={setImageData} />
     </div>
   )
 }

@@ -22,11 +22,7 @@ export default function AddProjectContainer({projectList, loggedInUser}) {
   },[imageData, coords, projectData]
   )
 
-  // const [formData, setFormData] = useState({title: null, description: null, client_id: null, lat: null, lng: null, post: {}})
-  function handleSubmitImage(data){
-    // fetch("/posts", {method: "POST", body: data}).then(response=>{response.json()}).then(data=>{console.log(data); setLatestPost(data.image_url)}).catch(e=>console.log(e))
-    setImageData(data)
-  }
+
 
   function handleSetCoordinates(coords){
     setCoords(coords)
@@ -42,7 +38,7 @@ export default function AddProjectContainer({projectList, loggedInUser}) {
   return (
     <div>
         <AddProjectMap handleSetCoordinates={handleSetCoordinates} projectList={projectList} />
-        <ImageUploader handleSubmitImage={handleSubmitImage} />
+        <ImageUploader setImageData={setImageData} />
         <AddProjectForm handleSubmitProjectToAPI={handleSubmitProjectToAPI} projectData={projectData} setProjectData={setProjectData} />
 
     </div>
