@@ -45,7 +45,7 @@ function App() {
     </Route>
 
     <Route path="/new-project" element={
-    <AddProjectContainer projectList={projectList} />
+    <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList} />
     }>
     </Route>
 

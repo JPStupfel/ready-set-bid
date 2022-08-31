@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AppContext } from "./AddProjectContainer"
 
-function FileForm({handleSubmitImage, latestPost, setLatestPost}) {
+function FileForm({handleSubmitImage}) {
 
     // const {latestPost, setLatestPost} = useContext(AppContext)
 

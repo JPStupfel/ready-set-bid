@@ -1,27 +1,21 @@
 import React, {useState} from 'react'
 
-export default function AddProjectForm({props}) {
-    const [formData, setFormData] = useState({title: null, description: null, client_id: null, lat: null, lng: null, post: {}})
+export default function AddProjectForm({handleSubmitProjectToAPI, projectData, setProjectData}) {
+    const [formData, setFormData] = useState({title: null, description: null})
 
 function handleSubmit(event){
-    event.preventDefault()
-    console.log(formData)
-    // fetch("/session", {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(formData),
-    //   }).then(r=>r.json()).then(d=>{
-    //     setLoggedInUser(d)}).catch(e=>console.log(e))
+   event.preventDefault() 
+   handleSubmitProjectToAPI()
 }
 
 function handleChange(event){
+    
     const id = event.target.id
     const input = event.target.value
-    const newFormData ={...formData}
+    const newFormData ={...projectData}
     newFormData[id] = input
-    setFormData(newFormData)
+    setProjectData(newFormData)
+
 }
 
 // t.string "title"

@@ -7,7 +7,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 
 
-const AddProjectMap = ({projectList}) => {
+const AddProjectMap = ({projectList, handleSetCoordinates}) => {
 
   const [address, setAddress] = useState('')
   const [coordAddress, setCoordAddress] = useState({
@@ -20,8 +20,15 @@ const AddProjectMap = ({projectList}) => {
   function getCoordinates(address){
     fetch(`/address/${address}`)
       .then(response => response.json())
-      .then(data => setCoordAddress(data))
+      .then(data =>{ setCoordAddress(data);
+        handleSetCoordinates(data)
+      })
       
+  }
+
+  function handleGoButton(address){
+  getCoordinates(address);
+
   }
   
   const mapStyles = {        
@@ -53,7 +60,7 @@ const AddProjectMap = ({projectList}) => {
         }}
       />
      
-    <button onClick={(event)=>{getCoordinates(address)}}>Go</button>
+    <button onClick={(event)=>{handleGoButton(address)}}>Go</button>
         <GoogleMap
           mapContainerStyle={mapStyles}
           zoom={13}
