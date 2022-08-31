@@ -10,7 +10,9 @@ function NavBar({handleLogout, loggedInUser}) {
         <Container>
           <Navbar.Brand href="home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-          <Nav.Link href="projects">Projects</Nav.Link>
+
+          
+          {loggedInUser.user_type === 'Client' ? <Nav.Link href="myprojects">My Projects</Nav.Link> : <Nav.Link href="projects">Projects</Nav.Link>}
 
           {loggedInUser.user_type === 'Client' ? <Nav.Link href="/new-project">New Project</Nav.Link> : null}
           

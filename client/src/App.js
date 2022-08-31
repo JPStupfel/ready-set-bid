@@ -7,6 +7,7 @@ import SignupContainer from './components/SignupContainer';
 import LoginContainer from './components/LoginContainer';
 import ProjectsPage from './components/ProjectsPage';
 import AddProjectContainer from './components/AddProjectContainer';
+import MyProjectsPage from './components/MyProjectsPage';
 
 
 
@@ -89,6 +90,9 @@ function App() {
 
             
           <Route path="/projects" element={loggedInUser.id ? <ProjectsPage projectList={projectList}/> : logInWarning}>
+          </Route>
+
+          <Route path="/myprojects" element={loggedInUser.user_type === 'Client' && projectList.length ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===loggedInUser.id)}/> : logInWarning}>
           </Route>
           
 

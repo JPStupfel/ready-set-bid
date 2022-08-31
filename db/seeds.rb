@@ -21,6 +21,7 @@ require 'faker'
 # lng: 2.1649
 
 Client.create username: 'liv', password: 'fish', password_confirmation: 'fish', image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBTWFnjwIJFXgDdyzgSRjit2_9zlWrMVqgVg&usqp=CAU'
+Client.create username: 'reed', password: 'fish', password_confirmation: 'fish', image_url: 'https://imgix.ranker.com/node_img/95/1898585/original/rex-reed-writers-photo-1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&crop=faces&h=150&w=150'
 
 Professional.create username: 'arnold', password: 'fish', password_confirmation: 'fish', image_url: 'https://manofmany.com/wp-content/uploads/2019/03/Arnold-Schwarzeneggers-Diet-and-Workout-Plan.jpg'
 
