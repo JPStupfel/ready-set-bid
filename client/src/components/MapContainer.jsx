@@ -10,7 +10,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const MapContainer = ({projectList}) => {
 
   const markers = projectList.map(
-    project=><CustomMarker project={project} />)
+    project=><CustomMarker key={project.id} project={project} />)
 
   
   const mapStyles = {        

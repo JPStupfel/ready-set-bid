@@ -35,26 +35,45 @@ function App() {
 
   
 
+function getProjectedRoutes(){
 
-  const protecedRoutes = 
+  const protecedRoutesForProfessional = 
   <Routes>
     
-    <Route path="/projects" element={
-    <ProjectsPage projectList={projectList} />
-    }>
+    <Route path="/projects" element={<ProjectsPage projectList={projectList}/>}>
     </Route>
-
-    <Route path="/new-project" element={
-    <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList} />
-    }>
-    </Route>
-
 
     <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
       <>Client Home</>
     </Route>
-
   </Routes>
+
+const protecedRoutesForClient = 
+<Routes>
+  
+  <Route path="/projects" element={
+  <ProjectsPage projectList={projectList} />
+  }>
+  </Route>
+
+  <Route path="/new-project" element={
+  <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList} />
+  }>
+  </Route>
+
+
+  <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
+    <>Client Home</>
+  </Route>
+
+</Routes>
+
+if (loggedInUser.user_type == "Professional"){return protecedRoutesForProfessional}
+else if (loggedInUser.user_type == 'Client'){return protecedRoutesForClient}
+else {return <>Log in first!</>}
+
+}
+
 
   return (
 
@@ -62,10 +81,9 @@ function App() {
       
       <div>
 
-     {<NavBar loggedInUser={loggedInUser} handleLogout={handleLogout} />}
+     <NavBar loggedInUser={loggedInUser} handleLogout={handleLogout} />
 
-    {loggedInUser.id ? protecedRoutes : <h1>Log in or Sign up!</h1>}
-
+    {getProjectedRoutes()}
     
     <Routes>
     <Route path="/signup" element={<SignupContainer setLoggedInUser={setLoggedInUser} />}>
