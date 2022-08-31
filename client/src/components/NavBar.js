@@ -12,23 +12,26 @@ function NavBar({handleLogout, loggedInUser}) {
           <Navbar.Brand href="home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
           <Nav.Link href="projects">Projects</Nav.Link>
-          <Nav.Link href="/new-project">New Project</Nav.Link>
+
+          {loggedInUser.user_type == 'Client' ? <Nav.Link href="/new-project">New Project</Nav.Link> : null}
           
           </Nav>
         </Container>
 
-        <Nav>
-        <Nav.Link href="login">Login</Nav.Link>
-        <Nav.Link href="signup">Signup</Nav.Link>
-
-        </Nav>
+    
        
         {loggedInUser.id ?
          <div className='navbar-image-container'>
           <button onClick={handleLogout}>Logout {loggedInUser.username}</button>
           <img className='profile-thumbnail' src={loggedInUser.image_url}></img>
           </div>
-         :null}
+         :
+         <Nav>
+        <Nav.Link href="login">Login</Nav.Link>
+        <Nav.Link href="signup">Signup</Nav.Link>
+
+        </Nav>
+        }
 
       </Navbar>
       
