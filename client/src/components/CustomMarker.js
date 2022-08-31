@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { GoogleMap, InfoBox, LoadScript, Marker, OverlayView, withGoogleMap } from '@react-google-maps/api';
+import { InfoBox, Marker } from '@react-google-maps/api';
 
 
 export default function CustomMarker({project}) {
@@ -17,11 +17,11 @@ export default function CustomMarker({project}) {
         options={{  closeBoxURL: ``, enableEventPropagation: true }}
         onCloseClick={()=>console.log('deed')}
         >
-        <div style={{ backgroundColor: `white`,' max-width':'100px' }}>
+        <div style={{ backgroundColor: `white`,' maxWidth':'100px' }}>
           <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
             {project.title}
           </div>
-          <img src={image} className='map-image' />
+          <img src={image} alt='' className='map-image' />
           
         </div>
       </InfoBox>

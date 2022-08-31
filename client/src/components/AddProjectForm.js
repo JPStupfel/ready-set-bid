@@ -1,7 +1,6 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 export default function AddProjectForm({handleSubmitProjectToAPI, projectData, setProjectData}) {
-    const [formData, setFormData] = useState({title: null, description: null})
 
 function handleSubmit(event){
    event.preventDefault() 
@@ -18,14 +17,6 @@ function handleChange(event){
 
 }
 
-// t.string "title"
-// t.string "description"
-// t.integer "client_id"
-// t.integer "victor_id"
-// t.datetime "created_at", precision: 6, null: false
-// t.datetime "updated_at", precision: 6, null: false
-// t.float "lat"
-// t.float "lng"
 
   return (
 

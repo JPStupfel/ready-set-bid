@@ -1,5 +1,4 @@
 import React from 'react'
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -13,7 +12,7 @@ function NavBar({handleLogout, loggedInUser}) {
           <Nav className="me-auto">
           <Nav.Link href="projects">Projects</Nav.Link>
 
-          {loggedInUser.user_type == 'Client' ? <Nav.Link href="/new-project">New Project</Nav.Link> : null}
+          {loggedInUser.user_type === 'Client' ? <Nav.Link href="/new-project">New Project</Nav.Link> : null}
           
           </Nav>
         </Container>
@@ -23,7 +22,7 @@ function NavBar({handleLogout, loggedInUser}) {
         {loggedInUser.id ?
          <div className='navbar-image-container'>
           <button onClick={handleLogout}>Logout {loggedInUser.username}</button>
-          <img className='profile-thumbnail' src={loggedInUser.image_url}></img>
+          <img alt='' className='profile-thumbnail' src={loggedInUser.image_url}></img>
           </div>
          :
          <Nav>

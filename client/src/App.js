@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import NavBar from './components/NavBar';
 import SignupContainer from './components/SignupContainer';
 import LoginContainer from './components/LoginContainer';
@@ -34,44 +34,46 @@ function App() {
   }
 
   //return desired routes based on loggedInUser
-  function getProjectedRoutes(){
+  // function getProjectedRoutes(){
 
-    const protecedRoutesForProfessional = 
-      <Routes>
+  //   const protecedRoutesForProfessional = 
+  //     <Routes>
         
-        <Route path="/projects" element={<ProjectsPage projectList={projectList}/>}>
-        </Route>
+  //       <Route path="/projects" element={<ProjectsPage projectList={projectList}/>}>
+  //       </Route>
 
-        <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
-          <>Client Home</>
-        </Route>
-      </Routes>
+  //       <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
+  //         <>Client Home</>
+  //       </Route>
+  //     </Routes>
 
-    const protecedRoutesForClient = 
-    <Routes>
+  //   const protecedRoutesForClient = 
+  //   <Routes>
       
-      <Route path="/projects" element={
-      <ProjectsPage projectList={projectList} />
-      }>
-      </Route>
+  //     <Route path="/projects" element={
+  //     <ProjectsPage projectList={projectList} />
+  //     }>
+  //     </Route>
 
-      <Route path="/new-project" element={
-      <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList} />
-      }>
-      </Route>
+  //     <Route path="/new-project" element={
+  //     <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList} />
+  //     }>
+  //     </Route>
 
 
-      <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
-        <>Client Home</>
-      </Route>
+  //     <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
+  //       <>Client Home</>
+  //     </Route>
 
-    </Routes>
+  //   </Routes>
 
-  if (loggedInUser.user_type == "Professional"){return protecedRoutesForProfessional}
-  else if (loggedInUser.user_type == 'Client'){return protecedRoutesForClient}
-  else {return <>Log in first!</>}
+  // if (loggedInUser.user_type === "Professional"){return protecedRoutesForProfessional}
+  // else if (loggedInUser.user_type === 'Client'){return protecedRoutesForClient}
+  // else {return <>Log in first!</>}
 
-  }
+  // }
+
+  const logInWarning = <h1>Log In First!</h1>
 
 
   return (
@@ -82,13 +84,27 @@ function App() {
 
         <NavBar loggedInUser={loggedInUser} handleLogout={handleLogout} />
 
-        {getProjectedRoutes()}
-        
+
         <Routes>
-        <Route path="/signup" element={<SignupContainer setLoggedInUser={setLoggedInUser} />}>
-        </Route>
-        <Route path="/login" element={<LoginContainer setLoggedInUser={setLoggedInUser} />}>
-        </Route>
+
+            
+          <Route path="/projects" element={loggedInUser.id ? <ProjectsPage projectList={projectList}/> : logInWarning}>
+          </Route>
+          
+
+          <Route path="/new-project" element={loggedInUser.user_type === 'Client' ? <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList}/> : logInWarning}>
+          </Route>
+
+
+          <Route path="/home" element={<>{loggedInUser.user_type} Home</>}><>{`${loggedInUser.user_type} Home Page`}</>
+          </Route>
+
+          <Route path="/signup" element={<SignupContainer setLoggedInUser={setLoggedInUser} />}>
+          </Route>
+
+          <Route path="/login" element={<LoginContainer setLoggedInUser={setLoggedInUser} />}>
+          </Route>
+
         </Routes>
 
       </div>
