@@ -6,7 +6,7 @@ import FileForm from './FileForm';
 
 export default function AddProjectContainer({projectList, loggedInUser}) {
 
-  const [imageData, setImageData] = useState(null)
+  const [imageData, setImageData] = useState([])
   const [coords, setCoords] = useState({lat: null, lng: null})
   const [projectData, setProjectData] = useState({title:null, description:null})
   const [submission, setSubmission] = useState({title: null, description: null, client_id: loggedInUser.id, lat: null, lng: null})
@@ -22,21 +22,36 @@ export default function AddProjectContainer({projectList, loggedInUser}) {
   },[coords, projectData]
   )
 
+  function handleAddImageToImageData(newImage){
+    const newImageData = [...imageData]
+    newImageData.push(newImage)
+    setImageData(newImageData)
+    
+  }
+
   function handleSubmitProjectToAPI(){
     //first submit the proposal form
     fetch("/proposals", {method: "POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify(submission)}).then(response=>{response.json()}).then(data=>{
       console.log(data); 
       //then submit the image post
-      fetch("/posts", {method: "POST", body: imageData}).then(response=>{response.json()}).then(data=>{console.log(data)}).catch(e=>console.log(e))
-    }).catch(e=>console.log(e))
+      imageData.forEach(
+        data=>{
+          fetch("/posts", {method: "POST", body: data}).then(response=>{response.json()}).then(data=>{console.log(data)}).catch(e=>console.log(e))
+    })}
+    )
 
   }
 
   return (
     <div>
         <AddProjectMap setCoords={setCoords} projectList={projectList} />
-        <FileForm setImageData={setImageData} />
+        <FileForm handleAddImageToImageData={handleAddImageToImageData} />
+        <ul>{imageData.map(e=><li>{e.get('post[image]').name}</li>)}</ul>
         <AddProjectForm handleSubmitProjectToAPI={handleSubmitProjectToAPI} projectData={projectData} setProjectData={setProjectData} />
     </div>
   )
 }
+
+// make image data an array of what is now image data,
+// in the post image request, make it a for each on image data array.
+// add a ul that displays all the titles in the image data array
