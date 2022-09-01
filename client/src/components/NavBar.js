@@ -8,11 +8,11 @@ function NavBar({handleLogout, loggedInUser}) {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="/home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
 
           
-          {loggedInUser.user_type === 'Client' ? <Nav.Link href="myprojects">My Projects</Nav.Link> : <Nav.Link href="projects">Projects</Nav.Link>}
+          {loggedInUser.user_type === 'Client' ? <Nav.Link href="/myprojects">My Projects</Nav.Link> : <Nav.Link href="/projects">Projects</Nav.Link>}
 
           {loggedInUser.user_type === 'Client' ? <Nav.Link href="/new-project">New Project</Nav.Link> : null}
           
@@ -28,8 +28,8 @@ function NavBar({handleLogout, loggedInUser}) {
           </div>
          :
          <Nav>
-        <Nav.Link href="login">Login</Nav.Link>
-        <Nav.Link href="signup">Signup</Nav.Link>
+        <Nav.Link href="/login">Login</Nav.Link>
+        <Nav.Link href="/signup">Signup</Nav.Link>
 
         </Nav>
         }

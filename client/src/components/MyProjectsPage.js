@@ -1,10 +1,10 @@
 import React from 'react';
 import MapContainer from './MapContainer'
-import ProjectCard from './ProjectCard';
+import ProjectClientCard from './ProjectClientCard';
 
 export default function MyProjectsPage({projectList}) {
 
-const projectCards = projectList.map(e=><ProjectCard key={e.id} project={e} />)
+const projectCards = projectList.map(e=><ProjectClientCard key={e.id} project={e} />)
 
 
   return (

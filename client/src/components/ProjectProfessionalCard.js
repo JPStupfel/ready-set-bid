@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-function ProjectCard({project}) {
+function ProjectProfessionalCard({project}) {
   const history = useNavigate();
 
   const image = project.posts.length ? project.posts[0].image_url : ''
@@ -24,4 +24,4 @@ function ProjectCard({project}) {
   );
 }
 
-export default ProjectCard;
+export default ProjectProfessionalCard;
