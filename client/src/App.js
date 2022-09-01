@@ -53,10 +53,12 @@ function App() {
             
           <Route path="/projects" element={loggedInUser.id ? <ProjectsPage projectList={projectList}/> : logInWarning}>
           </Route>
+          <Route path="/projects/:id" element={loggedInUser.user_type === 'Professional' && projectList.length ? <>ProjectPage</> : logInWarning}>
+          </Route>
 
           <Route path="/myprojects" element={loggedInUser.user_type === 'Client' && projectList.length ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===loggedInUser.id)}/> : logInWarning}>
           </Route>
-          
+
           <Route path="/myprojects/:id" element={loggedInUser.user_type === 'Client' && projectList.length ? <>MyProjectPage</> : logInWarning}>
           </Route>
           
