@@ -37,7 +37,7 @@ class ProposalsController < ApplicationController
     def show
         proposal = Proposal.find_by id: params['id']
         if proposal
-            render json: proposal, status: 200
+            render json: proposal, serializer: ProposalBidsSerializer, status: 200
         else
             render json: {error: 'Proposal Not Found'}, status: 422
         end
