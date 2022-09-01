@@ -8,6 +8,7 @@ import LoginContainer from './components/LoginContainer';
 import ProjectsPage from './components/ProjectsPage';
 import AddProjectContainer from './components/AddProjectContainer';
 import MyProjectsPage from './components/MyProjectsPage';
+import ViewMyProjectPage from './components/ViewMyProjectPage';
 
 
 
@@ -51,29 +52,29 @@ function App() {
         <Routes>
 
             
-          <Route path="/projects" element={loggedInUser.id ? <ProjectsPage projectList={projectList}/> : logInWarning}>
+          <Route path="/projects" exact element={loggedInUser.id ? <ProjectsPage projectList={projectList}/> : logInWarning}>
           </Route>
-          <Route path="/projects/:id" element={loggedInUser.user_type === 'Professional' && projectList.length ? <>ProjectPage</> : logInWarning}>
-          </Route>
-
-          <Route path="/myprojects" element={loggedInUser.user_type === 'Client' && projectList.length ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===loggedInUser.id)}/> : logInWarning}>
+          <Route path="/projects/:id" exact element={loggedInUser.user_type === 'Professional' && projectList.length ? <>ProjectPage</> : logInWarning}>
           </Route>
 
-          <Route path="/myprojects/:id" element={loggedInUser.user_type === 'Client' && projectList.length ? <>MyProjectPage</> : logInWarning}>
+          <Route path="/myprojects" exact element={loggedInUser.user_type === 'Client' && projectList.length ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===loggedInUser.id)}/> : logInWarning}>
+          </Route>
+
+          <Route path="/myprojects/:id" exact element={loggedInUser.user_type === 'Client' && projectList.length ? <ViewMyProjectPage projectList={projectList} /> : logInWarning}>
           </Route>
           
 
-          <Route path="/new-project" element={loggedInUser.user_type === 'Client' ? <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList}/> : logInWarning}>
+          <Route path="/new-project" exact element={loggedInUser.user_type === 'Client' ? <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList}/> : logInWarning}>
           </Route>
 
 
-          <Route path="/home" element={<>{loggedInUser.user_type} Home</>}><>{`${loggedInUser.user_type} Home Page`}</>
+          <Route path="/home" exact element={<>{loggedInUser.user_type} Home</>}><>{`${loggedInUser.user_type} Home Page`}</>
           </Route>
 
-          <Route path="/signup" element={<SignupContainer setLoggedInUser={setLoggedInUser} />}>
+          <Route path="/signup" exact element={<SignupContainer setLoggedInUser={setLoggedInUser} />}>
           </Route>
 
-          <Route path="/login" element={<LoginContainer setLoggedInUser={setLoggedInUser} />}>
+          <Route path="/login" exact element={<LoginContainer setLoggedInUser={setLoggedInUser} />}>
           </Route>
 
         </Routes>
