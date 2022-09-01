@@ -27,7 +27,23 @@ class ProposalsController < ApplicationController
             client_id: params['client_id'],
             victor_id: nil
         )
-        render json: proposal, status: 200  
+        if proposal.valid?
+            render json: proposal, status: 200  
+        else
+            render json: {error: proposal.errors.full_message}, status: 422
+        end
+    end
+
+    def show
+        proposal = Proposal.find_by id: params['id']
+        if proposal
+            render json: proposal, status: 200
+        else
+            render json: {error: 'Proposal Not Found'}, status: 422
+        end
+        # render json: professional, serializer: ProfessionalSessionSerializer, status: 200
+
+        
     end
 
     private
