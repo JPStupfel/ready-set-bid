@@ -24,7 +24,7 @@ function FileForm({handleAddImageToImageData}) {
         <label htmlFor="image">Image</label>
         <input type='file' name="Image" id="image"/>
         <br/>
-        <button type="submit">Create Post</button>
+        <button type="submit">Attach Photo to Project!</button>
         </form>
     </div>
   )

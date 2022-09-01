@@ -34,45 +34,7 @@ function App() {
   ).catch(e=>console.log(e))
   }
 
-  //return desired routes based on loggedInUser
-  // function getProjectedRoutes(){
-
-  //   const protecedRoutesForProfessional = 
-  //     <Routes>
-        
-  //       <Route path="/projects" element={<ProjectsPage projectList={projectList}/>}>
-  //       </Route>
-
-  //       <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
-  //         <>Client Home</>
-  //       </Route>
-  //     </Routes>
-
-  //   const protecedRoutesForClient = 
-  //   <Routes>
-      
-  //     <Route path="/projects" element={
-  //     <ProjectsPage projectList={projectList} />
-  //     }>
-  //     </Route>
-
-  //     <Route path="/new-project" element={
-  //     <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList} />
-  //     }>
-  //     </Route>
-
-
-  //     <Route path="/home" element={<>{loggedInUser.user_type} Home</>}>
-  //       <>Client Home</>
-  //     </Route>
-
-  //   </Routes>
-
-  // if (loggedInUser.user_type === "Professional"){return protecedRoutesForProfessional}
-  // else if (loggedInUser.user_type === 'Client'){return protecedRoutesForClient}
-  // else {return <>Log in first!</>}
-
-  // }
+ 
 
   const logInWarning = <h1>Log In First!</h1>
 
@@ -93,6 +55,9 @@ function App() {
           </Route>
 
           <Route path="/myprojects" element={loggedInUser.user_type === 'Client' && projectList.length ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===loggedInUser.id)}/> : logInWarning}>
+          </Route>
+          
+          <Route path="/myprojects/:id" element={loggedInUser.user_type === 'Client' && projectList.length ? <>MyProjectPage</> : logInWarning}>
           </Route>
           
 

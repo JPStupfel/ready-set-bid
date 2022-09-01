@@ -52,6 +52,3 @@ export default function AddProjectContainer({projectList, loggedInUser}) {
   )
 }
 
-// make image data an array of what is now image data,
-// in the post image request, make it a for each on image data array.
-// add a ul that displays all the titles in the image data array

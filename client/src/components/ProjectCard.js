@@ -1,7 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
+
+
 
 function ProjectCard({project}) {
+  const history = useNavigate();
 
   const image = project.posts.length ? project.posts[0].image_url : ''
 
@@ -14,7 +18,7 @@ function ProjectCard({project}) {
         <Card.Text>
           {project.description}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary" onClick={()=>history(`/myprojects/${project.id}`)}>Go somewhere</Button>
       </Card.Body>
     </Card>
   );
