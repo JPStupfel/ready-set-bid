@@ -19,14 +19,7 @@ class ProposalsController < ApplicationController
     end
 
     def create
-        proposal = Proposal.create(
-            title: params['title'],
-            description: params['description'],
-            lat: params['lat'],
-            lng: params['lng'],
-            client_id: params['client_id'],
-            victor_id: nil
-        )
+        proposal = Proposal.create( title: params['title'], description: params['description'], lat: params['lat'], lng: params['lng'], client_id: params['client_id'], victor_id: nil)
         if proposal.valid?
             render json: proposal, status: 200  
         else
@@ -44,6 +37,16 @@ class ProposalsController < ApplicationController
         # render json: professional, serializer: ProfessionalSessionSerializer, status: 200
 
         
+    end
+
+    def destroy
+        proposal = Proposal.find_by id: params['id']
+        if proposal
+            proposal.destroy
+            render json: {}, status: 204
+        else
+            render json: {error: 'proposal not found'}, status: 422
+        end
     end
 
     private

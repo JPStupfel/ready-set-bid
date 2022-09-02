@@ -60,7 +60,7 @@ function App() {
           <Route path="/myprojects" exact element={loggedInUser.user_type === 'Client' && projectList.length ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===loggedInUser.id)}/> : logInWarning}>
           </Route>
 
-          <Route path="/myprojects/:id" exact element={loggedInUser.user_type === 'Client' && projectList.length ? <ViewMyProjectPage projectList={projectList} /> : logInWarning}>
+          <Route path="/myprojects/:id" exact element={loggedInUser.user_type === 'Client' && projectList.length ? <ViewMyProjectPage setProjectList={setProjectList} projectList={projectList} /> : logInWarning}>
           </Route>
           
 
