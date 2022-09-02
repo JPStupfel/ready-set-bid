@@ -5,7 +5,7 @@ import MapContainer from './MapContainer'
 import MyProjectBidList from './MyProjectBidList';
 import VewMyProjectImageCard from './VewMyProjectImageCard';
 
-export default function ViewMyProjectPage({projectList, setProjectList}) {
+export default function ViewMyProjectPage({setProjectList}) {
      let  {id} = useParams();
      const id_num = parseInt(id,10)
      
@@ -30,8 +30,9 @@ export default function ViewMyProjectPage({projectList, setProjectList}) {
      // catch ref error while fetching.
      while (!currentProject){return(<>Loading!</>)}
 
-     const projectImages =  currentProject.posts.map(e=><VewMyProjectImageCard key={e.id} image={e.image_url} />)
-
+     const projectImages =  currentProject.posts.map(e=><VewMyProjectImageCard key={e.id} image={e.image_url} />) 
+     const victorBid = currentProject.victor_id ? currentProject.bids.find(bid=>bid.professional_id==currentProject.victor_id) : null
+     
 
   return (
     <div>
@@ -40,7 +41,7 @@ export default function ViewMyProjectPage({projectList, setProjectList}) {
       <div className='project-image-container'>
          {projectImages}
       </div>
-      <MyProjectBidList handleAcceptBid={handleAcceptBid} currentProject={currentProject}/>
+      {!currentProject.victor_id ? <MyProjectBidList handleAcceptBid={handleAcceptBid} currentProject={currentProject}/> : <h1>This project has been won by {victorBid.professional_name} for ${victorBid.amount} </h1>}
       <button onClick={deleteProject}>Delete this Project</button>
    </div>
   )

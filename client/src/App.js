@@ -39,18 +39,15 @@ function App() {
  
 
   const logInWarning = <h1>Log In First!</h1>
-
+  const openProjectList = projectList.length ? projectList.filter(project=>!project.victor_id) : null
+  const closedProjectList = projectList.length ? projectList.filter(projects=>projects.victor_id) : null
 
 
   return (
 
     <Router>
-      
       <div>
-
         <NavBar loggedInUser={loggedInUser} handleLogout={handleLogout} />
-
-
         <Routes>
 
            {/* routes for everybody */}
@@ -66,7 +63,7 @@ function App() {
           projectList.length ?
         <Routes>
             {/* routes for pros */}
-            <Route path="/projects" exact element={loggedInUser.user_type === 'Professional' ? <ProjectsPage projectList={projectList}/> : logInWarning}>
+            <Route path="/projects" exact element={loggedInUser.user_type === 'Professional' ? <ProjectsPage projectList={openProjectList}/> : logInWarning}>
             </Route>
             <Route path="/projects/:id" exact element={loggedInUser.user_type === 'Professional' ? <ViewProjectProPage loggedInUser={loggedInUser}/> : logInWarning}>
             </Route>
@@ -81,10 +78,7 @@ function App() {
 
         : <>Make sure you are logged in.</>
         }
-
-
       </div>
-
     </Router>
 
   );
