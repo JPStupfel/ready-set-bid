@@ -21,6 +21,11 @@ export default function ViewMyProjectPage({projectList, setProjectList}) {
         setProjectList(projectList=>projectList.filter(project=>project.id!==id_num))
         history('/myprojects')
      }
+
+     function handleAcceptBid(bid){
+      // fetch("/proposals", {method: "POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify()})
+      console.log('will accept bid', bid.id)
+  }
     
      // catch ref error while fetching.
      while (!currentProject){return(<>Loading!</>)}
@@ -30,11 +35,13 @@ export default function ViewMyProjectPage({projectList, setProjectList}) {
 
   return (
     <div>
-    <h1>{currentProject.title}</h1>
-    <MapContainer projectList={[currentProject]}/>
-    {projectImages}
-   <MyProjectBidList currentProject={currentProject}/>
-    <button onClick={deleteProject}>Delete this Project</button>
-</div>
+      <h1>{currentProject.title}</h1>
+      <MapContainer projectList={[currentProject]}/>
+      <div className='project-image-container'>
+         {projectImages}
+      </div>
+      <MyProjectBidList handleAcceptBid={handleAcceptBid} currentProject={currentProject}/>
+      <button onClick={deleteProject}>Delete this Project</button>
+   </div>
   )
 }

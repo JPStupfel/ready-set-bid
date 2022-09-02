@@ -73,7 +73,9 @@ export default function ViewProjectProPage({loggedInUser}) {
     
 
    {hasBid? <>You have already bid on this project</> : bidForm}
+   <div className='project-image-container'>
     {projectImages}
+  </div>
 
 </div>
   )

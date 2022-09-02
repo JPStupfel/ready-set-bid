@@ -73,3 +73,17 @@
 .bid-container{
   display: inline-flex;
 }
+.bid-outline{
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey  ;
+}
+.project-image-container{
+  border-style: solid;
+  border-width: 2px;
+  border-color: grey;
+}
+.project-image-container img{
+  display: inline-table;
+  height: auto
+}

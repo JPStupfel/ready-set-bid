@@ -8,9 +8,9 @@ const projectCards = projectList.map(e=><ProjectProfessionalCard key={e.id} proj
 
 
   return (
-    <div>
+    <div >
         <MapContainer projectList={projectList}/>
-        {projectCards}
+          {projectCards}
     </div>
   )
 }
