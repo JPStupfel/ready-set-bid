@@ -49,6 +49,17 @@ class ProposalsController < ApplicationController
         end
     end
 
+    def update
+        proposal = Proposal.find_by id: params['id']
+        if proposal
+            proposal.update victor_id: params['victor_id']
+            render json: proposal, status: 202
+        else
+            render json: {error: 'Proposal Not Found'}, status: 422
+        end
+
+    end
+
     private
     
     def require_login

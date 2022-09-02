@@ -23,7 +23,7 @@ export default function ViewMyProjectPage({projectList, setProjectList}) {
      }
 
      function handleAcceptBid(bid){
-      // fetch("/proposals", {method: "POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify()})
+       fetch(`/proposals/${id_num}`, {method: "PATCH", headers:{'Content-Type':'application/json'}, body: JSON.stringify({victor_id: bid.professional_id })})
       console.log('will accept bid', bid.id)
   }
     
