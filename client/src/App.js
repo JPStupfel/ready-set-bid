@@ -16,7 +16,7 @@ import ViewMyProjectPage from './components/ViewMyProjectPage';
 function App() {
 
   const [loggedInUser, setLoggedInUser] = useState({id: null, username:null, user_type: null, image_url: null})
-  const [projectList, setProjectList] = useState([])
+  const [projectList, setProjectList] = useState(null)
 
   useEffect(()=>{
     fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser(d)).catch(e=>console.log(e))
@@ -39,6 +39,9 @@ function App() {
 
   const logInWarning = <h1>Log In First!</h1>
 
+// rescue from nomethod error while loading projectList
+  while (!projectList){return(<>Loading!</>)}
+
 
   return (
 
@@ -51,29 +54,23 @@ function App() {
 
         <Routes>
 
-            
-          <Route path="/projects" exact element={loggedInUser.id ? <ProjectsPage projectList={projectList}/> : logInWarning}>
+          {/* routes for professional */}
+          <Route path="/projects" exact element={loggedInUser.user_type === 'Professional' ? <ProjectsPage projectList={projectList}/> : logInWarning}>
           </Route>
-          <Route path="/projects/:id" exact element={loggedInUser.user_type === 'Professional' && projectList.length ? <>ProjectPage</> : logInWarning}>
+          <Route path="/projects/:id" exact element={loggedInUser.user_type === 'Professional' ? <>ProjectPage</> : logInWarning}>
           </Route>
-
-          <Route path="/myprojects" exact element={loggedInUser.user_type === 'Client' && projectList.length ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===loggedInUser.id)}/> : logInWarning}>
+          {/* routes for client */}
+          <Route path="/myprojects" exact element={loggedInUser.user_type === 'Client' ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===loggedInUser.id)}/> : logInWarning}>
           </Route>
-
-          <Route path="/myprojects/:id" exact element={loggedInUser.user_type === 'Client' && projectList.length ? <ViewMyProjectPage setProjectList={setProjectList} projectList={projectList} /> : logInWarning}>
+          <Route path="/myprojects/:id" exact element={loggedInUser.user_type === 'Client' ? <ViewMyProjectPage setProjectList={setProjectList} projectList={projectList} /> : logInWarning}>
           </Route>
-          
-
           <Route path="/new-project" exact element={loggedInUser.user_type === 'Client' ? <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList}/> : logInWarning}>
           </Route>
-
-
+          {/* routes for everybody */}
           <Route path="/home" exact element={<>{loggedInUser.user_type} Home</>}><>{`${loggedInUser.user_type} Home Page`}</>
           </Route>
-
           <Route path="/signup" exact element={<SignupContainer setLoggedInUser={setLoggedInUser} />}>
           </Route>
-
           <Route path="/login" exact element={<LoginContainer setLoggedInUser={setLoggedInUser} />}>
           </Route>
 
