@@ -9,6 +9,7 @@ import ProjectsPage from './components/ProjectsPage';
 import AddProjectContainer from './components/AddProjectContainer';
 import MyProjectsPage from './components/MyProjectsPage';
 import ViewMyProjectPage from './components/ViewMyProjectPage';
+import ViewProjectProPage from './components/ViewProjectProPage';
 
 
 
@@ -57,12 +58,12 @@ function App() {
           {/* routes for professional */}
           <Route path="/projects" exact element={loggedInUser.user_type === 'Professional' ? <ProjectsPage projectList={projectList}/> : logInWarning}>
           </Route>
-          <Route path="/projects/:id" exact element={loggedInUser.user_type === 'Professional' ? <>ProjectPage</> : logInWarning}>
+          <Route path="/projects/:id" exact element={loggedInUser.user_type === 'Professional' ? <ViewProjectProPage projectList={projectList} /> : logInWarning}>
           </Route>
           {/* routes for client */}
           <Route path="/myprojects" exact element={loggedInUser.user_type === 'Client' ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===loggedInUser.id)}/> : logInWarning}>
           </Route>
-          <Route path="/myprojects/:id" exact element={loggedInUser.user_type === 'Client' ? <ViewMyProjectPage setProjectList={setProjectList} projectList={projectList} /> : logInWarning}>
+          <Route path="/myprojects/:id" exact element={loggedInUser.user_type === 'Client' ? <ViewMyProjectPage setProjectList={setProjectList}  projectList={projectList} /> : logInWarning}>
           </Route>
           <Route path="/new-project" exact element={loggedInUser.user_type === 'Client' ? <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList}/> : logInWarning}>
           </Route>
