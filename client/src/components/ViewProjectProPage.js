@@ -15,6 +15,8 @@ export default function ViewProjectProPage({projectList, setProjectList}) {
      useEffect(()=>{
         fetch(`/proposals/${id_num}`).then(r=>r.json()).then(d=>setCurrentProject(d))
      },[])
+
+
      
      function handleSubmit(event){
       event.preventDefault()
@@ -23,7 +25,7 @@ export default function ViewProjectProPage({projectList, setProjectList}) {
          headers: {
            'Content-Type': 'application/json',
          },
-         body: JSON.stringify(bidAmount),
+         body: JSON.stringify({amount: bidAmount, proposal_id: id_num}),
        })
        .then(r=>r.json())
        .then(d=>{
