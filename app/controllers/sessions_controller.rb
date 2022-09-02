@@ -46,7 +46,7 @@ class SessionsController < ApplicationController
     def update
         client = Client.find_by username: params['username']
         
-        if client
+        if client &.authenticate(params[:password])
             session[:user_id] = client.id
             session[:user_type] = client.class.name
 

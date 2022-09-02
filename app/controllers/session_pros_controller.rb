@@ -38,7 +38,7 @@ class SessionProsController < ApplicationController
         def update
             professional = Professional.find_by username: params['username']
             
-            if professional
+            if professional.authenticate(params[:password])
                 session[:user_id] = professional.id
                 session[:user_type] = professional.class.name
                 render json: professional, status: 200
