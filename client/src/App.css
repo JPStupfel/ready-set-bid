@@ -64,3 +64,12 @@
   max-width: 100px;
   max-height: 100px;
 }
+.bid-image{
+
+  height: 100px;
+    display: inline;
+
+}
+.bid-container{
+  display: inline-flex;
+}
