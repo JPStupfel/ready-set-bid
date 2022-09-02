@@ -4,19 +4,25 @@ import { useParams } from 'react-router-dom';
 import MapContainer from './MapContainer'
 import VewMyProjectImageCard from './VewMyProjectImageCard';
 
-export default function ViewProjectProPage({projectList, setProjectList}) {
+export default function ViewProjectProPage({loggedInUser}) {
      let  {id} = useParams();
      const id_num = parseInt(id,10)
      
     
      const [currentProject, setCurrentProject] = useState(null)
      const [bidAmount, setBidAmount] = useState(0)
+     const [hasBid, setHasBid] = useState(false)
+
 
      useEffect(()=>{
-        fetch(`/proposals/${id_num}`).then(r=>r.json()).then(d=>setCurrentProject(d))
+        fetch(`/proposals/${id_num}`).then(r=>r.json()).then(
+         d=>{
+            setCurrentProject(d); 
+            if (d.bids.find(e=>e.professional_id == loggedInUser.id)){setHasBid(true)}
+        })
      },[])
 
-
+     
      
      function handleSubmit(event){
       event.preventDefault()
@@ -30,7 +36,7 @@ export default function ViewProjectProPage({projectList, setProjectList}) {
        .then(r=>r.json())
        .then(d=>{
          console.log(d);
- 
+         setHasBid(true)
        }
          ).catch(e=>console.log(e))
      }
@@ -41,6 +47,21 @@ export default function ViewProjectProPage({projectList, setProjectList}) {
 
 
      const projectImages =  currentProject.posts.map(e=><VewMyProjectImageCard key={e.id} image={e.image_url} />)
+    
+     const bidForm =  <form>
+                        <input 
+                        type='text'
+                        placeholder='$Amount'
+                        onChange={(e)=>{setBidAmount(e.target.value)}}
+                        value={bidAmount}
+                        ></input>
+
+                        <button
+                        onClick={e=>handleSubmit(e)} 
+                        type='submit'
+                        >Bid on this Project</button>
+
+                        </form>
 
 
   return (
@@ -49,23 +70,9 @@ export default function ViewProjectProPage({projectList, setProjectList}) {
     <MapContainer projectList={[currentProject]}/>
 
 
-    <form>
+    
 
-      <input 
-      type='text'
-      placeholder='$Amount'
-      onChange={(e)=>{setBidAmount(e.target.value)}}
-      value={bidAmount}
-      ></input>
-
-      <button
-      onClick={e=>handleSubmit(e)} 
-      type='submit'
-      >Bid on this Project</button>
-
-    </form>
-
-
+   {hasBid? <>You have already bid on this project</> : bidForm}
     {projectImages}
 
 </div>

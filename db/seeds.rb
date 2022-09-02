@@ -25,6 +25,7 @@ Client.create username: 'reed', password: 'fish', password_confirmation: 'fish',
 
 Professional.create username: 'arnold', password: 'fish', password_confirmation: 'fish', image_url: 'https://manofmany.com/wp-content/uploads/2019/03/Arnold-Schwarzeneggers-Diet-and-Workout-Plan.jpg'
 Professional.create username: 'sebastian', password: 'fish', password_confirmation: 'fish', image_url: 'https://s.wsj.net/public/resources/images/BN-TW412_WOLFE_FR_20170614145651.jpg'
+Professional.create username: 'maria', password: 'fish', password_confirmation: 'fish', image_url: 'https://www.tennisworldusa.org/imgb/98650/maria-sharapova-when-i-won-wimbledon-my-mother-was-.webp'
 
 
 2.times do 
