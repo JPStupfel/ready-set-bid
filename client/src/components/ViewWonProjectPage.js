@@ -1,0 +1,48 @@
+import React, { useEffect, useState} from 'react'
+import { useParams } from 'react-router-dom';
+
+import MapContainer from './MapContainer'
+import VewMyProjectImageCard from './VewMyProjectImageCard';
+
+export default function ViewWonProjectPage({loggedInUser}) {
+     let  {id} = useParams();
+     const id_num = parseInt(id,10)
+     
+    
+     const [currentProject, setCurrentProject] = useState(null)
+    
+
+
+     useEffect(()=>{
+        fetch(`/proposals/${id_num}`).then(r=>r.json()).then(
+         d=>{
+            
+            if (d.victor_id == loggedInUser.id){setCurrentProject(d)}
+        })
+     },[])
+
+     
+
+    
+     // catch ref error while fetching.
+     while (!currentProject){return(<>Loading!</>)}
+
+
+     const projectImages =  currentProject.posts.map(e=><VewMyProjectImageCard key={e.id} image={e.image_url} />)
+     const victorBid = currentProject.victor_id ? currentProject.bids.find(bid=>bid.professional_id==currentProject.victor_id) : null
+
+     
+
+
+  return (
+    <div>
+    <h1>{currentProject.title}</h1>
+    <MapContainer projectList={[currentProject]}/>
+   {<h2>You have won this project for ${victorBid.amount}</h2>}
+   <div className='project-image-container'>
+    {projectImages}
+  </div>
+
+</div>
+  )
+}

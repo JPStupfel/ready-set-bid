@@ -12,10 +12,11 @@ function NavBar({handleLogout, loggedInUser}) {
           <Nav className="me-auto">
 
           
-          {loggedInUser.user_type === 'Client' ? <Nav.Link href="/myprojects">My Projects</Nav.Link> : <Nav.Link href="/projects">Projects</Nav.Link>}
-
+          {loggedInUser.user_type === 'Client' ? <Nav.Link href="/myprojects">My Projects</Nav.Link> :<> <Nav.Link href="/projects">Projects</Nav.Link> <Nav.Link href="/my_projects_won">My Won Projects</Nav.Link> </>}
+         
           {loggedInUser.user_type === 'Client' ? <Nav.Link href="/new-project">New Project</Nav.Link> : null}
           
+
           </Nav>
         </Container>
 

@@ -10,6 +10,8 @@ import AddProjectContainer from './components/AddProjectContainer';
 import MyProjectsPage from './components/MyProjectsPage';
 import ViewMyProjectPage from './components/ViewMyProjectPage';
 import ViewProjectProPage from './components/ViewProjectProPage';
+import MyWonProjectsPage from './components/MyWonProjectsPage';
+import ViewWonProjectPage from './components/ViewWonProjectPage';
 
 
 
@@ -67,6 +69,13 @@ function App() {
             </Route>
             <Route path="/projects/:id" exact element={loggedInUser.user_type === 'Professional' ? <ViewProjectProPage loggedInUser={loggedInUser}/> : logInWarning}>
             </Route>
+
+            <Route path="/my_projects_won" exact element={loggedInUser.user_type === 'Professional' ? <MyWonProjectsPage projectList={closedProjectList} loggedInUser={loggedInUser}/> : logInWarning}>
+            </Route>
+
+            <Route path="/my_projects_won/:id" exact element={loggedInUser.user_type === 'Professional' ? <ViewWonProjectPage loggedInUser={loggedInUser}/> : logInWarning}>
+            </Route>
+
             {/* routes for client */}
             <Route path="/myprojects" exact element={loggedInUser.user_type === 'Client' ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===loggedInUser.id)}/> : logInWarning}>
             </Route>
