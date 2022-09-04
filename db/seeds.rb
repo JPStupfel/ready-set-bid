@@ -28,14 +28,19 @@ Professional.create username: 'sebastian', password: 'fish', password_confirmati
 Professional.create username: 'maria', password: 'fish', password_confirmation: 'fish', image_url: 'https://www.tennisworldusa.org/imgb/98650/maria-sharapova-when-i-won-wimbledon-my-mother-was-.webp'
 
 
-2.times do 
-    proposal = Proposal.create title: Faker::Science.element_subcategory, description: Faker::Quote.yoda, client_id: Client.first.id, victor_id: nil, lat: Faker::Number.within(range: 41.3917..41.4000), lng: Faker::Number.within(range: 2.1649..2.2000) 
 
-post = proposal.posts.create title: "arnold"
+1.times do 
+
+images = [{path: 'db/Pictures/wooden_pier_two.jpeg', filename:'wooden_pier_two.jpeg'}, {path:'db/Pictures/Wooden_Pier.jpeg',filename:'Wooden_Pier.jpeg'}, {path: 'db/Pictures/Wooden_Pier_3.jpeg', filename: 'Wooden_Pier_3.jpeg'}]
+proposal = Proposal.create title: 'Fix my broken dock', description: 'Old style beach front pier in need of repair', client_id: Client.first.id, victor_id: nil, lat: Faker::Number.within(range: 41.3917..41.4000), lng: Faker::Number.within(range: 2.1649..2.2000) 
+
+images.each do |i|
+    
+post = proposal.posts.create title: "Doc"
 # attach a local image as a placeholder
-post.image.attach(io: File.open(Rails.root.join('db/Pictures/Arnold.jpeg')),
-                  filename: 'Arnold.jpg')
-
+post.image.attach(io: File.open(Rails.root.join(i[:path])),
+                  filename: i[:filename])
+end
  
 proposal.bids.create professional_id: Professional.first.id, amount: 400
 
