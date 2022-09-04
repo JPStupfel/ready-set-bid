@@ -38,7 +38,6 @@ post.image.attach(io: File.open(Rails.root.join('db/Pictures/Arnold.jpeg')),
 
  
 proposal.bids.create professional_id: Professional.first.id, amount: 400
-proposal.bids.create professional_id: Professional.second.id, amount: 300
 
 
 end

@@ -14,7 +14,7 @@ const MapContainer = ({projectList}) => {
 
   
   const mapStyles = {        
-    height: "100vh",
+    height: "50vh",
     width: "100%"};
 
     
@@ -27,18 +27,16 @@ const MapContainer = ({projectList}) => {
   return (
      <LoadScript
        googleMapsApiKey= {API_KEY}>
+
+      <div className='map-box'>
         <GoogleMap
           mapContainerStyle={mapStyles}
           zoom={13}
           center={defaultCenter}
         >
- 
-
-
-           {
-            markers
-         }
+            {markers}
          </GoogleMap>
+      </div>
         
         
      </LoadScript>
