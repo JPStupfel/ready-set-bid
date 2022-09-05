@@ -68,6 +68,7 @@ export default function ViewProjectProPage({loggedInUser}) {
     <div>
     <h1>{currentProject.title}</h1>
     <MapContainer projectList={[currentProject]}/>
+    <div>{currentProject.description}</div>
 
 
     
