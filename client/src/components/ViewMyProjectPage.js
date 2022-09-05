@@ -38,6 +38,7 @@ export default function ViewMyProjectPage({setProjectList}) {
     <div>
       <h1>{currentProject.title}</h1>
       <MapContainer projectList={[currentProject]}/>
+      <div>{currentProject.description}</div>
       <div className='project-image-container'>
          {projectImages}
       </div>
