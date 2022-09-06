@@ -27,7 +27,7 @@ function App() {
     dispatch(action)
   }
 
-  // const [user, setUser] = useState({id: null, username:null, user_type: null, image_url: null})
+ 
   const [projectList, setProjectList] = useState([])
 
   useEffect(()=>{
@@ -58,7 +58,7 @@ function App() {
 
     <Router>
       <div>
-        <NavBar user={user} handleLogout={handleLogout} />
+        <NavBar handleLogout={handleLogout} />
         <Routes>
 
            {/* routes for everybody */}
@@ -76,13 +76,13 @@ function App() {
             {/* routes for pros */}
             <Route path="/projects" exact element={user.user_type === 'Professional' ? <ProjectsPage projectList={openProjectList}/> : logInWarning}>
             </Route>
-            <Route path="/projects/:id" exact element={user.user_type === 'Professional' ? <ViewProjectProPage user={user}/> : logInWarning}>
+            <Route path="/projects/:id" exact element={user.user_type === 'Professional' ? <ViewProjectProPage /> : logInWarning}>
             </Route>
 
-            <Route path="/my_projects_won" exact element={user.user_type === 'Professional' ? <MyWonProjectsPage projectList={closedProjectList} user={user}/> : logInWarning}>
+            <Route path="/my_projects_won" exact element={user.user_type === 'Professional' ? <MyWonProjectsPage projectList={closedProjectList} /> : logInWarning}>
             </Route>
 
-            <Route path="/my_projects_won/:id" exact element={user.user_type === 'Professional' ? <ViewWonProjectPage user={user}/> : logInWarning}>
+            <Route path="/my_projects_won/:id" exact element={user.user_type === 'Professional' ? <ViewWonProjectPage /> : logInWarning}>
             </Route>
 
             {/* routes for client */}
@@ -90,13 +90,12 @@ function App() {
             </Route>
             <Route path="/myprojects/:id" exact element={user.user_type === 'Client' ? <ViewMyProjectPage setProjectList={setProjectList}  projectList={projectList} /> : logInWarning}>
             </Route>
-            <Route path="/new-project" exact element={user.user_type === 'Client' ? <AddProjectContainer user={user} projectList={projectList}/> : logInWarning}>
+            <Route path="/new-project" exact element={user.user_type === 'Client' ? <AddProjectContainer projectList={projectList}/> : logInWarning}>
             </Route>
         </Routes>
 
         : <>Make sure you are logged in.</>
         }
-        <div>{user.username + user.id}</div>
       </div>
     </Router>
 

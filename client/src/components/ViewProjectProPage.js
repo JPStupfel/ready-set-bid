@@ -1,10 +1,13 @@
 import React, { useEffect, useState} from 'react'
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import MapContainer from './MapContainer'
 import VewMyProjectImageCard from './VewMyProjectImageCard';
 
-export default function ViewProjectProPage({user}) {
+export default function ViewProjectProPage() {
+  const user = useSelector(state=>state)
+
      let  {id} = useParams();
      const id_num = parseInt(id,10)
      

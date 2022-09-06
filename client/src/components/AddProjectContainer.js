@@ -2,9 +2,11 @@ import {useEffect, useState } from 'react';
 import AddProjectMap from './AddProjectMap'
 import AddProjectForm from './AddProjectForm';
 import FileForm from './FileForm';
+import { useSelector } from 'react-redux';
   
 
-export default function AddProjectContainer({projectList, user}) {
+export default function AddProjectContainer({projectList}) {
+  const user = useSelector(state=>state)
 
   const [imageData, setImageData] = useState([])
   const [coords, setCoords] = useState({lat: null, lng: null})
@@ -30,6 +32,7 @@ export default function AddProjectContainer({projectList, user}) {
   }
 
   function handleSubmitProjectToAPI(){
+
     //first submit the proposal form
     fetch("/proposals", {method: "POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify(submission)}).then(response=>{response.json()}).then(data=>{
       console.log(data); 

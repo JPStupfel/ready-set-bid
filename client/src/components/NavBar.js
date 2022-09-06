@@ -2,8 +2,11 @@ import React from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useSelector } from 'react-redux';
 
-function NavBar({handleLogout, user}) {
+function NavBar({handleLogout}) {
+  const user = useSelector(state=>state)
+
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -12,7 +15,7 @@ function NavBar({handleLogout, user}) {
           <Nav className="me-auto">
 
           
-          {user.user_type === 'Client' ? <Nav.Link href="/myprojects">My Projects</Nav.Link> :<> <Nav.Link href="/projects">Projects</Nav.Link> <Nav.Link href="/my_projects_won">My Won Projects</Nav.Link> </>}
+          {user.user_type === 'Client' ? <Nav.Link href="/myprojects">My Projects</Nav.Link> : <> <Nav.Link href="/projects">Projects</Nav.Link> <Nav.Link href="/my_projects_won">My Won Projects</Nav.Link> </>}
          
           {user.user_type === 'Client' ? <Nav.Link href="/new-project">New Project</Nav.Link> : null}
           
