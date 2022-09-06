@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function LoginProForm({setLoggedInUser}) {
+export default function LoginProForm({setUser}) {
     const [formData, setFormData] = useState({username: null, password: null})
 
 function handleSubmit(event){
@@ -11,7 +11,7 @@ function handleSubmit(event){
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-      }).then(r=>r.json()).then(d=>setLoggedInUser(d)).catch(e=>console.log(e))
+      }).then(r=>r.json()).then(d=>setUser(d)).catch(e=>console.log(e))
 }
 
 function handleChange(event){

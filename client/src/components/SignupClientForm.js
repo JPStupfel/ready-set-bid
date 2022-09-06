@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function SignupClientForm({setLoggedInUser}) {
+export default function SignupClientForm({setUser}) {
     const [formData, setFormData] = useState({username: null, password: null, password_confirmation: null, image_url: null})
 
 function handleSubmit(event){
@@ -12,7 +12,7 @@ function handleSubmit(event){
         },
         body: JSON.stringify(formData),
       }).then(r=>r.json()).then(d=>{
-        setLoggedInUser(d)}).catch(e=>console.log(e))
+        setUser(d)}).catch(e=>console.log(e))
 }
 
 function handleChange(event){

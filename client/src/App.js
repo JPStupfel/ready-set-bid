@@ -12,21 +12,30 @@ import ViewMyProjectPage from './components/ViewMyProjectPage';
 import ViewProjectProPage from './components/ViewProjectProPage';
 import MyWonProjectsPage from './components/MyWonProjectsPage';
 import ViewWonProjectPage from './components/ViewWonProjectPage';
-
+import {connect, useSelector, useDispatch} from 'react-redux'
 
 
 
 function App() {
+  const user = useSelector(state=>state)
+  const dispatch = useDispatch()
+  function setUser(newUser){
+    const action = {
+      type: 'SET_USER'
+    }
+    Object.keys(user).forEach(key=>action[key]=newUser[key])
+    dispatch(action)
+  }
 
-  const [loggedInUser, setLoggedInUser] = useState({id: null, username:null, user_type: null, image_url: null})
+  // const [user, setUser] = useState({id: null, username:null, user_type: null, image_url: null})
   const [projectList, setProjectList] = useState([])
 
   useEffect(()=>{
-    fetch('/me').then(r=>r.json()).then(d=>setLoggedInUser(d)).catch(e=>console.log(e))
+    fetch('/me').then(r=>r.json()).then(d=>{setUser(d); setUser(d)}).catch(e=>console.log(e))
   },[])
 
   useEffect(()=>{
-    fetch('/mePro').then(r=>r.json()).then(d=>setLoggedInUser(d)).catch(e=>console.log(e))
+    fetch('/mePro').then(r=>r.json()).then(d=>setUser(d)).catch(e=>console.log(e))
   },[])
 
   useEffect(()=>{
@@ -34,7 +43,7 @@ function App() {
   },[])
 
   function handleLogout(){
-    fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>setLoggedInUser({id: null, username: null, user_type: null, image_url: null})
+    fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>setUser({id: null, username: null, user_type: null, image_url: null})
   ).catch(e=>console.log(e))
   }
 
@@ -49,15 +58,15 @@ function App() {
 
     <Router>
       <div>
-        <NavBar loggedInUser={loggedInUser} handleLogout={handleLogout} />
+        <NavBar user={user} handleLogout={handleLogout} />
         <Routes>
 
            {/* routes for everybody */}
-           <Route path="/home" exact element={<>{loggedInUser.user_type} Home</>}><>{`${loggedInUser.user_type} Home Page`}</>
+           <Route path="/home" exact element={<>{user.user_type} Home</>}><>{`${user.user_type} Home Page`}</>
           </Route>
-          <Route path="/signup" exact element={<SignupContainer setLoggedInUser={setLoggedInUser} />}>
+          <Route path="/signup" exact element={<SignupContainer setUser={setUser} />}>
           </Route>
-          <Route path="/login" exact element={<LoginContainer setLoggedInUser={setLoggedInUser} />}>
+          <Route path="/login" exact element={<LoginContainer setUser={setUser} />}>
           </Route>
           </Routes>
 
@@ -65,32 +74,34 @@ function App() {
           projectList.length ?
         <Routes>
             {/* routes for pros */}
-            <Route path="/projects" exact element={loggedInUser.user_type === 'Professional' ? <ProjectsPage projectList={openProjectList}/> : logInWarning}>
+            <Route path="/projects" exact element={user.user_type === 'Professional' ? <ProjectsPage projectList={openProjectList}/> : logInWarning}>
             </Route>
-            <Route path="/projects/:id" exact element={loggedInUser.user_type === 'Professional' ? <ViewProjectProPage loggedInUser={loggedInUser}/> : logInWarning}>
-            </Route>
-
-            <Route path="/my_projects_won" exact element={loggedInUser.user_type === 'Professional' ? <MyWonProjectsPage projectList={closedProjectList} loggedInUser={loggedInUser}/> : logInWarning}>
+            <Route path="/projects/:id" exact element={user.user_type === 'Professional' ? <ViewProjectProPage user={user}/> : logInWarning}>
             </Route>
 
-            <Route path="/my_projects_won/:id" exact element={loggedInUser.user_type === 'Professional' ? <ViewWonProjectPage loggedInUser={loggedInUser}/> : logInWarning}>
+            <Route path="/my_projects_won" exact element={user.user_type === 'Professional' ? <MyWonProjectsPage projectList={closedProjectList} user={user}/> : logInWarning}>
+            </Route>
+
+            <Route path="/my_projects_won/:id" exact element={user.user_type === 'Professional' ? <ViewWonProjectPage user={user}/> : logInWarning}>
             </Route>
 
             {/* routes for client */}
-            <Route path="/myprojects" exact element={loggedInUser.user_type === 'Client' ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===loggedInUser.id)}/> : logInWarning}>
+            <Route path="/myprojects" exact element={user.user_type === 'Client' ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===user.id)}/> : logInWarning}>
             </Route>
-            <Route path="/myprojects/:id" exact element={loggedInUser.user_type === 'Client' ? <ViewMyProjectPage setProjectList={setProjectList}  projectList={projectList} /> : logInWarning}>
+            <Route path="/myprojects/:id" exact element={user.user_type === 'Client' ? <ViewMyProjectPage setProjectList={setProjectList}  projectList={projectList} /> : logInWarning}>
             </Route>
-            <Route path="/new-project" exact element={loggedInUser.user_type === 'Client' ? <AddProjectContainer loggedInUser={loggedInUser} projectList={projectList}/> : logInWarning}>
+            <Route path="/new-project" exact element={user.user_type === 'Client' ? <AddProjectContainer user={user} projectList={projectList}/> : logInWarning}>
             </Route>
         </Routes>
 
         : <>Make sure you are logged in.</>
         }
+        <div>{user.username + user.id}</div>
       </div>
     </Router>
 
   );
 }
 
-export default App;
+
+export default connect(store=>store)(App);

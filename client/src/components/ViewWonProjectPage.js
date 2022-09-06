@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import MapContainer from './MapContainer'
 import VewMyProjectImageCard from './VewMyProjectImageCard';
 
-export default function ViewWonProjectPage({loggedInUser}) {
+export default function ViewWonProjectPage({user}) {
      let  {id} = useParams();
      const id_num = parseInt(id,10)
      
@@ -17,7 +17,7 @@ export default function ViewWonProjectPage({loggedInUser}) {
         fetch(`/proposals/${id_num}`).then(r=>r.json()).then(
          d=>{
             
-            if (d.victor_id == loggedInUser.id){setCurrentProject(d)}
+            if (d.victor_id == user.id){setCurrentProject(d)}
         })
      },[])
 

@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-function NavBar({handleLogout, loggedInUser}) {
+function NavBar({handleLogout, user}) {
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -12,9 +12,9 @@ function NavBar({handleLogout, loggedInUser}) {
           <Nav className="me-auto">
 
           
-          {loggedInUser.user_type === 'Client' ? <Nav.Link href="/myprojects">My Projects</Nav.Link> :<> <Nav.Link href="/projects">Projects</Nav.Link> <Nav.Link href="/my_projects_won">My Won Projects</Nav.Link> </>}
+          {user.user_type === 'Client' ? <Nav.Link href="/myprojects">My Projects</Nav.Link> :<> <Nav.Link href="/projects">Projects</Nav.Link> <Nav.Link href="/my_projects_won">My Won Projects</Nav.Link> </>}
          
-          {loggedInUser.user_type === 'Client' ? <Nav.Link href="/new-project">New Project</Nav.Link> : null}
+          {user.user_type === 'Client' ? <Nav.Link href="/new-project">New Project</Nav.Link> : null}
           
 
           </Nav>
@@ -22,10 +22,10 @@ function NavBar({handleLogout, loggedInUser}) {
 
     
        
-        {loggedInUser.id ?
+        {user.id ?
          <div className='navbar-image-container'>
-          <button onClick={handleLogout}>Logout {loggedInUser.username}</button>
-          <img alt='' className='profile-thumbnail' src={loggedInUser.image_url}></img>
+          <button onClick={handleLogout}>Logout {user.username}</button>
+          <img alt='' className='profile-thumbnail' src={user.image_url}></img>
           </div>
          :
          <Nav>

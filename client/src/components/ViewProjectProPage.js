@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import MapContainer from './MapContainer'
 import VewMyProjectImageCard from './VewMyProjectImageCard';
 
-export default function ViewProjectProPage({loggedInUser}) {
+export default function ViewProjectProPage({user}) {
      let  {id} = useParams();
      const id_num = parseInt(id,10)
      
@@ -18,7 +18,7 @@ export default function ViewProjectProPage({loggedInUser}) {
         fetch(`/proposals/${id_num}`).then(r=>r.json()).then(
          d=>{
             setCurrentProject(d); 
-            if (d.bids.find(e=>e.professional_id == loggedInUser.id)){setHasBid(true)}
+            if (d.bids.find(e=>e.professional_id == user.id)){setHasBid(true)}
         })
      },[])
 

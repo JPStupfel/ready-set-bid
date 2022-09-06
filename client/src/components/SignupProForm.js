@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function SignupProForm({setLoggedInUser}) {
+export default function SignupProForm({setUser}) {
     const [formData, setFormData] = useState({username: null, password: null, password_confirmation: null, image_url: null})
 
 function handleSubmit(event){

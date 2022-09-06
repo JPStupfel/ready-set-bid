@@ -4,12 +4,12 @@ import AddProjectForm from './AddProjectForm';
 import FileForm from './FileForm';
   
 
-export default function AddProjectContainer({projectList, loggedInUser}) {
+export default function AddProjectContainer({projectList, user}) {
 
   const [imageData, setImageData] = useState([])
   const [coords, setCoords] = useState({lat: null, lng: null})
   const [projectData, setProjectData] = useState({title:null, description:null})
-  const [submission, setSubmission] = useState({title: null, description: null, client_id: loggedInUser.id, lat: null, lng: null})
+  const [submission, setSubmission] = useState({title: null, description: null, client_id: user.id, lat: null, lng: null})
 
   //anytime coords or projectData is updated, update the submission hash
   useEffect(()=>{

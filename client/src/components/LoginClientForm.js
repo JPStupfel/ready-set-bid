@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function LoginClientForm({setLoggedInUser}) {
+export default function LoginClientForm({setUser}) {
     const [formData, setFormData] = useState({username: null, password: null})
 
 function handleSubmit(event){
@@ -14,7 +14,7 @@ function handleSubmit(event){
       })
       .then(r=>r.json())
       .then(d=>{
-        setLoggedInUser(d);
+        setUser(d);
 
       }
         ).catch(e=>console.log(e))
