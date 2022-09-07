@@ -39,7 +39,6 @@ export default function AddProjectContainer({setProjectList, projectList}) {
     fetch("/proposals", {method: "POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify(submission)})
     .then(response=>response.json())
     .then(d=>{
-        console.log(d)
         const newList = [...projectList,d]; 
         setProjectList(newList);
       //then submit the image post
