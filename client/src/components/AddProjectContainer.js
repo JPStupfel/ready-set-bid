@@ -3,10 +3,12 @@ import AddProjectMap from './AddProjectMap'
 import AddProjectForm from './AddProjectForm';
 import FileForm from './FileForm';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
   
 
-export default function AddProjectContainer({projectList}) {
+export default function AddProjectContainer({setProjectList, projectList}) {
   const user = useSelector(state=>state)
+  const history = useNavigate();
 
   const [imageData, setImageData] = useState([])
   const [coords, setCoords] = useState({lat: null, lng: null})
@@ -34,15 +36,19 @@ export default function AddProjectContainer({projectList}) {
   function handleSubmitProjectToAPI(){
 
     //first submit the proposal form
-    fetch("/proposals", {method: "POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify(submission)}).then(response=>{response.json()}).then(data=>{
-      console.log(data); 
+    fetch("/proposals", {method: "POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify(submission)})
+    .then(response=>response.json())
+    .then(d=>{
+        console.log(d)
+        const newList = [...projectList,d]; 
+        setProjectList(newList);
       //then submit the image post
       imageData.forEach(
         data=>{
           fetch("/posts", {method: "POST", body: data}).then(response=>{response.json()}).then(data=>{console.log(data)}).catch(e=>console.log(e))
     })}
-    )
-
+    );
+    history(`/myprojects`)
   }
 
   return (

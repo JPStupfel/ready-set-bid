@@ -11,7 +11,7 @@ export default function MyProjectBidList({currentProject, handleAcceptBid}) {
   return (
     <div className='bid-outline'>
         <h1>Project Bids</h1>
-        <ul class="list-group">
+        <ul className="list-group">
             {bidList}
         </ul>
     </div>

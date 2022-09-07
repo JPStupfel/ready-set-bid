@@ -90,7 +90,7 @@ function App() {
             </Route>
             <Route path="/myprojects/:id" exact element={user.user_type === 'Client' ? <ViewMyProjectPage setProjectList={setProjectList}  projectList={projectList} /> : logInWarning}>
             </Route>
-            <Route path="/new-project" exact element={user.user_type === 'Client' ? <AddProjectContainer projectList={projectList}/> : logInWarning}>
+            <Route path="/new-project" exact element={user.user_type === 'Client' ? <AddProjectContainer setProjectList={setProjectList}  projectList={projectList}/> : logInWarning}>
             </Route>
         </Routes>
 

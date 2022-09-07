@@ -23,8 +23,9 @@ export default function ViewMyProjectPage({setProjectList}) {
      }
 
      function handleAcceptBid(bid){
-       fetch(`/proposals/${id_num}`, {method: "PATCH", headers:{'Content-Type':'application/json'}, body: JSON.stringify({victor_id: bid.professional_id })})
-      console.log('will accept bid', bid.id)
+       fetch(`/proposals/${id_num}`, {method: "PATCH", headers:{'Content-Type':'application/json'}, body: JSON.stringify({victor_id: bid.professional_id })}).then(r=>r.json()).then(d=>{const newCurrentProject = {...currentProject}; newCurrentProject.victor_id = d.victor_id; setCurrentProject(newCurrentProject)})
+      
+
   }
     
      // catch ref error while fetching.

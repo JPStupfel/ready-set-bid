@@ -5,7 +5,7 @@ export default function MyProjectBidItem({bid, handleAcceptBid}) {
 
 
   return (
-        <li class="list-group-item">
+        <li className="list-group-item">
             <div className='bid-container'>
                 <button onClick={()=>handleAcceptBid(bid)}>Accept Bid</button>
                 <img className='bid-image' src={bid.professional_image} />
