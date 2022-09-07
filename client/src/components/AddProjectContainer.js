@@ -34,19 +34,26 @@ export default function AddProjectContainer({setProjectList, projectList}) {
   }
 
   function handleSubmitProjectToAPI(){
-
     //first submit the proposal form
     fetch("/proposals", {method: "POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify(submission)})
-    .then(response=>response.json())
-    .then(d=>{
-        const newList = [...projectList,d]; 
-        setProjectList(newList);
-      //then submit the image post
-      imageData.forEach(
-        data=>{
-          fetch("/posts", {method: "POST", body: data}).then(response=>{response.json()}).then(data=>{console.log(data)}).catch(e=>console.log(e))
-    })}
-    );
+      .then(response=>response.json())
+      .then(d=>{
+        //set project list to the returned data with no images
+            const newProj = {...d, posts:[]}
+            const newList = [...projectList, newProj]; 
+            setProjectList(newList);
+
+        //then submit the image post
+            imageData.forEach(
+              data=>{
+                fetch("/posts", {method: "POST", body: data}).then(response=>response.json()).then(i=>{
+                  // and with every image post, update project list to include the image data
+                  newProj.posts.push(i)
+                  let newListWithImage = [...projectList, newProj]
+                  setProjectList(newListWithImage)
+                }).catch(e=>console.log(e))
+                    })    
+          });
     history(`/myprojects`)
   }
 

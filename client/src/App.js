@@ -53,6 +53,7 @@ function App() {
   const openProjectList = projectList.length ? projectList.filter(project=>!project.victor_id) : null
   const closedProjectList = projectList.length ? projectList.filter(projects=>projects.victor_id) : null
 
+  console.log(projectList)
 
   return (
 
@@ -62,8 +63,6 @@ function App() {
         <Routes>
 
            {/* routes for everybody */}
-           <Route path="/home" exact element={<>{user.user_type} Home</>}><>{`${user.user_type} Home Page`}</>
-          </Route>
           <Route path="/signup" exact element={<SignupContainer setUser={setUser} />}>
           </Route>
           <Route path="/login" exact element={<LoginContainer setUser={setUser} />}>

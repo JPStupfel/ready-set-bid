@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 function ProjectClientCard({project}) {
   const history = useNavigate();
-
-  const image = project.posts.length ? project.posts[0].image_url : ''
+  // if (project.title == 'q'){debugger}
+  const image = project.posts.length ? project.posts[0].image_url : 'fish'
 
   return (
     <Card style={{ width: '18rem' }}>

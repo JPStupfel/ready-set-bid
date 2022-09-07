@@ -11,7 +11,6 @@ function NavBar({handleLogout}) {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="/home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
 
           
