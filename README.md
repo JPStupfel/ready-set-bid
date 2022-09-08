@@ -1,15 +1,20 @@
-# Project Template: React/Rails API
-
-# refs
-
-react-google-maps
-
-## in order to run this project on your own you must replace the API_KEY vaiable with your own google maps api key.
+# Ready-Set-Bid: React/Rails API
 
 ## Description
 
-This project is scaffolded so that you can build a React frontend and Rails
-backend together, and easily deploy them to Heroku.
+Ready-Set-Bid is a bidding wars web application. Let's say you are a homeowner with a huge brush pile in your back yard that you need to have cleaned up. The only problem is, you have no idea how to find someone you can trust to come do the work for a fair price. Enter Ready-Set-Bid. Ready-Set-Bid allows 'Professionals' the oppertunity to bid on your project. As a client you simply create an account, upload a few pictures and watch the bids. Once you see a bid that you feel is at a fair price, you click 'accept bid'. That's it.
+
+Likewise for professionals, you can:
+
+1. Create an account.
+2. View all the projects which are available for bidding and their location on a map.
+3. Make a bid for any number of projects you like.
+
+Once you have won a bid, that bid is updated to include you as the winner and bidding will be closed.
+
+## A video walkthrough for this site can be found at:
+
+<>
 
 ## Requirements
 
@@ -23,41 +28,15 @@ don't already have them.
 
 ## Setup
 
-Start by **cloning** (not forking) the project template repository and removing
-the remote:
+Start by **cloning** the project repository:
 
 ```console
-$ git clone git@github.com:learn-co-curriculum/project-template-react-rails-api.git your-project-name
-$ cd your-project-name
-$ git remote rm origin
+$ git clone git@github.com:JPStupfel/ready-set-bid.git
+$ cd ready-set-bid
+$ code .
 ```
 
-Then, [create a new remote repository][create repo] on GitHub. Head to
-[github.com](https://github.com) and click the **+** icon in the top-right
-corner and follow the steps to create a new repository. **Important**: don't
-check any of the options such as 'Add a README file', 'Add a .gitignore file',
-etc — since you're importing an existing repository, creating any of those files
-on GitHub will cause issues.
-
-[create repo]: https://docs.github.com/en/github/importing-your-projects-to-github/importing-source-code-to-github/adding-an-existing-project-to-github-using-the-command-line#adding-a-project-to-github-without-github-cli
-
-If you're working with a partner,
-[add them as a collaborator][add collaborator] on GitHub. From your repo on
-GitHub, go to Settings > Manage Access > Invite a collaborator and enter your
-partner's username. Once your partner has access, they should git **clone** (not
-fork) the repository.
-
-[add collaborator]: https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
-
-Finally, connect the GitHub remote repository to your local repository and push
-up your code:
-
-```console
-$ git remote add origin git@github.com:your-username/your-project-name.git
-$ git push -u origin main
-```
-
-When you're ready to start building your project, run:
+When you're ready to start working on this project, run:
 
 ```sh
 bundle install
@@ -70,65 +49,6 @@ You can use the following commands to run the application:
 - `rails s`: run the backend on [http://localhost:3000](http://localhost:3000)
 - `npm start --prefix client`: run the frontend on
   [http://localhost:4000](http://localhost:4000)
-
-Make sure to also update this README to include documentation about
-your project. Here's a list of some [awesome readmes][] for inspiration.
-
-[awesome readmes]: https://github.com/matiassingers/awesome-readme
-
-## Deploying
-
-This application has all the starter code needed to help you deploy your
-application to Heroku. It's recommended to deploy your project early and push up
-changes often to ensure that your code works equally well in production and
-development environments.
-
-If you've already set up your environment to deploy to Heroku, you can run the
-commands below to deploy your application. If not, make sure to check out the
-Environment Setup section below.
-
-To deploy, first log in to your Heroku account using the Heroku CLI:
-
-```sh
-heroku login
-```
-
-Create the new Heroku app:
-
-```sh
-heroku create my-app-name
-```
-
-Add the buildpacks for Heroku to build the React app on Node and run the Rails
-app on Ruby:
-
-```sh
-heroku buildpacks:add heroku/nodejs --index 1
-heroku buildpacks:add heroku/ruby --index 2
-```
-
-To deploy, commit your code and push the changes to Heroku:
-
-```sh
-git add .
-git commit -m 'Commit message'
-git push heroku main
-```
-
-> Note: depending on your Git configuration, your default branch might be named
-> `master` or `main`. You can verify which by running
-> `git branch --show-current`. If it's `master`, you'll need to run
-> `git push heroku master` instead.
-
-Any time you have changes to deploy, just make sure your changes are committed
-on the main branch of your repo, and push those changes to Heroku to deploy
-them.
-
-You can view your deployed app with:
-
-```sh
-heroku open
-```
 
 ## Environment Setup
 
@@ -183,47 +103,7 @@ You can also update your npm version with:
 npm i -g npm
 ```
 
-### Sign Up for a [Heroku Account][heroku signup]
-
-You can sign up at for a free account at
-[https://signup.heroku.com/devcenter][heroku signup].
-
-### Download the [Heroku CLI][heroku cli] Application
-
-Download the Heroku CLI. For OSX users, you can use Homebrew:
-
-```sh
-brew tap heroku/brew && brew install heroku
-```
-
-For WSL users, run this command in the Ubuntu terminal:
-
-```sh
-curl https://cli-assets.heroku.com/install.sh | sh
-```
-
-If you run into issues installing, check out the [Heroku CLI][heroku cli]
-downloads page for more options.
-
-After downloading, you can login via the CLI in the terminal:
-
-```sh
-heroku login
-```
-
-This will open a browser window to log you into your Heroku account. After
-logging in, close the browser window and return to the terminal. You can run
-`heroku whoami` in the terminal to verify that you have logged in successfully.
-
-[heroku signup]: https://signup.heroku.com/devcenter
-[heroku cli]: https://devcenter.heroku.com/articles/heroku-cli#download-and-install
-
 ### Install Postgresql
-
-Heroku requires that you use PostgreSQL for your database instead of SQLite.
-PostgreSQL (or just Postgres for short) is an advanced database management
-system with more features than SQLite. If you don't already have it installed,
-you'll need to set it up.
 
 #### PostgreSQL Installation for WSL
 
@@ -312,22 +192,69 @@ troubleshoot:
   account. Check [this video](https://www.youtube.com/watch?v=bQC5izDzOgE) for
   one possible fix.
 
-- If your app failed to deploy at the build stage, make sure your local
-  environment is set up correctly by following the steps at the beginning of
-  this lesson. Check that you have the latest versions of Ruby and Bundler, and
-  ensure that Postgresql was installed successfully.
+  ## Database Structure
 
-- If you deployed successfully, but you ran into issues when you visited the
-  site, make sure you migrated and seeded the database. Also, make sure that
-  your application works locally and try to debug any issues on your local
-  machine before re-deploying. You can also check the logs on the server by
-  running `heroku logs`.
+The Active Record Model here is linked to an SQL database with five distinct tables.
 
-For additional support, check out these guides on Heroku:
+These tables have a Database structure that looks like this:
 
-- [Deploying a Rails 6 App to Heroku][heroku rails deploying guide]
-- [Rails Troubleshooting on Heroku][troubleshooting guide on heroku]
+![alt text](./Readme-Photos/DataBaseSchema.png)
+The above diagram was created using [dbdiagram.io][]
 
-[postgres downloads page]: https://postgresapp.com/downloads.html
-[heroku rails deploying guide]: https://devcenter.heroku.com/articles/getting-started-with-rails6
-[troubleshooting guide on heroku]: https://devcenter.heroku.com/articles/getting-started-with-rails6#troubleshooting
+## Component Hierarchy
+
+Below is a map of the component hierarchy of all React Components used in this project.
+
+```
+Index
+|---------	App
+	|---------NavBar
+	|---------SignupContainer
+		|---------SignupClientForm
+		|---------SignupProForm
+	|---------LoginContainer
+		|---------LoginClientForm
+		|---------LoginProForm
+	|---------AddProjectContainer
+		|---------AddProjectMap
+		|---------fileForm
+		|---------AddProjectForm
+	|---------ProjectsPage
+		|---------MapContainer
+			|---------CustomMarker
+		|---------ProjectProfessionalCard
+	|---------MyProjectsPage
+		|---------MapContainer
+			|---------CustomMarker
+		|---------ProjectClientCard
+	|---------ViewMyProjectPage
+		|---------MapContainer
+			|---------CustomMarker
+		|---------ViewProjectImageCard
+		|---------MyProjectBidList
+			|---------MyProjectBidItem
+	|---------MyWonProjectsPage
+		|---------MyWonProjectCard
+	|---------ViewWonProjectPage
+
+
+
+```
+
+# References
+
+To create the database diagrams in this readme I used: https://dbdiagram.io/d (for diagraming tables)
+
+I used Bootstrap available at https://getbootstrap.com/ for stylizing.
+
+react-google-maps
+
+## This application makes use of three external API's, each requiring unique API keys that will have to be replaced within the code as follows:
+
+Note, for numbers 1 & 2 you will need a paid google maps api subscription. To do so, follow the prompts on this page: https://developers.google.com/maps/documentation/javascript/get-api-key
+
+1. Google Maps Javascript API, you must create a .env file in the client directory and include REACT_APP_API_KEY= Your API Key here.
+
+2. Google Maps Geocoding API, you must create a .env file in the root directory and include API_KEY= Your API Key here.
+
+3. You will need to sign up for a Cloudinary account at https://cloudinary.com/. In the Cloudinary home menu, navigate to the "getting started" icon. Then select 'Configure your SDK' > Start configuring. Under "Ruby", copy the code in the lower window. Then create a file cloudinary.yml file in your config directory. Finally, paste the copied code into this file.

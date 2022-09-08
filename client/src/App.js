@@ -31,7 +31,7 @@ function App() {
   const [projectList, setProjectList] = useState([])
 
   useEffect(()=>{
-    fetch('/me').then(r=>r.json()).then(d=>{setUser(d); setUser(d)}).catch(e=>console.log(e))
+    fetch('/me').then(r=>r.json()).then(d=>setUser(d)).catch(e=>console.log(e))
   },[])
 
   useEffect(()=>{
@@ -53,7 +53,6 @@ function App() {
   const openProjectList = projectList.length ? projectList.filter(project=>!project.victor_id) : null
   const closedProjectList = projectList.length ? projectList.filter(projects=>projects.victor_id) : null
 
-  console.log(projectList)
 
   return (
 
