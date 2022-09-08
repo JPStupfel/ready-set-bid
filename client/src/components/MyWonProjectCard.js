@@ -18,7 +18,7 @@ function MyWonProjectCard({project}) {
         <Card.Text>
           {project.description}
         </Card.Text>
-        <Button variant="primary" onClick={()=>history(`/my_projects_won/${project.id}`)}>Go somewhere</Button>
+        <Button variant="primary" onClick={()=>history(`/my_projects_won/${project.id}`)}>View Project</Button>
       </Card.Body>
     </Card>
   );

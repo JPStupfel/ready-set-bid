@@ -2,7 +2,7 @@
 
 ## Description
 
-Ready-Set-Bid is a bidding wars web application. Let's say you are a homeowner with a huge brush pile in your back yard that you need to have cleaned up. The only problem is, you have no idea how to find someone you can trust to come do the work for a fair price. Enter Ready-Set-Bid. Ready-Set-Bid allows 'Professionals' the oppertunity to bid on your project. As a client you simply create an account, upload a few pictures and watch the bids. Once you see a bid that you feel is at a fair price, you click 'accept bid'. That's it.
+Ready-Set-Bid is a bidding wars web application. Let's say you are a homeowner with a huge brush pile in your back yard that you need to have cleaned up. The only problem is, you have no idea how to find someone you can trust to come do the work for a fair price. Enter Ready-Set-Bid. Ready-Set-Bid allows 'Professionals' the opportunity to bid on your project. As a client you simply create an account, upload a few pictures and watch the bids roll in. Once you see a bid that you feel is at a fair price, you click 'accept bid'. That's it.
 
 Likewise for professionals, you can:
 
@@ -14,7 +14,7 @@ Once you have won a bid, that bid is updated to include you as the winner and bi
 
 ## A video walkthrough for this site can be found at:
 
-<>
+[ video walkthrough](https://youtu.be/fKyRj44sN08)
 
 ## Requirements
 
@@ -199,7 +199,7 @@ The Active Record Model here is linked to an SQL database with five distinct tab
 These tables have a Database structure that looks like this:
 
 ![alt text](./Readme-Photos/DataBaseSchema.png)
-The above diagram was created using [dbdiagram.io][]
+The above diagram was created using [dbdiagram.io][dbdiagram.io]
 
 ## Component Hierarchy
 

@@ -18,7 +18,7 @@ function ProjectClientCard({project}) {
         <Card.Text>
           {project.description}
         </Card.Text>
-        <Button variant="primary" onClick={()=>history(`/myprojects/${project.id}`)}>Go somewhere</Button>
+        <Button variant="primary" onClick={()=>history(`/myprojects/${project.id}`)}>View Project</Button>
       </Card.Body>
     </Card>
   );
