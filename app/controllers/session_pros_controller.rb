@@ -4,7 +4,7 @@ class SessionProsController < ApplicationController
     def create
             professional = Professional.create sessionParams
             if professional.valid? 
-                render json: professional, status: 200
+                render json: professional, serializer: ProfessionalSessionSerializer, status: 200
             else
                 render json: {errors: professional.errors.full_messages}
             end
@@ -41,7 +41,7 @@ class SessionProsController < ApplicationController
             if professional.authenticate(params[:password])
                 session[:user_id] = professional.id
                 session[:user_type] = professional.class.name
-                render json: professional, status: 200
+                render json: professional, serializer: ProfessionalSessionSerializer, status: 200
             else
                 render json: {errors: 'professional not found'}, status: 422
             end
