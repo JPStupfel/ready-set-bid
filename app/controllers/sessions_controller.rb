@@ -61,6 +61,6 @@ class SessionsController < ApplicationController
 
     private
     def sessionParams
-        params.permit :username, :password, :password_confirmation, :image_url
+        params.permit :username, :password, :password_confirmation, :image_url, :email
     end
 end
