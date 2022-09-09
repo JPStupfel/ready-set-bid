@@ -40,7 +40,7 @@ function App() {
 
   useEffect(()=>{
     fetch('/proposals').then(r=>r.json()).then(d=>setProjectList(d)).catch(e=>console.log(e))
-  },[])
+  },[user])
 
   function handleLogout(){
     fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>setUser({id: null, username: null, user_type: null, image_url: null})

@@ -55,6 +55,11 @@ function handleChange(event){
       <input onChange={handleChange}  type="text" className="form-control" id="image_url" placeholder="Profile Picture Url"/>
     </div>
 
+    <div className="form-group">
+      <label>Email</label>
+      <input onChange={handleChange}  type="text" className="form-control" id="email" placeholder="Enter email address"/>
+    </div>
+
 
 
 

@@ -34,7 +34,6 @@ class ProposalsController < ApplicationController
         else
             render json: {error: 'Proposal Not Found'}, status: 422
         end
-        # render json: professional, serializer: ProfessionalSessionSerializer, status: 200
 
         
     end

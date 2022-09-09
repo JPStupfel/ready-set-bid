@@ -4,6 +4,7 @@ import ProjectClientCard from './ProjectClientCard';
 
 export default function MyProjectsPage({projectList}) {
 
+  if (!projectList.length){return(<>No Projects Loaded!</>)}
 
 const openProjectList = projectList.length ? projectList.filter(project=>!project.victor_id) : null
 const closedProjectList = projectList.length ? projectList.filter(projects=>projects.victor_id) : null
