@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function SignupProForm({setUser}) {
     const [formData, setFormData] = useState({username: null, password: null, password_confirmation: null, image_url: null})
+    const history = useNavigate()
 
 function handleSubmit(event){
     event.preventDefault()
@@ -12,7 +14,7 @@ function handleSubmit(event){
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-      }).then(r=>r.json()).then(d=>console.log(d)).catch(e=>console.log(e))
+      }).then(r=>r.json()).then(d=>{setUser(d);history('/projects')}).catch(e=>console.log(e))
 }
 
 function handleChange(event){
