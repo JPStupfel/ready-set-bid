@@ -247,8 +247,6 @@ To create the database diagrams in this readme I used: https://dbdiagram.io/d (f
 
 I used Bootstrap available at https://getbootstrap.com/ for stylizing.
 
-react-google-maps
-
 ## This application makes use of three external API's, each requiring unique API keys that will have to be replaced within the code as follows:
 
 Note, for numbers 1 & 2 you will need a paid google maps api subscription. To do so, follow the prompts on this page: https://developers.google.com/maps/documentation/javascript/get-api-key
@@ -258,3 +256,9 @@ Note, for numbers 1 & 2 you will need a paid google maps api subscription. To do
 2. Google Maps Geocoding API, you must create a .env file in the root directory and include API_KEY= Your API Key here.
 
 3. You will need to sign up for a Cloudinary account at https://cloudinary.com/. In the Cloudinary home menu, navigate to the "getting started" icon. Then select 'Configure your SDK' > Start configuring. Under "Ruby", copy the code in the lower window. Then create a file cloudinary.yml file in your config directory. Finally, paste the copied code into this file.
+
+If you would like to learn more about how to secure your API keys, I have written a two part blog on the subject using examples from this project:
+
+Part one: https://dev.to/jpstupfel/build-google-maps-search-component-in-react-part-one-204m
+
+Part two: https://dev.to/jpstupfel/build-google-maps-search-component-in-react-part-two-57l8
