@@ -20,11 +20,9 @@ require 'faker'
 # lat: 41.3917,
 # lng: 2.1649
 
-Client.create username: 'liv', password: 'fish', password_confirmation: 'fish', image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBTWFnjwIJFXgDdyzgSRjit2_9zlWrMVqgVg&usqp=CAU'
-Client.create username: 'reed', password: 'fish', password_confirmation: 'fish', image_url: 'https://imgix.ranker.com/node_img/95/1898585/original/rex-reed-writers-photo-1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&crop=faces&h=150&w=150'
+Client.create username: 'liv', password: 'fish', password_confirmation: 'fish', email: 'liv@gmail.com', image_url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBTWFnjwIJFXgDdyzgSRjit2_9zlWrMVqgVg&usqp=CAU'
 
-Professional.create username: 'arnold', password: 'fish', password_confirmation: 'fish', image_url: 'https://manofmany.com/wp-content/uploads/2019/03/Arnold-Schwarzeneggers-Diet-and-Workout-Plan.jpg'
-Professional.create username: 'sebastian', password: 'fish', password_confirmation: 'fish', image_url: 'https://s.wsj.net/public/resources/images/BN-TW412_WOLFE_FR_20170614145651.jpg'
+Professional.create username: 'arnold', password: 'fish',  password_confirmation: 'fish', image_url: 'https://manofmany.com/wp-content/uploads/2019/03/Arnold-Schwarzeneggers-Diet-and-Workout-Plan.jpg'
 Professional.create username: 'maria', password: 'fish', password_confirmation: 'fish', image_url: 'https://www.tennisworldusa.org/imgb/98650/maria-sharapova-when-i-won-wimbledon-my-mother-was-.webp'
 
 

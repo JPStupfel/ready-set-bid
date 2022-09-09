@@ -33,6 +33,7 @@ export default function ViewWonProjectPage() {
     <h1>{currentProject.title}</h1>
     <MapContainer projectList={[currentProject]}/>
    {<h2>You have won this project for ${victorBid.amount}</h2>}
+   {<>Contact {currentProject.client.username} at {currentProject.client.email}</>}
    <div className='project-image-container'>
     {projectImages}
   </div>
