@@ -43,7 +43,7 @@ export default function ViewMyProjectPage({setProjectList}) {
       <div className='project-image-container'>
          {projectImages}
       </div>
-      {!currentProject.victor_id ? <MyProjectBidList handleAcceptBid={handleAcceptBid} currentProject={currentProject}/> : <h1>This project has been won by {victorBid.professional_name} for ${victorBid.amount} </h1>}
+      {!currentProject.victor_id ? <MyProjectBidList handleAcceptBid={handleAcceptBid} currentProject={currentProject}/> : <div><h1>This project has been won by {victorBid.professional_name} for ${victorBid.amount} </h1><p1>{victorBid.professional_name} will contact you at {currentProject.client.email}.</p1></div>}
       <button onClick={deleteProject}>Delete this Project</button>
    </div>
   )
