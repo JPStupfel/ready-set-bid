@@ -4,7 +4,7 @@ import MyProjectBidItem from './MyProjectBidItem'
 export default function MyProjectBidList({currentProject, handleAcceptBid}) {
     
 
-    const bidList = currentProject.bids.map((e)=><MyProjectBidItem handleAcceptBid={handleAcceptBid} bid={e}/>)
+    const bidList = currentProject.bids.map((e)=><MyProjectBidItem key ={e.id} handleAcceptBid={handleAcceptBid} bid={e}/>)
 
 
 

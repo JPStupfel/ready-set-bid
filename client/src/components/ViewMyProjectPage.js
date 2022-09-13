@@ -9,6 +9,7 @@ export default function ViewMyProjectPage({setProjectList}) {
      let  {id} = useParams();
      const id_num = parseInt(id,10)
      
+     const [isEditDesc, setIsEditDesc] = useState(false)
      const [currentProject, setCurrentProject] = useState(null)
      const history = useNavigate();
 
@@ -24,22 +25,20 @@ export default function ViewMyProjectPage({setProjectList}) {
 
      function handleAcceptBid(bid){
        fetch(`/proposals/${id_num}`, {method: "PATCH", headers:{'Content-Type':'application/json'}, body: JSON.stringify({victor_id: bid.professional_id })}).then(r=>r.json()).then(d=>{const newCurrentProject = {...currentProject}; newCurrentProject.victor_id = d.victor_id; setCurrentProject(newCurrentProject)})
-      
-
   }
     
+      
      // catch ref error while fetching.
      while (!currentProject){return(<>Loading!</>)}
 
      const projectImages =  currentProject.posts.map(e=><VewMyProjectImageCard key={e.id} image={e.image_url} />) 
      const victorBid = currentProject.victor_id ? currentProject.bids.find(bid=>bid.professional_id==currentProject.victor_id) : null
-     
-
+     const DescriptionEditor = ()=><form><input type='text' value={currentProject.description}></input></form>
   return (
     <div>
       <h1>{currentProject.title}</h1>
       <MapContainer projectList={[currentProject]}/>
-      <div>{currentProject.description}</div>
+      <div onClick={()=>setIsEditDesc(prev=>!prev)}>{!isEditDesc ? currentProject.description : <DescriptionEditor/>}</div>
       <div className='project-image-container'>
          {projectImages}
       </div>
