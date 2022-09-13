@@ -49,9 +49,13 @@ class ProposalsController < ApplicationController
     end
 
     def update
+        
         proposal = Proposal.find_by id: params['id']
+        
         if proposal
-            proposal.update victor_id: params['victor_id']
+            
+            # proposal.update victor_id: params['victor_id']
+             proposal.update proposalParams
             render json: proposal, status: 202
         else
             render json: {error: 'Proposal Not Found'}, status: 422
@@ -72,6 +76,10 @@ class ProposalsController < ApplicationController
         uri = URI("https://maps.googleapis.com/maps/api/geocode/json?address='#{address}'&key=#{ENV['API_KEY']}")
         res = Net::HTTP.get_response(uri)
         return JSON(res.body)['results'][0]['geometry']['location']
+    end
+
+    def proposalParams
+        params.permit(:title, :description, :client_id, :victor_id, :lat, :lng)
     end
 
 end
