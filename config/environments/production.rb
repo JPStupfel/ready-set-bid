@@ -1,6 +1,7 @@
 require "active_support/core_ext/integer/time"
 
-Rails.application.routes.default_url_options = {host: 'https://ready-set-bid.herokuapp.com'}
+Rails.application.routes.default_url_options = {host: ENV['HTTP_HOST']}
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

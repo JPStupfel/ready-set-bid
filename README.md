@@ -251,9 +251,9 @@ I used Bootstrap available at https://getbootstrap.com/ for stylizing.
 
 Note, for numbers 1 & 2 you will need a paid google maps api subscription. To do so, follow the prompts on this page: https://developers.google.com/maps/documentation/javascript/get-api-key
 
-1. Google Maps Javascript API, you must create a .env file in the client directory and include REACT_APP_API_KEY= Your API Key here.
+1. Google Maps Javascript API, you must create a .env file in the client directory and include GOOGLE_MAPS_API_KEY= Your API Key here.
 
-2. Google Maps Geocoding API, you must create a .env file in the root directory and include API_KEY= Your API Key here.
+2. Google Maps Geocoding API, you must create a .env file in the root directory and include GOOGLE_GEOCODING_API_KEY= Your API Key here.
 
 3. You will need to sign up for a Cloudinary account at https://cloudinary.com/. In the Cloudinary home menu, navigate to the "getting started" icon. Then select 'Configure your SDK' > Start configuring. Under "Ruby", copy the code in the lower window. Then create a file cloudinary.yml file in your config directory. Finally, paste the copied code into this file.
 

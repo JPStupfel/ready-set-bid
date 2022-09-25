@@ -73,7 +73,7 @@ class ProposalsController < ApplicationController
 
     # return coordincates from address
     def getCoords address
-        uri = URI("https://maps.googleapis.com/maps/api/geocode/json?address='#{address}'&key=#{ENV['API_KEY']}")
+        uri = URI("https://maps.googleapis.com/maps/api/geocode/json?address='#{address}'&key=#{ENV['GOOGLE_GEOCODING_API_KEY']}")
         res = Net::HTTP.get_response(uri)
         return JSON(res.body)['results'][0]['geometry']['location']
     end
