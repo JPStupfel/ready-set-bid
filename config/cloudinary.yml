@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dc3sgymhf
+  api_key: "184376176593681"
+  api_secret: 5C_VYmV3lQzXz1LpYTCDWG1Aqm8
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: dc3sgymhf
+  api_key: "184376176593681"
+  api_secret: 5C_VYmV3lQzXz1LpYTCDWG1Aqm8
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: dc3sgymhf
+  api_key: "184376176593681"
+  api_secret: 5C_VYmV3lQzXz1LpYTCDWG1Aqm8
+  enhance_image_tag: true
+  static_file_support: false
