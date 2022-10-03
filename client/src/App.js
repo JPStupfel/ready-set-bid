@@ -73,6 +73,8 @@ function App() {
           {// rescue from nomethod error while loading projectList
           projectList.length ?
         <Routes>
+            <Route path="/" exact element={<>Test Home Page!</>}>
+            </Route>
             {/* routes for pros */}
             <Route path="/projects" exact element={user.user_type === 'Professional' ? <ProjectsPage projectList={openProjectList}/> : logInWarning}>
             </Route>
