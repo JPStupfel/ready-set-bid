@@ -9,18 +9,21 @@ function NavBar({handleLogout}) {
 
   return (
     <>
+
       <Navbar bg="dark" variant="dark">
         <Container>
           <Nav className="me-auto">
 
           
-          {user.user_type === 'Client' ? <Nav.Link href="/myprojects">My Projects</Nav.Link> : <> <Nav.Link href="/projects">Projects</Nav.Link> <Nav.Link href="/my_projects_won">My Won Projects</Nav.Link> </>}
+          {user.user_type === 'Client' ? <Nav.Link href="/#/myprojects">My Projects</Nav.Link> : <> <Nav.Link href="/#/projects">Projects</Nav.Link> <Nav.Link href="/#/mypro_projects_won">My Won Projects</Nav.Link> </>}
          
-          {user.user_type === 'Client' ? <Nav.Link href="/new-project">New Project</Nav.Link> : null}
+          {user.user_type === 'Client' ? <Nav.Link href="/#/new-project">New Project</Nav.Link> : null}
           
 
           </Nav>
         </Container>
+
+
 
     
        
@@ -31,8 +34,8 @@ function NavBar({handleLogout}) {
           </div>
          :
          <Nav>
-        <Nav.Link href="/login">Login</Nav.Link>
-        <Nav.Link href="/signup">Signup</Nav.Link>
+        <Nav.Link href="/#/login">Login</Nav.Link>
+        <Nav.Link href="/#/signup">Signup</Nav.Link>
 
         </Nav>
         }

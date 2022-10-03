@@ -1,0 +1,6 @@
+2022/10/01 15:15:39 [emerg] 32626#0: bind() to 0.0.0.0:3000 failed (98: Address already in use)
+2022/10/01 15:15:39 [emerg] 32626#0: bind() to 0.0.0.0:3000 failed (98: Address already in use)
+2022/10/01 15:15:39 [emerg] 32626#0: bind() to 0.0.0.0:3000 failed (98: Address already in use)
+2022/10/01 15:15:39 [emerg] 32626#0: bind() to 0.0.0.0:3000 failed (98: Address already in use)
+2022/10/01 15:15:39 [emerg] 32626#0: bind() to 0.0.0.0:3000 failed (98: Address already in use)
+2022/10/01 15:15:39 [emerg] 32626#0: still could not bind()

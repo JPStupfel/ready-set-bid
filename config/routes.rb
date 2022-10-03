@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # Leave this here to help deploy your app later!
  #test
 
+  get "/api/proposals", to: 'proposals#index'
+
+
 #  routes to return coordincates from address
   get "/address/:loc", to: 'proposals#getAddress'
 
