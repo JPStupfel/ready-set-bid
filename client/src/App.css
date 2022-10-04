@@ -93,3 +93,10 @@
   border-color: black;
   width: 50%;
 }
+.fade-in {
+  transition: opacity 2s ease;
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 2s ease;
+}
