@@ -13,6 +13,7 @@ import ViewProjectProPage from './components/ViewProjectProPage';
 import MyWonProjectsPage from './components/MyWonProjectsPage';
 import ViewWonProjectPage from './components/ViewWonProjectPage';
 import {connect, useSelector, useDispatch} from 'react-redux'
+import LoggedOutHome from './components/LoggedOutHome';
 
 
 
@@ -73,8 +74,6 @@ function App() {
           {// rescue from nomethod error while loading projectList
           projectList.length ?
         <Routes>
-            <Route path="/" exact element={<>Test Home Page!</>}>
-            </Route>
             {/* routes for pros */}
             <Route path="/projects" exact element={user.user_type === 'Professional' ? <ProjectsPage projectList={openProjectList}/> : logInWarning}>
             </Route>
@@ -96,7 +95,7 @@ function App() {
             </Route>
         </Routes>
 
-        : <>Make sure you are logged in.</>
+        : <LoggedOutHome/>
         }
       </div>
     </Router>
