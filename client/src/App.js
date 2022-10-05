@@ -18,6 +18,7 @@ import LoggedOutHome from './components/LoggedOutHome';
 
 
 function App() {
+
   const user = useSelector(state=>state)
   const dispatch = useDispatch()
   function setUser(newUser){
@@ -52,24 +53,32 @@ function App() {
 
  
 
-  const logInWarning = <h1>Log In First!</h1>
   const openProjectList = projectList.length ? projectList.filter(project=>!project.victor_id) : null
   const closedProjectList = projectList.length ? projectList.filter(projects=>projects.victor_id) : null
-
+  const logInWarning = <>Log in first</>
 
   return (
 
     <Router>
-      <div>
-        <NavBar handleLogout={handleLogout} />
-        <Routes>
 
-           {/* routes for everybody */}
-          <Route path="/signup" exact element={<SignupContainer setUser={setUser} />}>
-          </Route>
-          <Route path="/login" exact element={<LoginContainer setUser={setUser} />}>
-          </Route>
+      <div>
+
+        <NavBar handleLogout={handleLogout} />
+
+
+          {/* routes if not logged in */}
+        { !user.user_type ?  
+          <Routes>
+              <Route path="/signup" exact element={<SignupContainer setUser={setUser} />}>
+              </Route>
+              <Route path="/login" exact element={<LoginContainer setUser={setUser} />}>
+              </Route>
+              <Route path="/*"  element={<LoggedOutHome/>}>
+              </Route>
           </Routes>
+          :
+          null
+          }
 
           {// rescue from nomethod error while loading projectList
           projectList.length ?
@@ -95,7 +104,7 @@ function App() {
             </Route>
         </Routes>
 
-        : <LoggedOutHome/>
+        : null
         }
       </div>
     </Router>

@@ -5,30 +5,24 @@ import Button from 'react-bootstrap/Button';
 export default function LoggedOutHome() {
 
     const [fadeProp, setFadeProp] = useState(false)
+    const [fadeImage, setFadeImage] = useState(false)
 
     useEffect(()=>{
         const timeOut = setTimeout(()=>{setFadeProp(true);}, 700)
+        const timeOutImage = setTimeout(()=>{setFadeImage(true);}, 9000)
 
-        //  return () => clearInterval(timeOut)
+          return () => {clearInterval(timeOut); clearInterval(timeOutImage)}
     },[])
 
   return (
-        <Container>
-            <h1>Welcome to Ready Set Bid!</h1>
-            <h2>Log in or Signup!</h2>
+        <body id= {!fadeImage ? "logged-out-home-gif" : "logged-out-home-static"} >
             <fader className={fadeProp ? 'fade-in' : 'fade-out'}>  
-            
-                    <div className="d-grid gap-2">
-  
-                    </div> 
-                    <button class="bg-[#1da1f2] text-black size-lrg scale-x-10">
-                    Or Explore the site as a guest
-                    </button>
-                    
-                
+                <div id="logged-out-content">
+                <h1>Welcome to Ready Set Bid!</h1>
+                <h2>Log in or Signup to get started!</h2>
+                </div>
             </fader>
-           
-        </Container>
+        </body>
     
 
     )
