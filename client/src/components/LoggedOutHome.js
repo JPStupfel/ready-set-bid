@@ -19,12 +19,15 @@ export default function LoggedOutHome() {
             <fader className={fadeProp ? 'fade-in' : 'fade-out'}>  
             
                     <div className="d-grid gap-2">
-                            <Button  variant="primary" size="lg">
-                                Or Explore the site as a guest
-                            </Button>      
+  
                     </div> 
+                    <button class="bg-[#1da1f2] text-black size-lrg scale-x-10">
+                    Or Explore the site as a guest
+                    </button>
+                    
                 
             </fader>
+           
         </Container>
     
 
