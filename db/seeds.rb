@@ -29,8 +29,8 @@ Professional.create username: 'maria', password: 'fish', password_confirmation: 
 
 1.times do 
 
-images = [{path: 'db/Pictures/wooden_pier_two.jpeg', filename:'wooden_pier_two.jpeg'}, {path:'db/Pictures/Wooden_Pier.jpeg',filename:'Wooden_Pier.jpeg'}, {path: 'db/Pictures/Wooden_Pier_3.jpeg', filename: 'Wooden_Pier_3.jpeg'}]
-proposal = Proposal.create title: 'Fix my broken dock', description: 'Old style beach front pier in need of repair', client_id: Client.first.id, victor_id: nil, lat: Faker::Number.within(range: 41.3917..41.4000), lng: Faker::Number.within(range: 2.1649..2.2000) 
+images = [{path: 'db/Pictures/wooden_pier_two.jpeg', filename:'wooden_pier_two.jpeg'}, {path:'db/Pictures/Wooden_Pier.jpeg',filename:'Wooden_Pier.jpeg'}]
+proposal = Proposal.create title: Faker::Games::Minecraft.achievement, description: Faker::Quotes::Shakespeare.hamlet_quote + Faker::Quotes::Shakespeare.romeo_and_juliet_quote, client_id: Client.first.id, victor_id: nil, lat: Faker::Number.within(range: 41.3917..41.4000), lng: Faker::Number.within(range: 2.1649..2.2000) 
 
 images.each do |i|
     

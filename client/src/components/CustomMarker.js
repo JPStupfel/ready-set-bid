@@ -17,14 +17,14 @@ export default function CustomMarker({project}) {
         options={{  closeBoxURL: ``, enableEventPropagation: true }}
         onCloseClick={()=>console.log('deed')}
         >
-        <div style={{ backgroundColor: `white`,' maxWidth':'100px' }}>
-          <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
-            {project.title}
-          </div>
-          <img src={image} alt='' className='map-image' />
-          
-        </div>
-      </InfoBox>
+            <div style={{ backgroundColor: `white`,' maxWidth':'100px' }}>
+              <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>
+                {project.title}
+              </div>
+              <img src={image} alt='' className='map-image' />
+              
+            </div>
+        </InfoBox>
 
   return (
     <Marker onClick={()=>setShowInfo(p=>!p)} optimized={false} title={'fish'} key={project.title} position={location}>
