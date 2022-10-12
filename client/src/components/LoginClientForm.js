@@ -6,7 +6,7 @@ export default function LoginClientForm({setUser}) {
     const history = useNavigate();
 
 function handleSubmit(event){
-    event.preventDefault()
+     event.preventDefault()
     fetch("/session", {
         method: 'PATCH',
         headers: {
@@ -30,10 +30,10 @@ function handleChange(event){
     setFormData(newFormData)
 }
   return (
+    <>
 
-    <form onSubmit={handleSubmit}>
 
-    <div className="form-group">
+    {/* <div className="form-group">
       <label>Username</label>
       <input onChange={handleChange} type="text" className="form-control" id="username"  placeholder="Enter username"/>
 
@@ -49,28 +49,38 @@ function handleChange(event){
     <div className="form-check">
 
     </div>
-    <button type="submit" className="btn btn-primary">Submit</button>
-  </form>
+    <button type="submit" className="btn btn-primary">Submit</button> */}
+ 
+  
+
+
+  <div className="login-body">
+						<div className="login-content fs-13px">
+							<form onSubmit={handleSubmit}>
+								<div className="form-floating mb-20px">
+									<input onChange={handleChange}   type="text" className="form-control fs-13px h-45px" id="username" placeholder="Email Address" />
+									<label htmlFor="emailAddress" className="d-flex align-items-center py-0">Email Address</label>
+								</div>
+								<div className="form-floating mb-20px">
+									<input onChange={handleChange}  type="password" className="form-control fs-13px h-45px" id="password" placeholder="Password" />
+									<label htmlFor="password" className="d-flex align-items-center py-0">Password</label>
+								</div>
+								<div className="form-check mb-20px">
+									<input className="form-check-input" type="checkbox" value="" id="rememberMe" />
+									<label className="form-check-label" htmlFor="rememberMe">
+										Remember Me
+									</label>
+								</div>
+								<div className="login-buttons">
+									<button type="submit" className="btn h-45px btn-success d-block w-100 btn-lg">Sign me in</button>
+								</div>
+							</form>
+						</div>
+					</div>
+       
+  
+  
+  </>
   )
 }
 
-
-              // <form onSubmit={this.handleSubmit}>
-							// 	<div className="form-floating mb-20px">
-							// 		<input type="email" className="form-control fs-13px h-45px" id="emailAddress" placeholder="Email Address" />
-							// 		<label htmlFor="emailAddress" className="d-flex align-items-center py-0">Email Address</label>
-							// 	</div>
-							// 	<div className="form-floating mb-20px">
-							// 		<input type="password" className="form-control fs-13px h-45px" id="password" placeholder="Password" />
-							// 		<label htmlFor="password" className="d-flex align-items-center py-0">Password</label>
-							// 	</div>
-							// 	<div className="form-check mb-20px">
-							// 		<input className="form-check-input" type="checkbox" value="" id="rememberMe" />
-							// 		<label className="form-check-label" htmlFor="rememberMe">
-							// 			Remember Me
-							// 		</label>
-							// 	</div>
-							// 	<div className="login-buttons">
-							// 		<button type="submit" className="btn h-45px btn-success d-block w-100 btn-lg">Sign me in</button>
-							// 	</div>
-							// </form>
