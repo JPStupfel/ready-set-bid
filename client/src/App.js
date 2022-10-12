@@ -14,7 +14,7 @@ import MyWonProjectsPage from './components/MyWonProjectsPage';
 import ViewWonProjectPage from './components/ViewWonProjectPage';
 import {connect, useSelector, useDispatch} from 'react-redux'
 import LoggedOutHome from './components/LoggedOutHome';
-import '/Users/jpstupfel/Development/code/phase-5/ready-set-bid/client/src/components/scss/react.scss'
+import './components/scss/react.scss'
 
 
 

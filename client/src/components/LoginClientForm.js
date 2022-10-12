@@ -33,32 +33,12 @@ function handleChange(event){
     <>
 
 
-    {/* <div className="form-group">
-      <label>Username</label>
-      <input onChange={handleChange} type="text" className="form-control" id="username"  placeholder="Enter username"/>
-
-    </div>
-    <div className="form-group">
-      <label>Password</label>
-      <input onChange={handleChange}  type="password" className="form-control" id="password" placeholder="Password"/>
-    </div>
-    <div className="form-check">
-
-    </div>
-   
-    <div className="form-check">
-
-    </div>
-    <button type="submit" className="btn btn-primary">Submit</button> */}
- 
-  
-
 
   <div className="login-body">
 						<div className="login-content fs-13px">
 							<form onSubmit={handleSubmit}>
 								<div className="form-floating mb-20px">
-									<input onChange={handleChange}   type="text" className="form-control fs-13px h-45px" id="username" placeholder="Email Address" />
+									<input onChange={handleChange}   type="text" className="form-control fs-13px h-45px" id="username" placeholder="Username" />
 									<label htmlFor="emailAddress" className="d-flex align-items-center py-0">Email Address</label>
 								</div>
 								<div className="form-floating mb-20px">
