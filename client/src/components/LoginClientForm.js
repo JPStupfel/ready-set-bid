@@ -30,10 +30,6 @@ function handleChange(event){
     setFormData(newFormData)
 }
   return (
-    <>
-
-
-
   <div className="login-body">
 						<div className="login-content fs-13px">
 							<form onSubmit={handleSubmit}>
@@ -60,7 +56,7 @@ function handleChange(event){
        
   
   
-  </>
+  
   )
 }
 
