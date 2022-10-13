@@ -18,7 +18,7 @@ export default function SignupContainer({setUser}) {
       <div className="login login-v1">
 				<div className="login-container">
 					<div className="login-header">
-						<div className="brand">
+            <div className="brand">
 							<div className="d-flex align-items-center">
 								READY<b>Set</b>BID 
 							</div>
@@ -26,12 +26,11 @@ export default function SignupContainer({setUser}) {
 						</div>
 						<div className="icon">
 							<i className="fa fa-lock"></i>
-						</div>
-					</div>
+					  </div>
+				  </div>
           <div className='signupContainer'>
             {radioValue === '1' ? <SignupClientForm setUser={setUser} /> : <SignupProForm setUser={setUser}/>}
-          </div>
-          <ButtonGroup className="mb-2">
+            <ButtonGroup className="mb-2">
             {radios.map((radio, idx) => (
               <ToggleButton
                 key={idx}
@@ -41,13 +40,14 @@ export default function SignupContainer({setUser}) {
                 name="radio"
                 value={radio.value}
                 checked={radioValue === radio.value}
-                style={radioValue === radio.value ? {'backgroundColor':'blue'} : null}
+                style={radioValue === radio.value ? {'backgroundColor':'beige', 'color':'black'} : null}
                 onChange={(e) => setRadioValue(e.currentTarget.value)}
               >
                 {radio.name}
               </ToggleButton>
             ))}
-          </ButtonGroup>
+            </ButtonGroup>
+          </div>
         </div> 
 		  </div>
   )

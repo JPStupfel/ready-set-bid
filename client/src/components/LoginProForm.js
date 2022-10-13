@@ -26,7 +26,7 @@ function handleChange(event){
     setFormData(newFormData)
 }
   return (
-<div className="login-body">
+          <div className="login-body">
 						<div className="login-content fs-13px">
 							<form onSubmit={handleSubmit}>
 								<div className="form-floating mb-20px">
