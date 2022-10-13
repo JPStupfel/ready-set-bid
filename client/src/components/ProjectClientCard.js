@@ -9,7 +9,7 @@ function ProjectClientCard({project}) {
   const image = project.posts.length ? project.posts[0].image_url : 'loading'
 
   return (
-           <div className='col-lg-3 col-md-2'>
+           <div className='col-lg-2 col-md-3 col-sm-4 col-6'>
 						<div className="image w-100">
 							<div className="image-inner">
                 <img src={image} alt="" />
