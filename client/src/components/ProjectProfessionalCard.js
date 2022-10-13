@@ -26,7 +26,7 @@ function ProjectProfessionalCard({project}) {
           {project.description}								
         </div>
         <br/>
-        <Button variant="primary" onClick={()=>history(`/myprojects/${project.id}`)}>
+        <Button variant="primary" onClick={()=>history(`/projects/${project.id}`)}>
           View Project
         </Button>
       </div>

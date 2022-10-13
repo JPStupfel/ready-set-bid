@@ -10,16 +10,29 @@ function MyWonProjectCard({project}) {
   const image = project.posts.length ? project.posts[0].image_url : ''
 
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={image} />
-      <Card.Body>
-        <Card.Title>{project.title}</Card.Title>
-        <Card.Text>
-          {project.description}
-        </Card.Text>
-        <Button variant="primary" onClick={()=>history(`/my_projects_won/${project.id}`)}>View Project</Button>
-      </Card.Body>
-    </Card>
+  
+
+<div className='col-lg-3 col-md-2'>
+<div className="image w-100">
+  <div className="image-inner">
+    <img src={image} alt="" />
+  </div>
+  <div className="image-info">
+    <h5 className="title">{project.title}</h5>
+    <div className="d-flex align-items-center mb-2">
+      <div className="ms-auto">
+      </div>
+    </div>
+    <div className="desc">
+      {project.description}								
+    </div>
+    <br/>
+    <Button variant="primary" onClick={()=>history(`/my_projects_won/${project.id}`)}>
+      View Project
+    </Button>
+  </div>
+</div>
+</div>
   );
 }
 

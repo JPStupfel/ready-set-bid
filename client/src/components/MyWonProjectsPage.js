@@ -10,8 +10,7 @@ const projectCards = myWonProjects.map(e=><MyWonProjectCard key={e.id} project={
 
 while (!myWonProjects.length){return(<h1>You have not won any projects</h1>)}
   return (
-    <div >
-      
+    <div id="gallery" className="gallery row gx-0">
         <MapContainer projectList={projectList}/>
           {projectCards}
     </div>
