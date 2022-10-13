@@ -15,7 +15,7 @@ export default function CustomMarker({project}) {
         <InfoBox
         position={location}
         options={{  closeBoxURL: ``, enableEventPropagation: true }}
-        onCloseClick={()=>console.log('deed')}
+        onCloseClick={()=>console.log('close')}
         >
             <div style={{ backgroundColor: `white`,' maxWidth':'100px' }}>
               <div style={{ fontSize: `16px`, fontColor: `#08233B` }}>

@@ -6,7 +6,6 @@ import SignupProForm from './SignupProForm';
 
 
 export default function SignupContainer({setUser}) {
-    const [checked, setChecked] = useState(false);
     const [radioValue, setRadioValue] = useState('1');
 
     const radios = [

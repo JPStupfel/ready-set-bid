@@ -7,7 +7,6 @@ import LoginProForm from './LoginProForm';
 
 
 export default function LoginContainer({setUser}) {
-    const [checked, setChecked] = useState(false);
     const [radioValue, setRadioValue] = useState('1');
 
     const radios = [

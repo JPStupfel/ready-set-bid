@@ -33,7 +33,6 @@ function App() {
  
   const [projectList, setProjectList] = useState([])
 
-  useEffect(()=>{console.log(user)},[user])
 
   useEffect(()=>{
     fetch('/me').then(r=>r.json()).then(d=>setUser(d)).catch(e=>console.log(e))

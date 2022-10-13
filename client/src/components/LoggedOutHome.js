@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Container from 'react-bootstrap/esm/Container'
-import Button from 'react-bootstrap/Button';
+
 
 export default function LoggedOutHome() {
 
@@ -15,13 +14,7 @@ export default function LoggedOutHome() {
     },[])
 
   return (
-        // <body id= {!fadeImage ? "logged-out-home-gif" : "logged-out-home-static"} >
-        //     <fader className={fadeProp ? 'fade-in' : 'fade-out'}>  
-        //         <div id="logged-out-content">
-        //         <h1>Welcome to Ready Set Bid!</h1>
-        //         <h2>Log in or Signup to get started!</h2>
-        //         </div>
-        //     </fader>
+
 
 
             
@@ -31,14 +24,14 @@ export default function LoggedOutHome() {
 
             <div className="bg-cover" >
             </div>
-            <fader className={fadeProp ? 'fade-in' : 'fade-out'}>  
+            <div className={fadeProp ? 'fade-in' : 'fade-out'}>  
                 <div className="brand">
                     READY<b>Set</b>BID 
                 </div>
                 <div className="desc">
                  <small>Log in or Sign up to Access Features</small>
                 </div>
-            </fader>
+            </div>
         </div>
         <div className="coming-soon-content">
             <div className="desc">
