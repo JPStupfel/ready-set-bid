@@ -35,7 +35,7 @@ function handleChange(event){
 							<form onSubmit={handleSubmit}>
 								<div className="form-floating mb-20px">
 									<input onChange={handleChange}   type="text" className="form-control fs-13px h-45px" id="username" placeholder="Username" />
-									<label htmlFor="emailAddress" className="d-flex align-items-center py-0">Email Address</label>
+									<label htmlFor="emailAddress" className="d-flex align-items-center py-0">username</label>
 								</div>
 								<div className="form-floating mb-20px">
 									<input onChange={handleChange}  type="password" className="form-control fs-13px h-45px" id="password" placeholder="Password" />

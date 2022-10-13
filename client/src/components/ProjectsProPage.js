@@ -2,7 +2,7 @@ import React from 'react';
 import MapContainer from './MapContainer'
 import ProjectProfessionalCard from './ProjectProfessionalCard';
 
-export default function ProjectsPage({projectList}) {
+export default function ProjectsProPage({projectList}) {
 
 const projectCards = projectList.map(e=><ProjectProfessionalCard key={e.id} project={e} />)
 

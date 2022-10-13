@@ -219,7 +219,7 @@ Index
 		|---------AddProjectMap
 		|---------fileForm
 		|---------AddProjectForm
-	|---------ProjectsPage
+	|---------ProjectsProPage
 		|---------MapContainer
 			|---------CustomMarker
 		|---------ProjectProfessionalCard

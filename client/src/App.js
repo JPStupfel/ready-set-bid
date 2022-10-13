@@ -5,7 +5,7 @@ import {HashRouter as Router, Routes, Route} from "react-router-dom";
 import NavBar from './components/NavBar';
 import SignupContainer from './components/SignupContainer';
 import LoginContainer from './components/LoginContainer';
-import ProjectsPage from './components/ProjectsPage';
+import ProjectsProPage from './components/ProjectsProPage';
 import AddProjectContainer from './components/AddProjectContainer';
 import MyProjectsPage from './components/MyProjectsPage';
 import ViewMyProjectPage from './components/ViewMyProjectPage';
@@ -84,7 +84,7 @@ function App() {
           projectList.length ?
         <Routes>
             {/* routes for pros */}
-            <Route path="/projects" exact element={user.user_type === 'Professional' ? <ProjectsPage projectList={openProjectList}/> : logInWarning}>
+            <Route path="/projects" exact element={user.user_type === 'Professional' ? <ProjectsProPage projectList={openProjectList}/> : logInWarning}>
             </Route>
             <Route path="/projects/:id" exact element={user.user_type === 'Professional' ? <ViewProjectProPage /> : logInWarning}>
             </Route>

@@ -45,8 +45,8 @@ function handleChange(event){
 									<label htmlFor="password_confirmation" className="d-flex align-items-center py-0">Profile Picture Url</label>
 								</div>
                 <div className="form-floating mb-20px">
-									<input onChange={handleChange}  type="text" className="form-control fs-13px h-45px" id="email" placeholder="Enter Email Address" />
-									<label htmlFor="password_confirmation" className="d-flex align-items-center py-0">Enter Email Address</label>
+									<input onChange={handleChange}  type="text" className="form-control fs-13px h-45px" id="email" placeholder="Enter username" />
+									<label htmlFor="password_confirmation" className="d-flex align-items-center py-0">Enter email</label>
 								</div>
 								<div className="form-check mb-20px">
 									<input className="form-check-input" type="checkbox" value="" id="rememberMe" />
