@@ -8,8 +8,8 @@ const projectCards = projectList.map(e=><ProjectProfessionalCard key={e.id} proj
 
 
   return (
-    <div >
-        <MapContainer projectList={projectList}/>
+    <div id="gallery" className="gallery row gx-0">
+    <MapContainer projectList={projectList}/>
           {projectCards}
     </div>
   )
