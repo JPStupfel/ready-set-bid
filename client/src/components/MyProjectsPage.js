@@ -15,12 +15,11 @@ const closedProjectCards = closedProjectList.map(e=><ProjectClientCard key={e.id
 
 
   return (
-    <div>
-        <MapContainer projectList={projectList}/>
-        <h1>Open Projects</h1>
+				 <div id="gallery" className="gallery row gx-0">
+         <MapContainer projectList={projectList}/>
+
           {openProjectCards}
-        <h2>Closed Projects</h2>
-         {closedProjectCards}
-    </div>
+          </div>
+ 
   )
 }
