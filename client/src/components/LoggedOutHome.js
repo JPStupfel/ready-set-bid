@@ -27,8 +27,9 @@ export default function LoggedOutHome() {
             
         // </body>
         <div className="coming-soon">
-        <div className="coming-soon-header">
-            <div className="bg-cover"></div>
+        <div className= "coming-soon-header" id = {!fadeImage ? "coming-soon-header-gif" : "coming-soon-header"}>
+
+            <div className="bg-cover" ></div>
             <div className="brand">
                 READY<b>Set</b>BID 
             </div>
