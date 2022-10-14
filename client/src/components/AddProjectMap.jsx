@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import Button from 'react-bootstrap/esm/Button';
 
 const API_KEY = process.env.REACT_APP_API_KEY_GOOGLE_EARTH_JS;
-
-
 const AddProjectMap = ({setCoords}) => {
-
   const [address, setAddress] = useState('')
   const [coordAddress, setCoordAddress] = useState({
       lat: 41.40,
@@ -22,7 +20,7 @@ const AddProjectMap = ({setCoords}) => {
   }
 
   const mapStyles = {        
-    height: "100vh",
+    height: "50vh",
     width: "100%"};
 
   return (
@@ -33,7 +31,7 @@ const AddProjectMap = ({setCoords}) => {
 
         <input
           type="text"
-          placeholder="Customized your placeholder"
+          placeholder="Type an address and hit GO!"
           value={address}
           onChange={(event)=>setAddress(event.target.value)}
           style={{
@@ -49,12 +47,14 @@ const AddProjectMap = ({setCoords}) => {
             textOverflow: `ellipses`,
           }}
         />
-     
-        <button onClick={(event)=>{getCoordinates(address)}}>Go</button>
-        <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={coordAddress}>
+        <Button className='btn-gray' onClick={(event)=>{getCoordinates(address)}}>Go</Button>
+
+        <div className='map-box'>
+          <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={coordAddress}>
               <Marker optimized={false} title={'fish'} position={coordAddress}>
               </Marker>
-         </GoogleMap>
+          </GoogleMap>
+         </div>
      </LoadScript>
   )
 }

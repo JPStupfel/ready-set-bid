@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from 'react-bootstrap/esm/Button';
 
 function FileForm({handleAddImageToImageData}) {
 
@@ -14,19 +15,14 @@ function FileForm({handleAddImageToImageData}) {
 
 
   return (
-    <div>
-        <h1>FileForm</h1>
+      <div>
+        <h1>Upload Images Here</h1>
         <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Title</label>
-        <input type='text' name="title" id="title"/>
-        <br/>
-
-        <label htmlFor="image">Image</label>
-        <input type='file' name="Image" id="image"/>
-        <br/>
-        <button type="submit">Attach Photo to Project!</button>
+          <input type='file' name="Image" id="image"/>
+          <br/>
+          <Button className="btn-gray" variant="primary" type="submit"> Attach Photo to Project! </Button>
         </form>
-    </div>
+      </div>
   )
 }
 
