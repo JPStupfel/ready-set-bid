@@ -25,7 +25,7 @@ export default function ViewMyProjectPage({setProjectList}) {
      }
 
      function handleAcceptBid(bid){
-       fetch(`/proposals/${id_num}`, {method: "PATCH", headers:{'Content-Type':'application/json'}, body: JSON.stringify({victor_id: bid.professional_id })}).then(r=>r.json()).then(d=>{const newCurrentProject = {...currentProject}; newCurrentProject.victor_id = d.victor_id; setCurrentProject(newCurrentProject)})
+       fetch(`/proposals/${id_num}`, {method: "PATCH", headers:{'Content-Type':'application/json'}, body: JSON.stringify({victor_id: bid.professional_id })}).then(r=>r.json()).then(d=>{const newCurrentProject = {...currentProject}; newCurrentProject.victor_id = d.victor_id; setCurrentProject(newCurrentProject); console.log(d)})
   }
     function handleChange(event){
       setDescription(event.target.value)
@@ -46,8 +46,13 @@ export default function ViewMyProjectPage({setProjectList}) {
      while (!currentProject){return(<>Loading!</>)}
 
      const projectImages =  currentProject.posts.map(e=><VewMyProjectImageCard key={e.id} image={e.image_url} />) 
-     const victorBid = currentProject.victor_id ? currentProject.bids.find(bid=>bid.professional_id==currentProject.victor_id) : null
+
+     
+
      const descriptionEditor = <form onSubmit={handleSubmit}><input onChange={handleChange} value={description}></input></form>
+
+
+
   return (
     <div>
       {/* <h1>{currentProject.title}</h1>
@@ -63,61 +68,11 @@ export default function ViewMyProjectPage({setProjectList}) {
 
 				<div className="d-sm-flex align-items-center mb-3">
 				</div>
-
-				<div className="row">
-{/* TOTAL SALES BAR */}
-					<div className="col-xl-6">
-						<div className="card border-0 mb-3 overflow-hidden bg-gray-800 text-white">
-							<div className="card-body">
-								<div className="row">
-									<div className="col-xl-7 col-lg-8">
-										<div className="mb-3 text-gray-500">
-											<b>TOTAL SALES</b>
-											<span className="ms-2">
-												<i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Total sales" data-bs-placement="top" data-bs-content="Net sales (gross sales minus discounts and returns) plus taxes and shipping. Includes orders from all sales channels."></i>
-											</span>
-										</div>
-										<div className="d-flex mb-1">
-											<h2 className="mb-0">$64,559.25</h2>
-											<div className="ms-auto mt-n1 mb-n1">
-											{!currentProject.victor_id ? <MyProjectBidList handleAcceptBid={handleAcceptBid} currentProject={currentProject}/> : <div><h1>This project has been won by {victorBid.professional_name} for ${victorBid.amount} </h1><p1>{victorBid.professional_name} will contact you at {currentProject.client.email}.</p1></div>}
-											</div>
-										</div>
-										<div className="mb-3 text-gray-500">
-											<i className="fa fa-caret-up"></i> 33.21% compare to last week
-										</div>
-										<hr className="bg-white-transparent-2" />
-										<div className="row text-truncate">
-											<div className="col-6">
-												<div className="fs-12px text-gray-500">Total sales order</div>
-												<div className="fs-18px mb-5px fw-bold">1,568</div>
-												<div className="progress h-5px rounded-3 bg-gray-900 mb-5px">
-													<div className="progress-bar progress-bar-striped rounded-right bg-teal" style={{width: '55%'}}></div>
-												</div>
-											</div>
-											<div className="col-6">
-												<div className="fs-12px text-gray-500">Avg. sales per order</div>
-												<div className="fs-18px mb-5px fw-bold">$41.20</div>
-												<div className="progress h-5px rounded-3 bg-gray-900 mb-5px">
-													<div className="progress-bar progress-bar-striped rounded-right" style={{width: '55%'}}></div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div className="col-xl-5 col-lg-4 align-items-center d-flex justify-content-center">
-										<img src="/assets/img/svg/img-1.svg" alt="" height="150px" className="d-none d-lg-block" />
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-{/* TOTAL SALES BAR */}
 {/* FIRST ROW */}
-
-					<div className="col-xl-6">
+				<div className="row">
+					<div className="col-12">
 						<div className="row">
 {/* FIRST COMPONENT FIRST ROW */}
-
 							<div className="col-sm-6">
 								<div className="card border-0 text-truncate mb-3 bg-gray-800 text-white">
 									<div className="card-body" >
@@ -127,79 +82,10 @@ export default function ViewMyProjectPage({setProjectList}) {
 							</div>
 {/* FIRST COMPONENT FIRST ROW */}
 {/* SECOND COMPONENT FIRST ROW */}
-
-							<div className="col-xl-4 col-lg-6">
+							<div className="col-md-6 col-sm-4 col-sm-pull-4">
 								<div className="card border-0 mb-3 bg-gray-800 text-white">
 									<div className="card-body">
-										<div className="mb-3 text-gray-500">
-											<b>TOP PRODUCTS BY UNITS SOLD</b>
-											<span className="ms-2 "><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units sold" data-bs-placement="top" data-bs-content="Products with the most individual units sold. Includes orders from all sales channels."></i></span>
-										</div>
-										<div className="d-flex align-items-center mb-15px">
-											<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
-												<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-8.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
-											</div>
-											<div className="text-truncate">
-												<div>Apple iPhone XR (2021)</div>
-												<div className="text-gray-500">$799.00</div>
-											</div>
-											<div className="ms-auto text-center">
-												<div className="fs-13px">195</div>
-												<div className="text-gray-500 fs-10px">sold</div>
-											</div>
-										</div>
-										<div className="d-flex align-items-center mb-15px">
-											<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
-												<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-9.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
-											</div>
-											<div className="text-truncate">
-												<div>Apple iPhone XS (2021)</div>
-												<div className="text-gray-500">$1,199.00</div>
-											</div>
-											<div className="ms-auto text-center">
-												<div className="fs-13px">185</div>
-												<div className="text-gray-500 fs-10px">sold</div>
-											</div>
-										</div>
-										<div className="d-flex align-items-center mb-15px">
-											<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
-												<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-10.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
-											</div>
-											<div className="text-truncate">
-												<div>Apple iPhone XS Max (2021)</div>
-												<div className="text-gray-500">$3,399</div>
-											</div>
-											<div className="ms-auto text-center">
-												<div className="fs-13px">129</div>
-												<div className="text-gray-500 fs-10px">sold</div>
-											</div>
-										</div>
-										<div className="d-flex align-items-center mb-15px">
-											<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
-												<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-11.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
-											</div>
-											<div className="text-truncate">
-												<div>Huawei Y5 (2021)</div>
-												<div className="text-gray-500">$99.00</div>
-											</div>
-											<div className="ms-auto text-center">
-												<div className="fs-13px">96</div>
-												<div className="text-gray-500 fs-10px">sold</div>
-											</div>
-										</div>
-										<div className="d-flex align-items-center">
-											<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
-												<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-12.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
-											</div>
-											<div className="text-truncate">
-												<div>Huawei Nova 4 (2021)</div>
-												<div className="text-gray-500">$499.00</div>
-											</div>
-											<div className="ms-auto text-center">
-												<div className="fs-13px">55</div>
-												<div className="text-gray-500 fs-10px">sold</div>
-											</div>
-										</div>
+										<MyProjectBidList handleAcceptBid={handleAcceptBid} currentProject={currentProject}/>
 									</div>
 								</div>
 							</div>
