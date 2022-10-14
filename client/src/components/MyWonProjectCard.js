@@ -27,7 +27,7 @@ function MyWonProjectCard({project}) {
       {project.description}								
     </div>
     <br/>
-    <Button variant="primary" onClick={()=>history(`/my_projects_won/${project.id}`)}>
+    <Button className="btn-gray" variant="primary" onClick={()=>history(`/my_projects_won/${project.id}`)}>
       View Project
     </Button>
   </div>

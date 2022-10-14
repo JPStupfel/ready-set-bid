@@ -1,6 +1,5 @@
 import React, { useEffect, useState} from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
-
 import MapContainer from './MapContainer'
 import MyProjectBidList from './MyProjectBidList';
 import VewMyProjectImageCard from './VewMyProjectImageCard';
@@ -64,8 +63,7 @@ export default function ViewMyProjectPage({setProjectList}) {
       {!currentProject.victor_id ? <MyProjectBidList handleAcceptBid={handleAcceptBid} currentProject={currentProject}/> : <div><h1>This project has been won by {victorBid.professional_name} for ${victorBid.amount} </h1><p1>{victorBid.professional_name} will contact you at {currentProject.client.email}.</p1></div>}
       <button onClick={deleteProject}>Delete this Project</button> */}
 
-<div>
-
+      <div>
 				<div className="d-sm-flex align-items-center mb-3">
 				</div>
 {/* FIRST ROW */}
@@ -92,51 +90,26 @@ export default function ViewMyProjectPage({setProjectList}) {
 							
 						</div>
 	{/* SECOND COMPONENT FIRST ROW */}
-
 					</div>
 				</div>
 {/* END FIRST ROW */}
-
-
-
-				
 				<div className="row">
 					<div className="col-12">
-						
 						<div className="card border-0 mb-3 bg-gray-900 text-white">
 							<div className="card-body" style={{ background: 'no-repeat bottom right', backgroundImage: 'url(/assets/img/svg/img-4.svg)', backgroundSize: 'auto 60%'}}>
 								<div className="mb-3 text-gray-500 ">
-									<b>SALES BY SOCIAL SOURCE</b>
-									fish</div>
+									<b>Project Images</b>
+								</div>
 							</div>
 							<div className="widget-list rounded-bottom dark-mode">
-							
 							<div className='gallery-v2' id="gallery">
 								{projectImages}
-							
-
-							</div>
-									
-						
-
-						
-				
+							</div>																									
 							</div>
 						</div>
-
-					</div>
-
-					
+					</div>					
 				</div>
 			</div>
-
-
-
-
-
-
-
-
    </div>
   )
 }
