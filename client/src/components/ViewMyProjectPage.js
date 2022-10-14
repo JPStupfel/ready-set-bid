@@ -62,11 +62,10 @@ export default function ViewMyProjectPage({setProjectList}) {
 <div>
 
 				<div className="d-sm-flex align-items-center mb-3">
-			
-					
-				
 				</div>
+
 				<div className="row">
+{/* TOTAL SALES BAR */}
 					<div className="col-xl-6">
 						<div className="card border-0 mb-3 overflow-hidden bg-gray-800 text-white">
 							<div className="card-body">
@@ -112,204 +111,112 @@ export default function ViewMyProjectPage({setProjectList}) {
 							</div>
 						</div>
 					</div>
+{/* TOTAL SALES BAR */}
+{/* FIRST ROW */}
+
 					<div className="col-xl-6">
 						<div className="row">
+{/* FIRST COMPONENT FIRST ROW */}
+
 							<div className="col-sm-6">
-                
 								<div className="card border-0 text-truncate mb-3 bg-gray-800 text-white">
-
-								<div className="card-body" >
-								<MapContainer projectList={[currentProject]}/>
-
-										{/* 	<div className="mb-3 text-gray-500">
-											<b className="mb-3">CONVERSION RATE</b> 
-											<span className="ms-2"><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Conversion Rate" data-bs-placement="top" data-bs-content="Percentage of sessions that resulted in orders from total number of sessions." data-original-title="" title=""></i></span>
-										</div>
-										<div className="d-flex align-items-center mb-1">
-											<h2 className="text-white mb-0">2.19%</h2>
-											<div className="ms-auto">
-												Chart
-											</div>
-										</div>
-										<div className="mb-4 text-gray-500 ">
-											<i className="fa fa-caret-down"></i> 0.50% compare to last week
-										</div>
-										<div className="d-flex mb-2">
-											<div className="d-flex align-items-center">
-												<i className="fa fa-circle text-red fs-8px me-2"></i>
-												Added to cart
-											</div>
-											<div className="d-flex align-items-center ms-auto">
-												<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 262%</div>
-												<div className="w-50px text-end ps-2 fw-bold">3.79%</div>
-											</div>
-										</div>
-										<div className="d-flex mb-2">
-											<div className="d-flex align-items-center">
-												<i className="fa fa-circle text-warning fs-8px me-2"></i>
-												Reached checkout
-											</div>
-											<div className="d-flex align-items-center ms-auto">
-												<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 11%</div>
-												<div className="w-50px text-end ps-2 fw-bold">3.85%</div>
-											</div>
-										</div>
-										<div className="d-flex">
-											<div className="d-flex align-items-center">
-												<i className="fa fa-circle text-lime fs-8px me-2"></i>
-												Sessions converted
-											</div>
-											<div className="d-flex align-items-center ms-auto">
-												<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 57%</div>
-												<div className="w-50px text-end ps-2 fw-bold">2.19%</div>
-											</div>
-										</div>*/}
+									<div className="card-body" >
+										<MapContainer projectList={[currentProject]}/>
 									</div> 
 								</div>
-
-
 							</div>
-							<div className="col-sm-6">
-								<div className="card border-0 text-truncate mb-3 bg-gray-800 text-white">
+{/* FIRST COMPONENT FIRST ROW */}
+{/* SECOND COMPONENT FIRST ROW */}
+
+							<div className="col-xl-4 col-lg-6">
+								<div className="card border-0 mb-3 bg-gray-800 text-white">
 									<div className="card-body">
 										<div className="mb-3 text-gray-500">
-											<b className="mb-3">STORE SESSIONS</b> 
-											<span className="ms-2"><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Store Sessions" data-bs-placement="top" data-bs-content="Number of sessions on your online store. A session is a period of continuous activity from a visitor." data-original-title="" title=""></i></span>
+											<b>TOP PRODUCTS BY UNITS SOLD</b>
+											<span className="ms-2 "><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units sold" data-bs-placement="top" data-bs-content="Products with the most individual units sold. Includes orders from all sales channels."></i></span>
 										</div>
-										<div className="d-flex align-items-center mb-1">
-											<h2 className="text-white mb-0">70,719</h2>
-											<div className="ms-auto">
-												chart
+										<div className="d-flex align-items-center mb-15px">
+											<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+												<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-8.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
 											</div>
-										</div>
-										<div className="mb-4 text-gray-500 ">
-											<i className="fa fa-caret-up"></i> 9.5% compare to last week
-										</div>
-										<div className="d-flex mb-2">
-											<div className="d-flex align-items-center">
-												<i className="fa fa-circle text-teal fs-8px me-2"></i>
-												Mobile
+											<div className="text-truncate">
+												<div>Apple iPhone XR (2021)</div>
+												<div className="text-gray-500">$799.00</div>
 											</div>
-											<div className="d-flex align-items-center ms-auto">
-												<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 25.7%</div>
-												<div className="w-50px text-end ps-2 fw-bold">53,210</div>
+											<div className="ms-auto text-center">
+												<div className="fs-13px">195</div>
+												<div className="text-gray-500 fs-10px">sold</div>
 											</div>
 										</div>
-										<div className="d-flex mb-2">
-											<div className="d-flex align-items-center">
-												<i className="fa fa-circle text-blue fs-8px me-2"></i>
-												Desktop
+										<div className="d-flex align-items-center mb-15px">
+											<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+												<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-9.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
 											</div>
-											<div className="d-flex align-items-center ms-auto">
-												<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 16.0%</div>
-												<div className="w-50px text-end ps-2 fw-bold">11,959</div>
+											<div className="text-truncate">
+												<div>Apple iPhone XS (2021)</div>
+												<div className="text-gray-500">$1,199.00</div>
+											</div>
+											<div className="ms-auto text-center">
+												<div className="fs-13px">185</div>
+												<div className="text-gray-500 fs-10px">sold</div>
 											</div>
 										</div>
-										<div className="d-flex">
-											<div className="d-flex align-items-center">
-												<i className="fa fa-circle text-aqua fs-8px me-2"></i>
-												Tablet
+										<div className="d-flex align-items-center mb-15px">
+											<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+												<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-10.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
 											</div>
-											<div className="d-flex align-items-center ms-auto">
-												<div className="text-gray-500 small"><i className="fa fa-caret-up"></i> 7.9%</div>
-												<div className="w-50px text-end ps-2 fw-bold">5,545</div>
+											<div className="text-truncate">
+												<div>Apple iPhone XS Max (2021)</div>
+												<div className="text-gray-500">$3,399</div>
+											</div>
+											<div className="ms-auto text-center">
+												<div className="fs-13px">129</div>
+												<div className="text-gray-500 fs-10px">sold</div>
+											</div>
+										</div>
+										<div className="d-flex align-items-center mb-15px">
+											<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+												<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-11.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+											</div>
+											<div className="text-truncate">
+												<div>Huawei Y5 (2021)</div>
+												<div className="text-gray-500">$99.00</div>
+											</div>
+											<div className="ms-auto text-center">
+												<div className="fs-13px">96</div>
+												<div className="text-gray-500 fs-10px">sold</div>
+											</div>
+										</div>
+										<div className="d-flex align-items-center">
+											<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+												<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-12.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+											</div>
+											<div className="text-truncate">
+												<div>Huawei Nova 4 (2021)</div>
+												<div className="text-gray-500">$499.00</div>
+											</div>
+											<div className="ms-auto text-center">
+												<div className="fs-13px">55</div>
+												<div className="text-gray-500 fs-10px">sold</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
+							
 						</div>
-					</div>
-				</div>
-				<div className="row">
-					<div className="col-xl-8 col-lg-6">
-						<div className="card border-0 mb-3 bg-gray-800 text-white">
-							<div className="card-body">
-								<div className="mb-3 text-gray-500">
-									<b>VISITORS ANALYTICS</b>
-									<span className="ms-2"><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units sold" data-bs-placement="top" data-bs-content="Products with the most individual units sold. Includes orders from all sales channels." data-original-title="" title=""></i></span>
-								</div>
-								<div className="row">
-									<div className="col-xl-3 col-4">
-										<h3 className="mb-1">127.1K</h3>
-										<div>New Visitors</div>
-										<div className="text-gray-500 small text-truncate"><i className="fa fa-caret-up"></i> 25.5% from previous 7 days</div>
-									</div>
-									<div className="col-xl-3 col-4">
-										<h3 className="mb-1">179.9K</h3>
-										<div>Returning Visitors</div>
-										<div className="text-gray-500 small text-truncate"><i className="fa fa-caret-up"></i> 5.33% from previous 7 days</div>
-									</div>
-									<div className="col-xl-3 col-4">
-										<h3 className="mb-1">766.8K</h3>
-										<div>Total Page Views</div>
-										<div className="text-gray-500 small text-truncate"><i className="fa fa-caret-up"></i> 0.323% from previous 7 days</div>
-									</div>
-								</div>
-							</div>
-							<div className="card-body p-0">
-								<div style={{height: '269px'}}>
-									<div className="widget-chart-full-width dark-mode pe-4" style={{height: '254px'}}>
-									Chart
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className="col-xl-4 col-lg-6">
-						<div className="card bg-gray-800 border-0 text-white mb-3">
-							<div className="card-body">
-								<div className="mb-2 text-grey">
-									<b>SESSION BY LOCATION</b>
-									<span className="ms-2"><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Total sales" data-bs-placement="top" data-bs-content="Net sales (gross sales minus discounts and returns) plus taxes and shipping. Includes orders from all sales channels."></i></span>
-								</div>
-								<div className="bg-black mb-3" style={{height: '192px'}}>
-                <MapContainer projectList={[currentProject]}/>
+	{/* SECOND COMPONENT FIRST ROW */}
 
-								</div>
-								<div>
-									<div className="d-flex align-items-center text-white mb-2">
-										<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/us.jpg)'}}></div>
-										<div className="d-flex w-100">
-											<div>United States</div>
-											<div className="ms-auto text-gray-500">39.85%</div>
-										</div>
-									</div>
-									<div className="d-flex align-items-center text-white mb-2">
-										<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/cn.jpg)'}}></div>
-										<div className="d-flex w-100">
-											<div>China</div>
-											<div className="ms-auto text-gray-500">14.23%</div>
-										</div>
-									</div>
-									<div className="d-flex align-items-center text-white mb-2">
-										<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/de.jpg)'}}></div>
-										<div className="d-flex w-100">
-											<div>Germany</div>
-											<div className="ms-auto text-gray-500">12.83%</div>
-										</div>
-									</div>
-									<div className="d-flex align-items-center text-white mb-2">
-										<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/fr.jpg)'}}></div>
-										<div className="d-flex w-100">
-											<div>France</div>
-											<div className="ms-auto text-gray-500">11.14%</div>
-										</div>
-									</div>
-									<div className="d-flex align-items-center text-white mb-0">
-										<div className="widget-img widget-img-xs rounded bg-inverse me-2 w-40px" style={{backgroundImage: 'url(/assets/img/flag/jp.jpg)'}}></div>
-										<div className="d-flex w-100">
-											<div>Japan</div>
-											<div className="ms-auto text-gray-500">10.75%</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
+{/* END FIRST ROW */}
+
+
+
+				
 				<div className="row">
 					<div className="col-xl-4 col-lg-6">
+						
 						<div className="card border-0 mb-3 bg-gray-900 text-white">
 							<div className="card-body" style={{ background: 'no-repeat bottom right', backgroundImage: 'url(/assets/img/svg/img-4.svg)', backgroundSize: 'auto 60%'}}>
 								<div className="mb-3 text-gray-500 ">
@@ -351,29 +258,87 @@ export default function ViewMyProjectPage({setProjectList}) {
 										$4,799.20
 									</div>
 						
-									<div className="widget-list-media icon">
-										<i className="fab fa-google bg-red text-white"></i>
+									<div className="col-xl-4 col-lg-6">
+						<div className="card border-0 mb-3 bg-gray-800 text-white">
+							<div className="card-body">
+								<div className="mb-3 text-gray-500">
+									<b>TOP PRODUCTS BY UNITS SOLD</b>
+									<span className="ms-2 "><i className="fa fa-info-circle" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-title="Top products with units sold" data-bs-placement="top" data-bs-content="Products with the most individual units sold. Includes orders from all sales channels."></i></span>
+								</div>
+								<div className="d-flex align-items-center mb-15px">
+									<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+										<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-8.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
 									</div>
-									<div className="widget-list-content">
-										<div className="widget-list-title">Google Adwords</div>
+									<div className="text-truncate">
+										<div>Apple iPhone XR (2021)</div>
+										<div className="text-gray-500">$799.00</div>
 									</div>
-									<div className="widget-list-action text-nowrap text-gray-500">
-										$3,405.85
+									<div className="ms-auto text-center">
+										<div className="fs-13px">195</div>
+										<div className="text-gray-500 fs-10px">sold</div>
 									</div>
-							
-									<div className="widget-list-media icon">
-										<i className="fab fa-instagram bg-pink text-white"></i>
+								</div>
+								<div className="d-flex align-items-center mb-15px">
+									<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+										<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-9.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
 									</div>
-									<div className="widget-list-content">
-										<div className="widget-list-title">Instagram</div>
+									<div className="text-truncate">
+										<div>Apple iPhone XS (2021)</div>
+										<div className="text-gray-500">$1,199.00</div>
 									</div>
-									<div className="widget-list-action text-nowrap text-gray-500">
-										$0.00
+									<div className="ms-auto text-center">
+										<div className="fs-13px">185</div>
+										<div className="text-gray-500 fs-10px">sold</div>
 									</div>
-				
+								</div>
+								<div className="d-flex align-items-center mb-15px">
+									<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+										<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-10.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+									</div>
+									<div className="text-truncate">
+										<div>Apple iPhone XS Max (2021)</div>
+										<div className="text-gray-500">$3,399</div>
+									</div>
+									<div className="ms-auto text-center">
+										<div className="fs-13px">129</div>
+										<div className="text-gray-500 fs-10px">sold</div>
+									</div>
+								</div>
+								<div className="d-flex align-items-center mb-15px">
+									<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+										<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-11.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+									</div>
+									<div className="text-truncate">
+										<div>Huawei Y5 (2021)</div>
+										<div className="text-gray-500">$99.00</div>
+									</div>
+									<div className="ms-auto text-center">
+										<div className="fs-13px">96</div>
+										<div className="text-gray-500 fs-10px">sold</div>
+									</div>
+								</div>
+								<div className="d-flex align-items-center">
+									<div className="widget-img rounded-3 me-10px bg-white p-3px w-30px">
+										<div className="h-100 w-100" style={{background: 'url(/assets/img/product/product-12.jpg) center no-repeat', backgroundSize: 'auto 100%'}}></div>
+									</div>
+									<div className="text-truncate">
+										<div>Huawei Nova 4 (2021)</div>
+										<div className="text-gray-500">$499.00</div>
+									</div>
+									<div className="ms-auto text-center">
+										<div className="fs-13px">55</div>
+										<div className="text-gray-500 fs-10px">sold</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+				
+							</div>
+						</div>
+
+					</div>
+
 					<div className="col-xl-4 col-lg-6">
 						<div className="card border-0 mb-3 bg-gray-800 text-white">
 							<div className="card-body">
