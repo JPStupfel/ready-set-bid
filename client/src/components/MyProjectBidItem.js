@@ -8,7 +8,7 @@ export default function MyProjectBidItem({bid, handleAcceptBid}) {
     
             <div className="d-flex align-itMms-center mb-15px">
                 <div className="widget-img rounded-3 me-10px">
-                     <img className="h-100 w-100" src={bid.professional_image}  style={{'object-fit':'fill'}}>
+                     <img className="h-100 w-100" src={bid.professional_image}  style={{'objectFit':'fill'}}>
                      </img>
                 </div>
                  <div className="text-truncate">
@@ -21,7 +21,7 @@ export default function MyProjectBidItem({bid, handleAcceptBid}) {
                     </div>
                    
                 </div>
-                <button class="ms-auto btn btn-gray btn-primary btn-sm" onClick={()=>handleAcceptBid(bid)}>Accept
+                <button className="ms-auto btn btn-gray btn-primary btn-sm" onClick={()=>handleAcceptBid(bid)}>Accept
                 </button>
                     
             </div>

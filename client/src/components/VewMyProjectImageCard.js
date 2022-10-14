@@ -7,9 +7,12 @@ function VewMyProjectImageCard({image}) {
   // const image = project.posts.length ? project.posts[0].image_url : ''
 
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={image} />
-    </Card>
+          <div className="gallery">
+            <a href={image} className="ratio ratio-4x3" data-pswp-src="../assets/img/gallery/gallery-1.jpg" data-pswp-width="1200" data-pswp-height="800">
+              <img src={image}/>
+            </a>
+          
+          </div>
   );
 }
 
