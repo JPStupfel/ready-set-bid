@@ -54,15 +54,7 @@ export default function ViewMyProjectPage({setProjectList}) {
 
   return (
     <div>
-      {/* <h1>{currentProject.title}</h1>
-      <MapContainer projectList={[currentProject]}/>
-      {isEditDesc ? descriptionEditor : <div onClick={()=>setIsEditDesc(prev=>!prev)}>{currentProject.description}</div>}
-      <div className='project-image-container'>
-         {projectImages}
-      </div>
-      {!currentProject.victor_id ? <MyProjectBidList handleAcceptBid={handleAcceptBid} currentProject={currentProject}/> : <div><h1>This project has been won by {victorBid.professional_name} for ${victorBid.amount} </h1><p1>{victorBid.professional_name} will contact you at {currentProject.client.email}.</p1></div>}
-      <button onClick={deleteProject}>Delete this Project</button> */}
-
+    
       <div>
 				<div className="d-sm-flex align-items-center mb-3">
 				</div>

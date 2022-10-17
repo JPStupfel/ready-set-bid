@@ -15,7 +15,13 @@ function FileForm({handleAddImageToImageData}) {
     setUrl(prev=>[...prev, url])
    }
 
-   const images = url.length ? url.map(e=> <img src={e} />) : null
+   const images = url.length ? url.map(e=>
+    <div className="gallery">
+      <a href={e} className="ratio ratio-4x3" data-pswp-src="../assets/img/gallery/gallery-1.jpg" data-pswp-width="1200" data-pswp-height="800">
+        <img src={e}/>
+      </a>
+    </div>
+ ) : null
 
   return (
       <div>
@@ -25,7 +31,9 @@ function FileForm({handleAddImageToImageData}) {
           <br/>
           <Button className="btn-gray" variant="primary" type="submit"> Attach Photo to Project! </Button>
         </form>
+        <div className='gallery-v2' id="gallery">
         {images}
+        </div>
       </div>
   )
 }
