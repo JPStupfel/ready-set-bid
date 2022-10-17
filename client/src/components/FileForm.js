@@ -21,7 +21,7 @@ function FileForm({handleAddImageToImageData}) {
         <img src={e}/>
       </a>
     </div>
- ) : null
+    ) : null
 
   return (
       <div>

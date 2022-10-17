@@ -102,6 +102,8 @@ export default function ViewMyProjectPage({setProjectList}) {
 					</div>					
 				</div>
 			</div>
+      <button className="ms-auto btn btn-gray btn-primary btn-sm" onClick={deleteProject}>Delete This Project
+                </button>
    </div>
   )
 }
