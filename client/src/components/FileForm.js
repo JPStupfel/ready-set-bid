@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/esm/Button';
 
 function FileForm({handleAddImageToImageData}) {
 
-    const [url, setUrl] = useState('')
+    const [url, setUrl] = useState([])
 
    function handleSubmit(event){
     event.preventDefault();
@@ -12,10 +12,10 @@ function FileForm({handleAddImageToImageData}) {
     data.append("post[image]", event.target.image.files[0])
     handleAddImageToImageData(data)
     let url = URL.createObjectURL(event.target.image.files[0])
-    setUrl(url)
+    setUrl(prev=>[...prev, url])
    }
 
-
+   const images = url.length ? url.map(e=> <img src={e} />) : null
 
   return (
       <div>
@@ -25,7 +25,7 @@ function FileForm({handleAddImageToImageData}) {
           <br/>
           <Button className="btn-gray" variant="primary" type="submit"> Attach Photo to Project! </Button>
         </form>
-        <img src={url} />
+        {images}
       </div>
   )
 }
