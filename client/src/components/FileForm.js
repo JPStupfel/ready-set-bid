@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Button from 'react-bootstrap/esm/Button';
 
 function FileForm({handleAddImageToImageData}) {
 
+    const [url, setUrl] = useState('')
 
    function handleSubmit(event){
     event.preventDefault();
@@ -10,6 +11,8 @@ function FileForm({handleAddImageToImageData}) {
     data.append("post[title]", event.target.title.value)
     data.append("post[image]", event.target.image.files[0])
     handleAddImageToImageData(data)
+    let url = URL.createObjectURL(event.target.image.files[0])
+    setUrl(url)
    }
 
 
@@ -22,6 +25,7 @@ function FileForm({handleAddImageToImageData}) {
           <br/>
           <Button className="btn-gray" variant="primary" type="submit"> Attach Photo to Project! </Button>
         </form>
+        <img src={url} />
       </div>
   )
 }
