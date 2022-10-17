@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Link} from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import Button from 'react-bootstrap/esm/Button';
 
@@ -25,37 +25,31 @@ const AddProjectMap = ({setCoords}) => {
 
   return (
 
-     <LoadScript
-       googleMapsApiKey= {API_KEY}
-       libraries={["places"]}>
-
-        <input
-          type="text"
-          placeholder="Type an address and hit GO!"
-          value={address}
-          onChange={(event)=>setAddress(event.target.value)}
-          style={{
-            boxSizing: `border-box`,
-            border: `1px solid transparent`,
-            width: `240px`,
-            height: `32px`,
-            padding: `0 12px`,
-            borderRadius: `3px`,
-            boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-            fontSize: `14px`,
-            outline: `none`,
-            textOverflow: `ellipses`,
-          }}
-        />
-        <Button className='btn-gray' onClick={(event)=>{getCoordinates(address)}}>Go</Button>
-
+      <LoadScript
+        googleMapsApiKey= {API_KEY}
+        libraries={["places"]}>
+        <div className="widget-map rounded">
+          <div className="widget-input-container">
+            <div className="widget-input-icon"></div>
+              <div className="widget-input-box">
+                <input type="text" className="form-control"
+                    placeholder="Type an address and hit GO!"
+                    value={address}
+                    onChange={(event)=>setAddress(event.target.value)}/>          </div>
+                <div className="widget-input-icon">
+              </div>
+            <div className="widget-input-divider"></div>
+          <div className="widget-input-icon"></div>
+          <Button className='btn-gray' onClick={(event)=>{getCoordinates(address)}}>Go</Button>
+        </div>
         <div className='map-box'>
           <GoogleMap mapContainerStyle={mapStyles} zoom={13} center={coordAddress}>
               <Marker optimized={false} title={'fish'} position={coordAddress}>
               </Marker>
           </GoogleMap>
          </div>
-     </LoadScript>
+        </div>
+      </LoadScript>
   )
 }
 export default AddProjectMap;

@@ -60,12 +60,6 @@ export default function AddProjectContainer({setProjectList, projectList}) {
 
 
   return (
-    // <div>
-    //     <AddProjectMap setCoords={setCoords} projectList={projectList} />
-    //     <FileForm handleAddImageToImageData={handleAddImageToImageData} />
-    //     <ul>{imageData.map(e=><li>{e.get('post[image]').name}</li>)}</ul>
-    //     <AddProjectForm handleSubmitProjectToAPI={handleSubmitProjectToAPI} projectData={projectData} setProjectData={setProjectData} />
-    // </div>
         <div>
           <div>
             <div className="d-sm-flex align-items-center mb-3">

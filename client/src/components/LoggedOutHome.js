@@ -38,7 +38,7 @@ export default function LoggedOutHome() {
             <h1>Ready-Set-Bid is a bidding wars web application. </h1>
             <br/>Let's say you are a homeowner with a huge brush pile in your back yard that you need to have cleaned up. The only problem is, you have no idea how to find someone you can trust to come do the work for a fair price.
             <br/><br/>Enter Ready-Set-Bid. Ready-Set-Bid allows 'Professionals' the opportunity to bid on your project. 
-            <br/><br/>As aclient you simply create an account, upload a few pictures and watch the bids roll in. Once you see a bid that you feel is at a fair price, you click 'accept bid'. That's it.
+            <br/><br/>As a client you simply create an account, upload a few pictures and watch the bids roll in. Once you see a bid that you feel is at a fair price, you click 'accept bid'. That's it.
             <br/><br/>Likewise for professionals, you can:
 
             <br/>1. Create an account.
