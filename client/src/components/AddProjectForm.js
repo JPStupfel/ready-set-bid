@@ -29,7 +29,7 @@ function handleChange(event){
       <div className="form-group">
         <label>description
         </label>
-        <input onChange={handleChange}  type="text" className="form-control" id="description" placeholder="description"/>
+        <textarea onChange={handleChange}  type="text" className="form-control" id="description" placeholder="description"/>
       </div>
       <div className="form-check">
       </div>
