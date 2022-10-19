@@ -4,6 +4,8 @@ import {useNavigate}  from 'react-router-dom'
 export default function LoginClientForm({setUser}) {
     const [formData, setFormData] = useState({username: null, password: null})
     const history = useNavigate();
+    const [error, setError] = useState('')
+
 
 function handleSubmit(event){
      event.preventDefault()
@@ -16,8 +18,9 @@ function handleSubmit(event){
       })
       .then(r=>r.json())
       .then(d=>{
-        setUser(d);
-        history('/myprojects')
+        if (d.errors){setError(d.errors)}
+	      else {setUser(d); 
+        history('/myprojects')}
       }
         ).catch(e=>console.log(e))
 }
@@ -41,6 +44,9 @@ function handleChange(event){
 									<input onChange={handleChange}  type="password" className="form-control fs-13px h-45px" id="password" placeholder="Password" />
 									<label htmlFor="password" className="d-flex align-items-center py-0">Password</label>
 								</div>
+                <label className="form-check-label text-danger" >
+									{error}
+								</label>
 								<div className="form-check mb-20px">
 									<input className="form-check-input" type="checkbox" value="" id="rememberMe" />
 									<label className="form-check-label" htmlFor="rememberMe">

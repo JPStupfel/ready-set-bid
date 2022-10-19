@@ -46,7 +46,7 @@ class SessionsController < ApplicationController
     def update
         client = Client.find_by username: params['username']
         
-        if client &.authenticate(params[:password])
+        if client && client &.authenticate(params[:password])
             session[:user_id] = client.id
             session[:user_type] = client.class.name
 
@@ -54,7 +54,7 @@ class SessionsController < ApplicationController
             serializer: ClientSessionSerializer, 
             status: 200
         else
-            render json: {errors: 'client not found'}, status: 422
+            render json: {errors: 'Incorrect Login Information'}, status: 422
         end
     end
 

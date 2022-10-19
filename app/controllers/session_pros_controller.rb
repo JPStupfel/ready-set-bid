@@ -37,13 +37,12 @@ class SessionProsController < ApplicationController
         #used to log in
         def update
             professional = Professional.find_by username: params['username']
-            
-            if professional.authenticate(params[:password])
+            if professional && professional.authenticate(params[:password])
                 session[:user_id] = professional.id
                 session[:user_type] = professional.class.name
                 render json: professional, serializer: ProfessionalSessionSerializer, status: 200
             else
-                render json: {errors: 'professional not found'}, status: 422
+                render json: {errors: 'Incorrect Login Information'}, status: 422
             end
         end
     

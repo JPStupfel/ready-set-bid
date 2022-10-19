@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function LoginProForm({setUser}) {
     const [formData, setFormData] = useState({username: null, password: null})
+	const [error, setError] = useState('')
     const history = useNavigate()
 
 function handleSubmit(event){
@@ -14,7 +15,10 @@ function handleSubmit(event){
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
-}).then(r=>r.json()).then(d=>{setUser(d); history('/projects')
+}).then(r=>r.json()).then(d=>{
+	if (d.errors){setError(d.errors)}
+	else {setUser(d); 
+	history('/projects')}
     }).catch(e=>console.log(e))
 }
 
@@ -37,11 +41,14 @@ function handleChange(event){
 									<input onChange={handleChange}  type="password" className="form-control fs-13px h-45px" id="password" placeholder="Password" />
 									<label htmlFor="password" className="d-flex align-items-center py-0">Password</label>
 								</div>
+								<label className="form-check-label text-danger" >
+									{error}
+								</label>
 								<div className="form-check mb-20px">
 									<input className="form-check-input" type="checkbox" value="" id="rememberMe" />
 									<label className="form-check-label" htmlFor="rememberMe">
 										Remember Me
-									</label>
+									</label>									
 								</div>
 								<div className="login-buttons">
 									<button type="submit" className="btn h-45px btn-success d-block w-100 btn-lg">Sign me in</button>
