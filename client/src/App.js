@@ -32,7 +32,7 @@ function App() {
 
  
   const [projectList, setProjectList] = useState([])
-
+  const [offset, setOffset] = useState(0)
 
   useEffect(()=>{
     fetch('/me').then(r=>r.json()).then(d=>setUser(d)).catch(e=>console.log(e))
@@ -43,7 +43,7 @@ function App() {
   },[])
 
   useEffect(()=>{
-    fetch('/proposals').then(r=>r.json()).then(d=>setProjectList(d)).catch(e=>console.log(e))
+    fetch(`proposals?limit=${6}&offset=${offset}`).then(r=>r.json()).then(d=>setProjectList(d)).catch(e=>console.log(e))
   },[user])
 
   function handleLogout(){

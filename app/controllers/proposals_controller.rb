@@ -4,11 +4,11 @@ require 'net/http'
 
 class ProposalsController < ApplicationController
 
-    before_action :require_login
+    # before_action :require_login
 
     
     def index
-        proposals = Proposal.all
+        proposals = Proposal.limit(params[:limit]).offset(params[:offset])
         render json: proposals, status: 200
     end
 
