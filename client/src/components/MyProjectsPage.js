@@ -30,6 +30,12 @@ if (!projectList.length){return(<>No Projects Loaded!</>)}
                               <div id="roadtripRegionsContainer" class="margin-bottom-45 none" style={{"display": "block;"}}>
                                 <ul id="roadtripRegions" class=" grid-row grid-row--gutter grid-row--col-2 grid-row--card-min-200">
                                 {ProjectCards}
+                                <span aria-hidden="true" className="" />	
+                                  <div className="btn-group">
+                                    <button className="btn btn-outline-inverse">Previous</button>
+                                    <button className="btn btn-outline-inverse inactive">Page 1 of 6</button>
+                                    <button className="btn btn-outline-inverse">Next</button>
+                                  </div>
                                 </ul>
                               </div>
                             </div>
