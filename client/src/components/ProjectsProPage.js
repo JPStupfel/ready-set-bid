@@ -31,6 +31,11 @@ const projectCards = projectList.map(e=><ProjectProfessionalCard key={e.id} proj
                               <div id="roadtripRegionsContainer" class="margin-bottom-45 none" style={{"display": "block;"}}>
                                 <ul id="roadtripRegions" class=" grid-row grid-row--gutter grid-row--col-2 grid-row--card-min-200">
                                 {projectCards}
+                                <div className="btn-group">
+                                    <button className="btn btn-outline-inverse">Previous</button>
+                                    <button className="btn btn-outline-inverse inactive">Page 1 of 6</button>
+                                    <button className="btn btn-outline-inverse">Next</button>
+                                  </div>
                                 </ul>
                               </div>
                             </div>
