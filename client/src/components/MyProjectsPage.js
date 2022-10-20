@@ -10,7 +10,10 @@ export default function MyProjectsPage() {
   useEffect(()=>{
     fetch(`proposals?limit=${6}&offset=${offset}`).then(r=>r.json()).then(d=>setProjectList(d)).catch(e=>console.log(e))
   },[])
-  
+
+  const openProjectList = projectList.length ? projectList.filter(project=>!project.victor_id) : null
+  const closedProjectList = projectList.length ? projectList.filter(projects=>projects.victor_id) : null
+
   const [thisHeight, setThisHeight] = useState(document.body.clientHeight)
   useEffect(()=>{setThisHeight(document.body.clientHeight); window.addEventListener('resize', ()=>setThisHeight(document.body.clientHeight));
   return () => window.removeEventListener('resize', ()=>setThisHeight(document.body.clientHeight));})

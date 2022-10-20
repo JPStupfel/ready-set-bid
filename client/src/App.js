@@ -30,10 +30,6 @@ function App() {
     dispatch(action)
   }
 
- 
-  // const [projectList, setProjectList] = useState([])
-  const [offset, setOffset] = useState(0)
-
   useEffect(()=>{
     fetch('/me').then(r=>r.json()).then(d=>setUser(d)).catch(e=>console.log(e))
   },[])
@@ -42,19 +38,12 @@ function App() {
     fetch('/mePro').then(r=>r.json()).then(d=>setUser(d)).catch(e=>console.log(e))
   },[])
 
-  // useEffect(()=>{
-  //   fetch(`proposals?limit=${6}&offset=${offset}`).then(r=>r.json()).then(d=>setProjectList(d)).catch(e=>console.log(e))
-  // },[user])
 
   function handleLogout(){
     fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>setUser({id: null, username: null, user_type: null, image_url: null})
   ).catch(e=>console.log(e))
   }
 
- 
-
-  // const openProjectList = projectList.length ? projectList.filter(project=>!project.victor_id) : null
-  // const closedProjectList = projectList.length ? projectList.filter(projects=>projects.victor_id) : null
   const logInWarning = <>Log in first</>
 
   return (
