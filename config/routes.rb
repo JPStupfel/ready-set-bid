@@ -24,9 +24,6 @@ Rails.application.routes.draw do
   delete '/sessionPro', to: "session_pros#destroy"
   get '/mePro', to: "session_pros#index"
 
-  
-  
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
-
 
 end

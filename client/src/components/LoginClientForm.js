@@ -6,7 +6,6 @@ export default function LoginClientForm({setUser}) {
     const history = useNavigate();
     const [error, setError] = useState('')
 
-
 function handleSubmit(event){
      event.preventDefault()
     fetch("/session", {
@@ -32,6 +31,7 @@ function handleChange(event){
     newFormData[id] = input
     setFormData(newFormData)
 }
+
   return (
   <div className="login-body">
 						<div className="login-content fs-13px">
