@@ -156,7 +156,7 @@ td.column {
   display: flex;
   flex-wrap: wrap;
   /* Inline-block fallback */
-  letter-spacing: -0.31em;
+  /* letter-spacing: -0.31em; */
   /* Collapse white-space */
   *letter-spacing: normal;
   /* IE < 8 */
