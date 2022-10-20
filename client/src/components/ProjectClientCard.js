@@ -17,13 +17,13 @@ function ProjectClientCard({project}) {
                 <img src={image} alt="" />
 							</div>
 							  <div className="image-info">
-								  <h5 className="title">{project.title}
+								  <h5 className="title" style={{"font-family":"Arial, sans-seri"}}>{project.title}
                   </h5>
 								  <div className="d-flex align-items-center mb-2">
 									  <div className="ms-auto">
 									  </div>
 								  </div>
-								  <div className="desc">
+								  <div className="desc" style={{"font-family":"Arial, sans-seri"}}>
                     {project.description}								
                   </div>
                   <br/>
