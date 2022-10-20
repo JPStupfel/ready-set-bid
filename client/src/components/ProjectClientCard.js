@@ -23,7 +23,7 @@ function ProjectClientCard({project}) {
 									  <div className="ms-auto">
 									  </div>
 								  </div>
-								  <div className="desc" style={{"font-family":"Arial, sans-seri"}}>
+								  <div className="desc" style={{"letter-spacing":"normal"}}>
                     {project.description}								
                   </div>
                   <br/>
