@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import VewMyProjectImageCard from './VewMyProjectImageCard';
   
 
-export default function AddProjectContainer({setProjectList, projectList}) {
+export default function AddProjectContainer() {
   const user = useSelector(state=>state)
   const history = useNavigate();
 
@@ -38,20 +38,12 @@ export default function AddProjectContainer({setProjectList, projectList}) {
     fetch("/proposals", {method: "POST", headers:{'Content-Type':'application/json'}, body: JSON.stringify(submission)})
       .then(response=>response.json())
       .then(d=>{
-        //set project list to the returned data with no images
-            const newProj = {...d, posts:[]}
-            const newList = [...projectList, newProj]; 
-            setProjectList(newList);
+       
 
         //then submit the image post
             imageData.forEach(
               data=>{
-                fetch("/posts", {method: "POST", body: data}).then(response=>response.json()).then(i=>{
-                  // and with every image post, update project list to include the image data
-                  newProj.posts.push(i)
-                  
-                  let newListWithImage = [...projectList, newProj]
-                  setProjectList(newListWithImage)
+                fetch("/posts", {method: "POST", body: data}).then(response=>response.json()).then(i=>{                  
                 }).catch(e=>console.log(e))
                     })    
           });
@@ -72,7 +64,7 @@ export default function AddProjectContainer({setProjectList, projectList}) {
                   <div className="col-sm-6">
                     <div className="card border-0 text-truncate mb-3 bg-gray-800 text-white">
                       <div className="card-body" >
-                      <AddProjectMap setCoords={setCoords} projectList={projectList} />
+                      <AddProjectMap setCoords={setCoords} />
                       </div> 
                     </div>
                   </div>

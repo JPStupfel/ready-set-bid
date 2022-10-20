@@ -31,7 +31,7 @@ function App() {
   }
 
  
-  const [projectList, setProjectList] = useState([])
+  // const [projectList, setProjectList] = useState([])
   const [offset, setOffset] = useState(0)
 
   useEffect(()=>{
@@ -42,9 +42,9 @@ function App() {
     fetch('/mePro').then(r=>r.json()).then(d=>setUser(d)).catch(e=>console.log(e))
   },[])
 
-  useEffect(()=>{
-    fetch(`proposals?limit=${6}&offset=${offset}`).then(r=>r.json()).then(d=>setProjectList(d)).catch(e=>console.log(e))
-  },[user])
+  // useEffect(()=>{
+  //   fetch(`proposals?limit=${6}&offset=${offset}`).then(r=>r.json()).then(d=>setProjectList(d)).catch(e=>console.log(e))
+  // },[user])
 
   function handleLogout(){
     fetch('/session', {method: "DELETE"}).then(r=>r.json()).then(d=>setUser({id: null, username: null, user_type: null, image_url: null})
@@ -53,8 +53,8 @@ function App() {
 
  
 
-  const openProjectList = projectList.length ? projectList.filter(project=>!project.victor_id) : null
-  const closedProjectList = projectList.length ? projectList.filter(projects=>projects.victor_id) : null
+  // const openProjectList = projectList.length ? projectList.filter(project=>!project.victor_id) : null
+  // const closedProjectList = projectList.length ? projectList.filter(projects=>projects.victor_id) : null
   const logInWarning = <>Log in first</>
 
   return (
@@ -80,32 +80,31 @@ function App() {
           null
           }
 
-          {// rescue from nomethod error while loading projectList
-          projectList.length ?
+         
         <Routes>
             {/* routes for pros */}
-            <Route path="/projects" exact element={user.user_type === 'Professional' ? <ProjectsProPage projectList={openProjectList}/> : logInWarning}>
+            <Route path="/projects" exact element={user.user_type === 'Professional' ? <ProjectsProPage/> : logInWarning}>
             </Route>
             <Route path="/projects/:id" exact element={user.user_type === 'Professional' ? <ViewProjectProPage /> : logInWarning}>
             </Route>
 
-            <Route path="/my_projects_won" exact element={user.user_type === 'Professional' ? <MyWonProjectsPage projectList={closedProjectList} /> : logInWarning}>
+            <Route path="/my_projects_won" exact element={user.user_type === 'Professional' ? <MyWonProjectsPage /> : logInWarning}>
             </Route>
 
             <Route path="/my_projects_won/:id" exact element={user.user_type === 'Professional' ? <ViewWonProjectPage /> : logInWarning}>
             </Route>
 
             {/* routes for client */}
-            <Route path="/myprojects" exact element={user.user_type === 'Client' ? <MyProjectsPage projectList={projectList.filter(e=>e.client_id===user.id)}/> : logInWarning}>
+            <Route path="/myprojects" exact element={user.user_type === 'Client' ? <MyProjectsPage/> : logInWarning}>
             </Route>
-            <Route path="/myprojects/:id" exact element={user.user_type === 'Client' ? <ViewMyProjectPage setProjectList={setProjectList}  projectList={projectList} /> : logInWarning}>
+            <Route path="/myprojects/:id" exact element={user.user_type === 'Client' ? <ViewMyProjectPage /> : logInWarning}>
             </Route>
-            <Route path="/new-project" exact element={user.user_type === 'Client' ? <AddProjectContainer setProjectList={setProjectList}  projectList={projectList}/> : logInWarning}>
+            <Route path="/new-project" exact element={user.user_type === 'Client' ? <AddProjectContainer /> : logInWarning}>
             </Route>
         </Routes>
 
-        : null
-        }
+      
+        
       </div>
     </Router>
 

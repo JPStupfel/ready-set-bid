@@ -4,7 +4,7 @@ import MapContainer from './MapContainer'
 import MyProjectBidList from './MyProjectBidList';
 import VewMyProjectImageCard from './VewMyProjectImageCard';
 
-export default function ViewMyProjectPage({setProjectList}) {
+export default function ViewMyProjectPage() {
      let  {id} = useParams();
      const id_num = parseInt(id,10)
      
@@ -19,7 +19,6 @@ export default function ViewMyProjectPage({setProjectList}) {
      
      function deleteProject(event){
         fetch(`/proposals/${id_num}`, {method: "DELETE"}).catch(e=>console.log(e))
-        setProjectList(projectList=>projectList.filter(project=>project.id!==id_num))
         history('/myprojects')
      }
 

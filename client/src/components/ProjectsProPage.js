@@ -2,9 +2,16 @@ import React, {useState, useEffect} from 'react';
 import MapContainer from './MapContainer'
 import ProjectProfessionalCard from './ProjectProfessionalCard';
 
-export default function ProjectsProPage({projectList}) {
+export default function ProjectsProPage() {
 
 
+  // for fetching projects
+  const [offset, setOffset] = useState(0)
+  const [projectList, setProjectList] = useState([])
+  useEffect(()=>{
+    fetch(`proposals?limit=${6}&offset=${offset}`).then(r=>r.json()).then(d=>setProjectList(d)).catch(e=>console.log(e))
+  },[])
+  
   const [thisHeight, setThisHeight] = useState(document.body.clientHeight)
   useEffect(()=>{setThisHeight(document.body.clientHeight); window.addEventListener('resize', ()=>setThisHeight(document.body.clientHeight));
   return () => window.removeEventListener('resize', ()=>setThisHeight(document.body.clientHeight));})
