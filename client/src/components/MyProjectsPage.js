@@ -13,24 +13,24 @@ export default function MyProjectsPage() {
 
   const openProjectList = projectList.length ? projectList.filter(project=>!project.victor_id) : null
   const closedProjectList = projectList.length ? projectList.filter(projects=>projects.victor_id) : null
-
   const [thisHeight, setThisHeight] = useState(document.body.clientHeight)
+  
   useEffect(()=>{setThisHeight(document.body.clientHeight); window.addEventListener('resize', ()=>setThisHeight(document.body.clientHeight));
   return () => window.removeEventListener('resize', ()=>setThisHeight(document.body.clientHeight));})
   const scrollStyle={height: `${thisHeight}px`}
 
-if (!projectList.length){return(<>No Projects Loaded!</>)}
+// if (!projectList.length){return(<>No Projects Loaded!</>)}
 
   const ProjectCards = projectList.map(e=><ProjectClientCard key={e.id} project={e} />)
 
   return (
-				 <div id="gallery" className="gallery row gx-0">
+				  <div id="gallery" className="gallery row gx-0">
             <table>
               <tbody>
                 <tr>
-                <td id="page_map_container" style={{"width":"60%", "height":"90%"}}>
-                <MapContainer projectList={projectList}/>
-                </td>
+                  <td id="page_map_container" style={{"width":"60%", "height":"90%"}}>
+                    <MapContainer projectList={projectList}/>
+                  </td>
                   <td id="tdSide" width="40%">
                     <table>
                       <tbody>
@@ -39,8 +39,8 @@ if (!projectList.length){return(<>No Projects Loaded!</>)}
                             <div id="results_scroll" class="padding5" style={scrollStyle}>
                               <div id="roadtripRegionsContainer" class="margin-bottom-45 none" style={{"display": "block;"}}>
                                 <ul id="roadtripRegions" class=" grid-row grid-row--gutter grid-row--col-2 grid-row--card-min-200">
-                                {ProjectCards}
-                                <span aria-hidden="true" className="" />	
+                                  {ProjectCards}
+                                  <span aria-hidden="true" className="" />	
                                   <div className="btn-group">
                                     <button className="btn btn-outline-inverse">Previous</button>
                                     <button className="btn btn-outline-inverse inactive">Page 1 of 6</button>
