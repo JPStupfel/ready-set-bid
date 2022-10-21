@@ -4,9 +4,8 @@ require 'net/http'
 
 class ProposalsController < ApplicationController
 
-    # before_action :require_login
+    before_action :require_login
 
-    
     def index
         proposals = Proposal.limit(params[:limit]).offset(params[:offset])
         render json: proposals, status: 200
@@ -34,8 +33,6 @@ class ProposalsController < ApplicationController
         else
             render json: {error: 'Proposal Not Found'}, status: 422
         end
-
-        
     end
 
     def destroy
@@ -49,18 +46,13 @@ class ProposalsController < ApplicationController
     end
 
     def update
-        
         proposal = Proposal.find_by id: params['id']
-        
-        if proposal
-            
-            # proposal.update victor_id: params['victor_id']
+        if proposal            
              proposal.update proposalParams
             render json: proposal, status: 202
         else
             render json: {error: 'Proposal Not Found'}, status: 422
         end
-
     end
 
     private
@@ -70,7 +62,6 @@ class ProposalsController < ApplicationController
             render json: {error: 'log in first'}
         end
     end
-
     # return coordincates from address
     def getCoords address
         uri = URI("https://maps.googleapis.com/maps/api/geocode/json?address='#{address}'&key=#{ENV['GOOGLE_GEOCODING_API_KEY']}")
@@ -81,5 +72,4 @@ class ProposalsController < ApplicationController
     def proposalParams
         params.permit(:title, :description, :client_id, :victor_id, :lat, :lng)
     end
-
 end
