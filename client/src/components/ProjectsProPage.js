@@ -40,7 +40,7 @@ const projectCards = projectList.map(e=><ProjectProfessionalCard key={e.id} proj
                                 </ul>
                                 <div className="btn-group">
                                   <button className="btn btn-outline-inverse " onClick={()=>handleChangeOffset(-6)}>Previous</button>
-                                  <button className="btn btn-outline-inverse">Page 1 of x</button>
+                                  <button className="btn btn-outline-inverse">Showing items {offset + 1} to {offset + 6}</button>
                                   <button className="btn btn-outline-inverse" onClick={()=>handleChangeOffset(6)}>Next</button>
                                 </div>
                               </div>
