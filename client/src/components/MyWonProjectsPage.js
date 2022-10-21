@@ -8,7 +8,7 @@ export default function MyWonProjectsPage() {
   // for fetching projects
   const [offset, setOffset] = useState(0)
   const [projectList, setProjectList] = useState([])
-  useEffect(()=>{fetch(`proposals?limit=${6}&offset=${offset}&victor=true`).then(r=>r.json()).then(d=>{console.log(d); if (d.length){ setProjectList(d)} else {handleChangeOffset(-6);console.log('You have reached the last page!')}}).catch(e=>console.log(e))},[offset])
+  useEffect(()=>{fetch(`proposals?limit=${6}&offset=${offset}&victor=${true}`).then(r=>r.json()).then(d=>{console.log(d); if (d.length){ setProjectList(d)} else {handleChangeOffset(-6);console.log('You have reached the last page!')}}).catch(e=>console.log(e))},[offset])
   // function to change offset +/- int
   function handleChangeOffset(int){if (offset + int >=0){setOffset(prev=>setOffset(prev+int))} else {console.log('You have reached page 1!')}}
   // for resizing map and scroll bar
