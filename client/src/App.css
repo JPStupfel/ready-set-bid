@@ -244,3 +244,11 @@ td.column {
 #page_map_container .map {
   width: 100%;
 }
+.menu-search {
+  margin-top: 10px;
+  background-color:#eff1f3;
+}
+.search-items-page{
+  display: inline;
+  border: none;
+}

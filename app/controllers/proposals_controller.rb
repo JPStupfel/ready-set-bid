@@ -12,13 +12,14 @@ class ProposalsController < ApplicationController
         elsif params[:victor] == "false"
                 proposals = openProjects
         else
-            proposals = Proposal.limit(params[:limit]).offset(params[:offset])
+            proposals = Proposal.limit(params[:limit]).offset(params[:offset]).where("title ILIKE ?","%"+params[:search]+"%")
+            
+            # proposals = Proposal.limit(params[:limit]).offset(params[:offset]).where("title LIKE ?", Proposal.sanitize_sql_like(params[:search]))
         end
         
         render json: proposals, status: 200
     end
-
-    # return coordinates from address in bodyp
+ 
     def getAddress
        location = getCoords(params['loc'])
        render json: location, status: 200
@@ -81,7 +82,7 @@ class ProposalsController < ApplicationController
     end
 
     def wonProjects
-        Proposal.limit(params[:limit]).offset(params[:offset]).where( victor_id: session[:user_id])
+        Proposal.limit(params[:limit]).offset(params[:offset]).where(victor_id: session[:user_id])
     end
     def openProjects
         Proposal.limit(params[:limit]).offset(params[:offset]).where( victor_id: nil)
