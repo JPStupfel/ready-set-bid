@@ -4,14 +4,13 @@ import ProjectProfessionalCard from './ProjectProfessionalCard';
 
 export default function ProjectsProPage() {
 
-
   // for fetching projects
   const [offset, setOffset] = useState(0)
   const [projectList, setProjectList] = useState([])
-  useEffect(()=>{
-    fetch(`proposals?limit=${6}&offset=${offset}`).then(r=>r.json()).then(d=>setProjectList(d)).catch(e=>console.log(e))
-  },[])
-  
+  useEffect(()=>{fetch(`proposals?limit=${6}&offset=${offset}`).then(r=>r.json()).then(d=>{if (d.length){setProjectList(d)} else {handleChangeOffset(-6);console.log('You have reached the last page!')}}).catch(e=>console.log(e))},[offset])
+  // function to change offset +/- int
+  function handleChangeOffset(int){if (offset + int >=0){setOffset(prev=>setOffset(prev+int))} else {console.log('You have reached page 1!')}}
+  // for resizing map and scroll bar
   const [thisHeight, setThisHeight] = useState(document.body.clientHeight)
   useEffect(()=>{setThisHeight(document.body.clientHeight); window.addEventListener('resize', ()=>setThisHeight(document.body.clientHeight));
   return () => window.removeEventListener('resize', ()=>setThisHeight(document.body.clientHeight));})
@@ -38,12 +37,12 @@ const projectCards = projectList.map(e=><ProjectProfessionalCard key={e.id} proj
                               <div id="roadtripRegionsContainer" class="margin-bottom-45 none" style={{"display": "block;"}}>
                                 <ul id="roadtripRegions" class=" grid-row grid-row--gutter grid-row--col-2 grid-row--card-min-200">
                                 {projectCards}
-                                <div className="btn-group">
-                                    <button className="btn btn-outline-inverse">Previous</button>
-                                    <button className="btn btn-outline-inverse inactive">Page 1 of 6</button>
-                                    <button className="btn btn-outline-inverse">Next</button>
-                                  </div>
                                 </ul>
+                                <div className="btn-group">
+                                  <button className="btn btn-outline-inverse " onClick={()=>handleChangeOffset(-6)}>Previous</button>
+                                  <button className="btn btn-outline-inverse">Page 1 of x</button>
+                                  <button className="btn btn-outline-inverse" onClick={()=>handleChangeOffset(6)}>Next</button>
+                                </div>
                               </div>
                             </div>
                           </td>

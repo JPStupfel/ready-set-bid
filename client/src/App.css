@@ -170,7 +170,7 @@ td.column {
   margin: 0;
 }
 .grid-cell {
-  max-width: 80px;
+  max-width: 100px;
   /* Flex implementation */
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
@@ -187,7 +187,7 @@ td.column {
   text-rendering: auto;
   /* Make the card full height */
   display: -ms-flex;
-  display: flex;
+  /* display: flex; */
   /* Allow to add gutter via padding without extending the box */
   box-sizing: border-box;
   padding: 0;
