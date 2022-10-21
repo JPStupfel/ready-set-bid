@@ -7,11 +7,18 @@ class ProposalsController < ApplicationController
     before_action :require_login
 
     def index
-        proposals = Proposal.limit(params[:limit]).offset(params[:offset])
+        if params[:victor] == "true"
+            proposals = wonProjects
+        elsif params[:victor] == "false"
+                proposals = openProjects
+        else
+            proposals = Proposal.limit(params[:limit]).offset(params[:offset])
+        end
+        
         render json: proposals, status: 200
     end
 
-    # return coordinates from address in body
+    # return coordinates from address in bodyp
     def getAddress
        location = getCoords(params['loc'])
        render json: location, status: 200
@@ -71,5 +78,12 @@ class ProposalsController < ApplicationController
 
     def proposalParams
         params.permit(:title, :description, :client_id, :victor_id, :lat, :lng)
+    end
+
+    def wonProjects
+        Proposal.limit(params[:limit]).offset(params[:offset]).where( victor_id: session[:user_id])
+    end
+    def openProjects
+        Proposal.limit(params[:limit]).offset(params[:offset]).where( victor_id: nil)
     end
 end
