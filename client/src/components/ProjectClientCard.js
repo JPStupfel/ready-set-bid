@@ -1,14 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 
-
-
 function ProjectClientCard({project}) {
   const history = useNavigate();
   const image = project.posts.length ? project.posts[0].image_url : 'loading'
 
   return (
-          //  <div className='col-lg-2 col-md-3 col-sm-4 col-6'>
         <li className='grid-cell' datatype='region'>
           <div className='grid-card'>
            <div className='col-12'>
@@ -35,7 +32,6 @@ function ProjectClientCard({project}) {
             </div>
           </div>
         </li>
-
   );
 }
 
