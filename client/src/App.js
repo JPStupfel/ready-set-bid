@@ -16,8 +16,6 @@ import {connect, useSelector, useDispatch} from 'react-redux'
 import LoggedOutHome from './components/LoggedOutHome';
 import './components/scss/react.scss'
 
-
-
 function App() {
 
   const user = useSelector(state=>state)
@@ -47,14 +45,9 @@ function App() {
   const logInWarning = <>Log in first</>
 
   return (
-
     <Router>
-
       <div>
-
         <NavBar handleLogout={handleLogout} />
-
-
           {/* routes if not logged in */}
         { !user.user_type ?  
           <Routes>
@@ -68,21 +61,16 @@ function App() {
           :
           null
           }
-
-         
         <Routes>
             {/* routes for pros */}
             <Route path="/projects" exact element={user.user_type === 'Professional' ? <ProjectsProPage/> : logInWarning}>
             </Route>
             <Route path="/projects/:id" exact element={user.user_type === 'Professional' ? <ViewProjectProPage /> : logInWarning}>
             </Route>
-
             <Route path="/my_projects_won" exact element={user.user_type === 'Professional' ? <MyWonProjectsPage /> : logInWarning}>
             </Route>
-
             <Route path="/my_projects_won/:id" exact element={user.user_type === 'Professional' ? <ViewWonProjectPage /> : logInWarning}>
             </Route>
-
             {/* routes for client */}
             <Route path="/myprojects" exact element={user.user_type === 'Client' ? <MyProjectsPage/> : logInWarning}>
             </Route>
@@ -91,9 +79,6 @@ function App() {
             <Route path="/new-project" exact element={user.user_type === 'Client' ? <AddProjectContainer /> : logInWarning}>
             </Route>
         </Routes>
-
-      
-        
       </div>
     </Router>
 
