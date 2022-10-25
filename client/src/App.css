@@ -244,6 +244,15 @@ td.column {
 #page_map_container .map {
   width: 100%;
 }
+
+@media (max-width: 450px) {
+
+  #page_map_container, #tdSide {
+   display: inline;
+   }
+
+}
+
 .menu-search {
   margin-top: 10px;
   background-color:#eff1f3;
