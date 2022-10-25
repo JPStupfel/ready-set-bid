@@ -36,16 +36,16 @@ export default function MyProjectsPage() {
                       <tbody>
                         <tr>
                           <td className='column'>
-                            <div id="results_scroll" class="padding5" style={scrollStyle}>
-                              <div id="roadtripRegionsContainer" class="margin-bottom-45 none" style={{"display": "block;"}}>
-                                <form class="formCustom " name="regionSearch" action="/wosFormCheck.php" method="post">
+                            <div id="results_scroll" className="padding5" style={scrollStyle}>
+                              <div id="roadtripRegionsContainer" className="margin-bottom-45 none" style={{"display": "block;"}}>
+                                <form className="formCustom " name="regionSearch" action="/wosFormCheck.php" method="post">
                                   <div>
                                   </div>
-                                    <span role="status" aria-live="polite" class="ui-helper-hidden-accessible">
+                                    <span role="status" aria-live="polite" className="ui-helper-hidden-accessible">
                                     </span>
-                                  <input  onInput={handleChange} value={search} placeholder="Search Projects..." type="text" name="region-gt2-textbasic" id="ac_regionname" style={{"width": "90%"}} class="ui-autocomplete-input" autoComplete="off"/>
+                                  <input  onInput={handleChange} value={search} placeholder="Search Projects..." type="text" name="region-gt2-textbasic" id="ac_regionname" style={{"width": "90%"}} className="ui-autocomplete-input" autoComplete="off"/>
                                 </form>
-                                <ul id="roadtripRegions" class=" grid-row grid-row--gutter grid-row--col-2 grid-row--card-min-200">
+                                <ul id="roadtripRegions" className=" grid-row grid-row--gutter grid-row--col-2 grid-row--card-min-200">
                                 {ProjectCards}
                                 </ul>
                                 <div className="btn-group">
