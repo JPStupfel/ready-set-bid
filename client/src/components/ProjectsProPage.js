@@ -15,7 +15,7 @@ export default function ProjectsProPage() {
   // for resizing map and scroll bar
   const [thisHeight, setThisHeight] = useState(document.body.clientHeight)
   useEffect(()=>{setThisHeight(document.body.clientHeight); window.addEventListener('resize', ()=>setThisHeight(document.body.clientHeight));
-  return () => window.removeEventListener('resize', ()=>setThisHeight(document.body.clientHeight));})
+  return () => window.removeEventListener('resize', ()=>setThisHeight(document.body.clientHeight));},[])
   const scrollStyle={height: `${thisHeight}px`}
   // make project cards
   const projectCards = projectList.map(e=><ProjectProfessionalCard key={e.id} project={e} />)
