@@ -38,7 +38,7 @@ export default function MyProjectsPage() {
                           <td className='column'>
                             <div id="results_scroll" className="padding5" style={scrollStyle}>
                               <div id="roadtripRegionsContainer" className="margin-bottom-45 none" style={{"display": "block;"}}>
-                                <form className="formCustom " name="regionSearch" action="/wosFormCheck.php" method="post">
+                                <form className="formCustom " name="regionSearch" onSubmit={(e)=>{e.preventDefault();}}>
                                   <div>
                                   </div>
                                     <span role="status" aria-live="polite" className="ui-helper-hidden-accessible">
