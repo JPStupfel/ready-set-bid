@@ -33,9 +33,9 @@ const projectCards = projectList.map(e=><MyWonProjectCard key={e.id} project={e}
                       <tbody>
                         <tr>
                           <td className='column'>
-                            <div id="results_scroll" class="padding5" style={scrollStyle}>
-                              <div id="roadtripRegionsContainer" class="margin-bottom-45 none" style={{"display": "block;"}}>
-                                <ul id="roadtripRegions" class=" grid-row grid-row--gutter grid-row--col-2 grid-row--card-min-200">
+                            <div id="results_scroll" className="padding5" style={scrollStyle}>
+                              <div id="roadtripRegionsContainer" className="margin-bottom-45 none" style={{"display": "block;"}}>
+                                <ul id="roadtripRegions" className=" grid-row grid-row--gutter grid-row--col-2 grid-row--card-min-200">
                                 {projectCards}
                                 </ul>
                                 <div className="btn-group">

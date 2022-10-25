@@ -25,10 +25,9 @@ export default function CustomMarker({project}) {
               
             </div>
         </InfoBox>
-
   return (
-    <Marker onClick={()=>setShowInfo(p=>!p)} optimized={false} title={'fish'} key={project.title} position={location}>
-      
+    <Marker  onClick={()=>setShowInfo(p=>!p)} optimized={false} key={project.title} position={location}>
+  
    {showInfo ? info : null}
 
    </Marker>

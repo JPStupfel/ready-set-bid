@@ -40,15 +40,10 @@ export default function MyProjectsPage() {
                               <div id="roadtripRegionsContainer" class="margin-bottom-45 none" style={{"display": "block;"}}>
                                 <form class="formCustom " name="regionSearch" action="/wosFormCheck.php" method="post">
                                   <div>
-                                    <input type="hidden" name="ripformname" value="regionSearch"/>
                                   </div>
-                                  <input type="hidden" name="formpage" value="/trails/map/#regionSearch"/> 
-                                  <input type="hidden" name="fieldstack[0]" value="region"/>
                                     <span role="status" aria-live="polite" class="ui-helper-hidden-accessible">
                                     </span>
-                                  <input  onInput={handleChange} value={search} placeholder="Search Projects..." type="text" name="region-gt2-textbasic" id="ac_regionname" style={{"width": "90%"}} class="ui-autocomplete-input" autocomplete="off"/>
-                                  <input type="text" name="iebug" value="1" style={{"display":"none"}}/>
-                                  <input type="hidden" name="formhash" value="+t9UzozQkiKVu3yg/RbklClBMymAnOkR+TLfOLz7KXXUyFGvTEwFweF34luLBkQM+1XvU4SwyYMHfk/oFQB5lYKYsu6w37PHi1k1h/XDpO5kN6vwCYHh9O4Es3qKcQnJ1TaUAlY472AiOCLAZiBLLmOFvKKn2l5xkINi6t6s+nlvwnBVOEwb8JTnH2sJMd8qNFPy5Tx+hi/9FRx5G3cCDhudfwIt7wbAG1c5ihrJGg==" autocomplete="off"/>
+                                  <input  onInput={handleChange} value={search} placeholder="Search Projects..." type="text" name="region-gt2-textbasic" id="ac_regionname" style={{"width": "90%"}} class="ui-autocomplete-input" autoComplete="off"/>
                                 </form>
                                 <ul id="roadtripRegions" class=" grid-row grid-row--gutter grid-row--col-2 grid-row--card-min-200">
                                 {ProjectCards}

@@ -36,9 +36,9 @@ export default function ViewProjectProPage() {
      while (!currentProject){return(<>Loading!</>)}
 
      const projectImages =  currentProject.posts.map(e=><VewMyProjectImageCard key={e.id} image={e.image_url} />)
-     const bidForm =   <div class="input-group">
+     const bidForm =   <div className="input-group">
                         <input type="text"
-                          class="form-control" 
+                          className="form-control" 
                            placeholder='$Amount'
                           onChange={(e)=>{setBidAmount(e.target.value)}}
                           value={bidAmount}>
