@@ -8,11 +8,12 @@ export default function ProjectsProPage() {
   const [offset, setOffset] = useState(0)
   const [projectList, setProjectList] = useState([])
   const [search, setSearch] = useState('')
-  useEffect(()=>{fetchProposals()},[offset, search])
-  function fetchProposals(){fetch(`proposals?limit=${6}&offset=${offset}&search=${search}`).then(r=>r.json()).then(d=>{if (d.length){setProjectList(d)} else {handleChangeOffset(-6);console.log('You have reached the last page!')}}).catch(e=>console.log(e))}
+  useEffect(()=>{fetchProposals()},[offset])
+  useEffect(()=>{searchProposals()},[search])
+  function fetchProposals(){fetch(`proposals?limit=${6}&offset=${offset}&search=${search}`).then(r=>r.json()).then(d=>{console.log(d);if (d.length){setProjectList(d)} else {handleChangeOffset(-6);console.log('You have reached the last page!')}}).catch(e=>console.log(e))}
+  function searchProposals(){fetch(`proposals?limit=${6}&offset=${offset}&search=${search}`).then(r=>r.json()).then(d=>{console.log(d);setProjectList(d)}).catch(e=>console.log(e));setOffset(0)}
   // function to change offset +/- int
   function handleChangeOffset(int){if (offset + int >=0){setOffset(prev=>setOffset(prev+int))} else {console.log('You have reached page 1!')}}
-  // for resizing map and scroll bar
   const [thisHeight, setThisHeight] = useState(document.body.clientHeight)
   useEffect(()=>{setThisHeight(document.body.clientHeight); window.addEventListener('resize', ()=>setThisHeight(document.body.clientHeight));
   return () => window.removeEventListener('resize', ()=>setThisHeight(document.body.clientHeight));},[])
@@ -49,7 +50,7 @@ export default function ProjectsProPage() {
                                 </ul>
                                 <div className="btn-group">
                                   <button className="btn btn-outline-inverse " onClick={()=>handleChangeOffset(-6)}>Previous</button>
-                                  <button className="btn btn-outline-inverse">Showing items {offset + 1} to {offset + 6}</button>
+                                  <button className="btn btn-outline-inverse">Showing items {offset + 1} to {offset + projectList.length}</button>
                                   <button className="btn btn-outline-inverse" onClick={()=>handleChangeOffset(6)}>Next</button>
                                 </div>
                               </div>
