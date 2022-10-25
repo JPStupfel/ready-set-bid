@@ -247,6 +247,10 @@ td.column {
 
 @media (max-width: 450px) {
 
+  .grid-cell{
+    min-width: 175px;
+  }
+
   .map-box{
     width: 95%;
     margin-left: 2%;
@@ -255,11 +259,15 @@ td.column {
     display: inline;
     height: 300px;
     border-style: solid;
-
   }
 
   #tdSide {
    display: inline;
+   }
+
+   #roadtripRegionsContainer {
+    margin-left: 2%;
+
    }
 
 }

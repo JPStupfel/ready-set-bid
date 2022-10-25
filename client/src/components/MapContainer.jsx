@@ -18,7 +18,7 @@ const API_KEY = process.env.REACT_APP_API_KEY_GOOGLE_EARTH_JS;
   return () => window.removeEventListener('resize', ()=>setThisWidth(document.body.clientWidth));},[])
 
   const markers = projectList.map(project=><CustomMarker key={project.id} project={project} />)
-  const mapStyles = thisWidth > 400 ? {height: thisHeight, width: "100%"} : {height: 300, width: "100%"}
+  const mapStyles = thisWidth > 415 ? {height: thisHeight, width: "100%"} : {height: 300, width: "100%"}
   
   const defaultCenter = {
     lat: projectList.length ? projectList[0].lat : 0,
