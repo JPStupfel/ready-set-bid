@@ -247,7 +247,18 @@ td.column {
 
 @media (max-width: 450px) {
 
-  #page_map_container, #tdSide {
+  .map-box{
+    width: 95%;
+    margin-left: 2%;
+  }
+  #page_map_container {
+    display: inline;
+    height: 300px;
+    border-style: solid;
+
+  }
+
+  #tdSide {
    display: inline;
    }
 
