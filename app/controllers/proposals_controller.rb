@@ -13,10 +13,7 @@ class ProposalsController < ApplicationController
                 proposals = openProjects
         else
             proposals = Proposal.limit(params[:limit]).offset(params[:offset]).where("title ILIKE ?","%"+params[:search]+"%")
-            
-            # proposals = Proposal.limit(params[:limit]).offset(params[:offset]).where("title LIKE ?", Proposal.sanitize_sql_like(params[:search]))
         end
-        
         render json: proposals, status: 200
     end
  
