@@ -14,7 +14,7 @@ Once you have won a bid, that bid is updated to include you as the winner and bi
 
 ## A video walkthrough for this site can be found at:
 
-[ video walkthrough](https://youtu.be/fKyRj44sN08)
+[ video walkthrough](https://www.youtube.com/watch?v=a3NmPbfKFB8)
 
 ## Requirements
 
